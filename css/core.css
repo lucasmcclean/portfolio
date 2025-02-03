@@ -1,0 +1,89 @@
+/* VARIABLES */
+:root {
+  color-scheme: light dark;
+
+  /* Color Palette */
+  --clr-txt: light-dark(#080809, #f8f8f8);
+  --clr-bg: light-dark(#f8f8f8, #080809);
+  --clr-wbg: light-dark(#f4f4f4, #0a0a0b);
+  --clr-p: #7c9d45;
+
+  /* Font Sizes */
+  --fs-xs: clamp(.8rem, 3vw + .5rem, 1rem);
+  --fs-s: clamp(1rem, 3vw + .5rem, 1.5rem);
+  --fs-m: clamp(1.1rem, 4vw + .5rem, 2rem);
+  --fs-l: clamp(2.5rem, 6vw + 1rem, 3rem);
+  --fs-xl: clamp(2.5rem, 10vw + 1rem, 7rem);
+
+  /* Transition Vars */
+  --trans-speed: .2s;
+}
+
+/* BASE STYLES */
+body {
+  min-height: 100svh;
+  background: var(--clr-bg);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+p,
+a {
+  font-size: var(--fs-s);
+}
+
+h1 {
+  font-size: var(--fs-l);
+  font-family: 'Arial Black', Arial, Helvetica, sans-serif;
+  line-height: 1;
+}
+
+h2 {
+  font-size: var(--fs-l);
+}
+
+.mono {
+  font-family: 'Andale Mono', 'Courier New', Courier, monospace;
+  letter-spacing: .2rem;
+}
+
+/* RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
