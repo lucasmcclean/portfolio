@@ -27,6 +27,13 @@ export class Card {
     this.#updateCardRectOn('mouseenter');
   }
 
+  initializeWithoutHover() {
+    this.#card.style.willChange = 'transform';
+
+    this.#updateCardRectOn('click');
+    this.#flipOn('click');
+  }
+
   #updateCardRectOn(onEvent) {
     this.#card.addEventListener(onEvent, () => {
       if (this.#isFlipping) return;
@@ -81,11 +88,9 @@ export class Card {
       setTimeout(() => {
         this.#card.style.transition = stdTransition;
         this.#isFlipping = false;
-        this.#card.classList.toggle('flipping');
       }, flipTime * 1000);
 
       this.#updateCardOrientation(this.#card, 0, 0);
-      this.#card.classList.toggle('flipping');
     });
   }
 
