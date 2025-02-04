@@ -1,11 +1,10 @@
-export class Card {
-  // TODO: Figure out how to manage constants
-  CARD_TILT_STRENGTH_Y = 2;
-  CARD_TILT_STRENGTH_X = 4;
-  SHADOW_OFFSET_Y = 2;
-  SHADOW_OFFSET_X = 4;
-  SHADOW_LENGTH = 20;
+const SHADOW_LENGTH = 20;
+const SHADOW_OFFSET_Y = 2;
+const SHADOW_OFFSET_X = 4;
+const CARD_TILT_STRENGTH_Y = 2;
+const CARD_TILT_STRENGTH_X = 4;
 
+export class Card {
   #card = null;
   #cardRect;
   #currentAngle = 0;
@@ -20,8 +19,10 @@ export class Card {
 
   initialize() {
     this.#card.style.willChange = 'transform, box-shadow';
+    this.#cardRect = this.#card.getBoundingClientRect();
 
     this.#flipOn('click');
+    this.#flipOn('keydown');
     this.#updateTiltOn('mousemove');
     this.#endEffectsOn('mouseleave');
     this.#updateCardRectOn('mouseenter');
@@ -29,9 +30,11 @@ export class Card {
 
   initializeWithoutHover() {
     this.#card.style.willChange = 'transform';
+    this.#cardRect = this.#card.getBoundingClientRect();
 
-    this.#updateCardRectOn('click');
     this.#flipOn('click');
+    this.#flipOn('keydown');
+    this.#updateCardRectOn('click');
   }
 
   #updateCardRectOn(onEvent) {
@@ -51,13 +54,13 @@ export class Card {
       const mouseX = ev.clientX - this.#cardRect.left;
       const mouseY = ev.clientY - this.#cardRect.top;
 
-      const tiltX = ((mouseY - cardCenterY) / cardCenterY) * this.CARD_TILT_STRENGTH_Y;
-      const tiltY = ((mouseX - cardCenterX) / cardCenterX) * -this.CARD_TILT_STRENGTH_X;
+      const tiltX = ((mouseY - cardCenterY) / cardCenterY) * CARD_TILT_STRENGTH_Y;
+      const tiltY = ((mouseX - cardCenterX) / cardCenterX) * -CARD_TILT_STRENGTH_X;
       this.#updateCardOrientation(this.#card, tiltX, tiltY)
 
-      const shadowOffsetY = ((mouseY - cardCenterY) / cardCenterY) * this.SHADOW_OFFSET_Y;
-      const shadowOffsetX = ((mouseX - cardCenterX) / cardCenterX) * this.SHADOW_OFFSET_X;
-      const boxShadow = `${shadowOffsetX}px ${shadowOffsetY}px ${this.SHADOW_LENGTH}px var(--clr-boxshad)`;
+      const shadowOffsetY = ((mouseY - cardCenterY) / cardCenterY) * SHADOW_OFFSET_Y;
+      const shadowOffsetX = ((mouseX - cardCenterX) / cardCenterX) * SHADOW_OFFSET_X;
+      const boxShadow = `${shadowOffsetX}px ${shadowOffsetY}px ${SHADOW_LENGTH}px var(--clr-boxshad)`;
       this.#card.style.boxShadow = boxShadow;
     });
   }
@@ -74,8 +77,8 @@ export class Card {
   #flipOn(onEvent) {
     this.#card.addEventListener(onEvent, (ev) => {
       if (this.#isFlipping) return;
-      // Ignore clicks on links
-      if (ev.target.closest('a')) return;
+      if (onEvent === 'keydown' && !(ev.key === 'Enter' || ev.key === ' ')) return;
+      if (ev.target.closest('a')) return; // Ignore clicks on links
 
       const cardCenterX = this.#cardRect.width / 2;
       const mouseX = ev.clientX - this.#cardRect.left;
@@ -87,9 +90,12 @@ export class Card {
       // Store old transition for later restoration
       const stdTransition = getComputedStyle(this.#card).getPropertyValue('transition');
       this.#card.style.transition = `all var(--flip-speed) ease-in-out`;
+
       setTimeout(() => {
         this.#card.style.transition = stdTransition;
         this.#isFlipping = false;
+
+        this.#updateAccessibilityAttrs(onEvent)
       }, flipTime * 1000);
 
       this.#updateCardOrientation(this.#card, 0, 0);
@@ -99,5 +105,29 @@ export class Card {
   #updateCardOrientation(card, tiltX, tiltY) {
     card.style.setProperty('--tilt-x', `${tiltX}deg`);
     card.style.setProperty('--tilt-y', `${tiltY + this.#currentAngle}deg`);
+  }
+
+  #updateAccessibilityAttrs(ev) {
+    const cardFront = this.#card.querySelector('#card-front');
+    const cardBack = this.#card.querySelector('#card-back');
+    const btnFront = cardFront.querySelector('.flip-button');
+    const btnBack = cardBack.querySelector('.flip-button');
+    const isFlipped = Math.abs(this.#currentAngle % 360) !== 0;
+
+    btnFront.setAttribute('aria-expanded', isFlipped);
+    btnBack.setAttribute('aria-expanded', !isFlipped);
+    cardFront.setAttribute('aria-hidden', isFlipped);
+    cardBack.setAttribute('aria-hidden', !isFlipped);
+
+    // If the event was a click, there's no need to focus the flip button
+    if (isFlipped) {
+      cardFront.setAttribute("inert", "");
+      cardBack.removeAttribute("inert");
+      if (ev !== 'click') btnBack.focus();
+    } else {
+      cardBack.setAttribute("inert", "");
+      cardFront.removeAttribute("inert");
+      if (ev !== 'click') btnFront.focus();
+    }
   }
 }

@@ -25,12 +25,17 @@
   position: relative;
   height: 75%;
   width: 75%;
-  border: 3px solid white;
+  border: 5px solid var(--clr-txt);
+  outline: 5px dotted transparent;
   transition: all var(--trans-speed) linear;
 
   cursor: pointer;
   transform-style: preserve-3d;
   transform: rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+}
+
+#card:has(.flip-button:focus) {
+  outline: 5px dotted var(--clr-txt);
 }
 
 .card-face {
@@ -44,6 +49,12 @@
   backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduced) {
+  #card {
+    transition: none;
+  }
 }
 
 /* CARD FRONT */
@@ -106,7 +117,6 @@
   transform: rotateY(180deg);
 }
 
-/* TODO: Find a way to only have one card img not affected by backdrop-filter */
 #card-back img {
   position: absolute;
   left: -1px;
