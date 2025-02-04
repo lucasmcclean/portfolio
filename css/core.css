@@ -11,9 +11,9 @@
   /* Font Sizes */
   --fs-xs: clamp(.8rem, 3vw + .5rem, 1rem);
   --fs-s: clamp(1rem, 3vw + .5rem, 1.5rem);
-  --fs-m: clamp(1.1rem, 4vw + .5rem, 2.1rem);
-  --fs-l: clamp(2.5rem, 6vw + 1rem, 3.4rem);
-  --fs-xl: clamp(2.5rem, 10vw + 1rem, 7rem);
+  --fs-m: clamp(1.1rem, 3vw + .5rem, 2.1rem);
+  --fs-l: clamp(1.5rem, 3vw + 1rem, 3.4rem);
+  --fs-xl: clamp(2rem, 7vw + 1rem, 5rem);
 
   /* Transition Vars */
   --trans-speed: .2s;
@@ -44,6 +44,18 @@ h2 {
 .mono {
   font-family: 'Andale Mono', 'Courier New', Courier, monospace;
   letter-spacing: .2rem;
+}
+
+.copyright-footer {
+  position: absolute;
+  left: 3%;
+  bottom: 2%;
+}
+
+.copyright-footer p {
+  font-size: var(--fs-xs);
+  background: color-mix(in srgb, var(--clr-bg) 60%, transparent);
+  border-radius: 20%;
 }
 
 /* RESET */

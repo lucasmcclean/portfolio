@@ -1,4 +1,4 @@
-import { Card } from './modules/card.js';
+import { Card } from './modules/flipcard.js';
 
 const TITLE_CARD_ID = 'card';
 
