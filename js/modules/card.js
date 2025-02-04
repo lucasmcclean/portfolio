@@ -74,6 +74,8 @@ export class Card {
   #flipOn(onEvent) {
     this.#card.addEventListener(onEvent, (ev) => {
       if (this.#isFlipping) return;
+      // Ignore clicks on links
+      if (ev.target.closest('a')) return;
 
       const cardCenterX = this.#cardRect.width / 2;
       const mouseX = ev.clientX - this.#cardRect.left;
