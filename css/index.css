@@ -17,3 +17,26 @@
 #title-section p {
   font-size: var(--fs-l);
 }
+
+/* INTRO SECTION */
+#intro-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100svh;
+}
+
+#intro-section blockquote {
+  max-width: 62vw;
+  font-size: var(--fs-s);
+  text-align: justify;
+}
+
+#intro-section blockquote footer {
+  text-align: end;
+}
+
+#page-footer {
+  height: 10svh;
+}

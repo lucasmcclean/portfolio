@@ -9,7 +9,7 @@
   --clr-p: #7c9d45;
 
   /* Font Sizes */
-  --fs-xs: clamp(.8rem, 3vw + .5rem, 1rem);
+  --fs-xs: clamp(1rem, 3vw + .5rem, 1.2rem);
   --fs-s: clamp(1rem, 3vw + .5rem, 1.5rem);
   --fs-m: clamp(1.1rem, 3vw + .5rem, 2.1rem);
   --fs-l: clamp(1.5rem, 3vw + 1rem, 3.4rem);
@@ -46,13 +46,17 @@ h2 {
   letter-spacing: .2rem;
 }
 
-.copyright-footer {
-  position: absolute;
-  left: 3%;
-  bottom: 2%;
+#page-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-block: 3%;
+  margin-inline: 2%;
 }
 
-.copyright-footer p {
+footer #copyright {
   font-size: var(--fs-xs);
   background: color-mix(in srgb, var(--clr-bg) 60%, transparent);
   border-radius: 20%;
