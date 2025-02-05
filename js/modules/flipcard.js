@@ -88,11 +88,11 @@ export class Card {
 
       const flipTime = parseFloat(getComputedStyle(this.#card).getPropertyValue('--flip-speed'));
       // Store old transition for later restoration
-      const stdTransition = getComputedStyle(this.#card).getPropertyValue('transition');
+      const prevTransition = getComputedStyle(this.#card).getPropertyValue('transition');
       this.#card.style.transition = `all var(--flip-speed) ease-in-out`;
 
       setTimeout(() => {
-        this.#card.style.transition = stdTransition;
+        this.#card.style.transition = prevTransition;
         this.#isFlipping = false;
 
         this.#updateAccessibilityAttrs(onEvent)

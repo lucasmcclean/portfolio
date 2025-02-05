@@ -16,7 +16,7 @@
 }
 
 #card {
-  /* Modified in index.js */
+  /* Used by JS for dynamic updates */
   --tilt-x: 0deg;
   --tilt-y: 0deg;
   --flip-speed: .5s;
@@ -38,17 +38,34 @@
   outline: 5px dotted var(--clr-txt);
 }
 
+#card img {
+  position: absolute;
+  right: -1px;
+  bottom: 0px;
+  height: 100%;
+
+  object-fit: cover;
+}
+
 .card-face {
   position: absolute;
   height: 100%;
   width: 100%;
   padding-inline: 3%;
   padding-block: 2%;
-  backdrop-filter: blur(5px);
 
   backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+}
+
+.frosted-glass {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(5px);
+
+  z-index: -1;
 }
 
 @media (prefers-reduced-motion: reduced) {
@@ -66,15 +83,6 @@
   text-align: end;
 }
 
-#card-front img {
-  position: absolute;
-  right: -1px;
-  bottom: 0px;
-  height: 100%;
-
-  object-fit: cover;
-  z-index: -1;
-}
 
 @media (max-width: 899px) {
   #card-front {
