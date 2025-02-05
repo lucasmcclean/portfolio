@@ -9,11 +9,19 @@
   --clr-p: #7c9d45;
 
   /* Font Sizes */
-  --fs-xs: clamp(1rem, 3vw + .5rem, 1.2rem);
-  --fs-s: clamp(1rem, 3vw + .5rem, 1.5rem);
-  --fs-m: clamp(1.1rem, 3vw + .5rem, 2.1rem);
-  --fs-l: clamp(1.5rem, 3vw + 1rem, 3.4rem);
-  --fs-xl: clamp(2rem, 7vw + 1rem, 5rem);
+  --fs-xs: clamp(1rem, 0.96rem + 0.2vw, 1.2rem);
+  --fs-s: clamp(1rem, 0.9rem + 0.5vw, 1.5rem);
+  --fs-m: clamp(1.1rem, 0.9rem + 1vw, 2.1rem);
+  --fs-l: clamp(1.5rem, 1.12rem + 1.9vw, 3.4rem);
+  --fs-xl: clamp(2rem, 1.4rem + 3vw, 5rem);
+
+  /* Widths */
+  --wid-ch-s: min(50ch, 60vw);
+  --wid-ch-m: min(70ch, 70vw);
+  --wid-ch-l: min(80ch, 80vw);
+
+  --wid-vw-m: 70vw;
+  --wid-vw-l: 80vw;
 
   /* Transition Vars */
   --trans-speed: .2s;
@@ -43,7 +51,7 @@ h2 {
 
 .mono {
   font-family: 'Andale Mono', 'Courier New', Courier, monospace;
-  letter-spacing: .2rem;
+  letter-spacing: .15rem;
 }
 
 #page-footer {

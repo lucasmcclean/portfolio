@@ -1,10 +1,21 @@
+/* GENERAL STYLES */
+.section-divider {
+  justify-self: center;
+  height: 15px;
+  width: var(--wid-vw-m);
+  margin-block: 10svh;
+  background: var(--clr-txt);
+  clip-path: ellipse(50% 50% at 50% 50%);
+  box-shadow: 0px -8px 5px var(--clr-txt);
+}
+
 /* TITLE SECTION */
 #title-section {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-  min-height: 100svh;
+  height: 100svh;
   padding-block: 3%;
   padding-inline: 5%;
   text-align: end;
@@ -24,7 +35,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100svh;
+  height: 100svh;
 }
 
 #intro-section blockquote {
@@ -46,14 +57,6 @@
   color: var(--clr-p);
 }
 
-.divider {
-  justify-self: center;
-  height: 10px;
-  width: var(--wid-vw-l);
-  margin-block: 10svh;
-  background: var(--clr-txt);
-}
-
 @media (max-width: 499px) {
   #intro-section blockquote {
     text-align: start;
@@ -62,13 +65,9 @@
   #intro-section blockquote footer {
     text-align: start;
   }
-
-  #intro {
-    text-align: start;
-  }
 }
 
 /* FOOTER */
 #page-footer {
-  min-height: 10svh;
+  height: 10svh;
 }
