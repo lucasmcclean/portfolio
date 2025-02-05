@@ -77,8 +77,7 @@ export class Card {
   #flipOn(onEvent) {
     this.#card.addEventListener(onEvent, (ev) => {
       if (this.#isFlipping) return;
-      if (onEvent === 'keydown' && !(ev.key === 'Enter' || ev.key === ' ')) return;
-      if (ev.target.closest('a')) return; // Ignore clicks on links
+      if (this.#alternativeInteraction(onEvent, ev)) return;
 
       const cardCenterX = this.#cardRect.width / 2;
       const mouseX = ev.clientX - this.#cardRect.left;
@@ -129,5 +128,18 @@ export class Card {
       cardFront.removeAttribute("inert");
       if (ev !== 'click') btnFront.focus();
     }
+  }
+
+  #alternativeInteraction(trigger, ev) {
+    if (trigger == 'click') {
+      // Ignore clicking on links
+      if (ev.target.closest('a')) return true;
+      // Ignore textSelection
+      if (document.getSelection().toString().length > 0) return true;
+    } else if (trigger === 'keydown') {
+      // Ignore non-engament keys
+      if (!(ev.key === 'Enter' || ev.key === ' ')) return true;
+    }
+    return false
   }
 }

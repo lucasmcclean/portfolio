@@ -38,9 +38,9 @@
   outline: 5px dotted var(--clr-txt);
 }
 
-#card img {
+#card #logo {
   position: absolute;
-  right: -1px;
+  right: 0px;
   bottom: 0px;
   height: 100%;
 
@@ -128,17 +128,6 @@
   text-align: end;
 
   transform: rotateY(180deg);
-}
-
-#card-back img {
-  position: absolute;
-  left: -1px;
-  bottom: 0px;
-  height: 100%;
-
-  transform: rotateY(180deg);
-  object-fit: cover;
-  z-index: -1;
 }
 
 #social-links {
