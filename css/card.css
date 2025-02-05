@@ -142,6 +142,11 @@
 #card-back .social-link {
   display: inline-block;
   width: fit-content;
+
+  padding: 2%;
+
+  /* Ensure that link is always clickable */
+  z-index: 999;
 }
 
 #card-back .icon {
