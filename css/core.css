@@ -27,11 +27,26 @@
   --trans-speed: .2s;
 }
 
+html[data-theme='light'] {
+  --clr-txt: #080809;
+  --clr-bg: #f2f2f2;
+  --clr-wbg: #f4f4f4;
+}
+
+/* Dark Mode */
+html[data-theme='dark'] {
+  --clr-txt: #fdfdfd;
+  --clr-bg: #080809;
+  --clr-wbg: #0a0a0b;
+}
+
 /* BASE STYLES */
 body {
   min-height: 100svh;
+  color: var(--clr-txt);
   background: var(--clr-bg);
   font-family: Arial, Helvetica, sans-serif;
+  transition: color .2s, background .2s;
 }
 
 p,
