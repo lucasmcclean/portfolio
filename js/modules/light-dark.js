@@ -9,6 +9,7 @@ const Theme = {
 export class ThemeToggle {
   #toggleElement;
   #currentTheme;
+  #toggleSpeed;
 
   constructor() {
     this.#toggleElement = document.getElementById(THEME_TOGGLE_ID);
@@ -31,8 +32,10 @@ export class ThemeToggle {
         break;
     }
     this.#initializeTheme();
+    this.#toggleSpeed = parseFloat(getComputedStyle(this.#toggleElement).getPropertyValue('--toggle-speed'));
 
     this.#toggleThemeOn('click');
+    this.#playToggleAnimationOn('click');
   }
 
   #initializeTheme() {
@@ -55,6 +58,16 @@ export class ThemeToggle {
   #setTheme() {
     document.documentElement.setAttribute('data-theme', this.#currentTheme);
     localStorage.setItem('theme', this.#currentTheme);
+  }
+
+  #playToggleAnimationOn(onEvent) {
+    this.#toggleElement.addEventListener(onEvent, () => {
+      this.#toggleElement.classList.add("pressed");
+
+      setTimeout(() => {
+        this.#toggleElement.classList.remove("pressed");
+      }, this.#toggleSpeed * 1000);
+    });
   }
 }
 

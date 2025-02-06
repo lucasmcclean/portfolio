@@ -6,7 +6,6 @@
   --clr-txt: light-dark(#080809, #fdfdfd);
   --clr-bg: light-dark(#f2f2f2, #080809);
   --clr-wbg: light-dark(#f4f4f4, #0a0a0b);
-  --clr-glass: light-dark(color-mix(in srgb, var(--clr-txt) 10%, transparent), color-mix(in srgb, var(--clr-txt) 20%, transparent));
   --clr-p: #7c9d45;
 
   /* Font Sizes */
@@ -32,7 +31,6 @@ html[data-theme='light'] {
   --clr-txt: #080809;
   --clr-bg: #f2f2f2;
   --clr-wbg: #f4f4f4;
-  --clr-glass: color-mix(in srgb, var(--clr-txt) 10%, transparent);
 }
 
 /* Dark Mode */
@@ -40,7 +38,6 @@ html[data-theme='dark'] {
   --clr-txt: #fdfdfd;
   --clr-bg: #080809;
   --clr-wbg: #0a0a0b;
-  --clr-glass: color-mix(in srgb, var(--clr-txt) 20%, transparent);
 }
 
 /* BASE STYLES */

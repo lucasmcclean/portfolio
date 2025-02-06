@@ -131,7 +131,6 @@ export class Card {
   }
 
   #alternativeInteraction(trigger, ev) {
-    console.log(`Trigger: ${trigger} Event Target: ${ev.target.closest('a')}`);
     if (trigger == 'click') {
       // Ignore clicking on links
       if (ev.target.closest('a') !== null) return true;
