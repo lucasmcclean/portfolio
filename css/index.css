@@ -132,6 +132,7 @@ h2 {
 /* INTRO SECTION */
 #intro-section {
   display: flex;
+  flex-direction: row-reverse;
 }
 
 #intro-section blockquote .quote::before,
@@ -156,7 +157,7 @@ h2 {
 
 @media (max-width: 799px) {
   #intro-section {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   #intro-section blockquote {

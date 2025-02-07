@@ -3,10 +3,10 @@
   color-scheme: light dark;
 
   /* Color Palette */
-  --clr-txt: light-dark(#080809, #fdfdfd);
-  --clr-bg: light-dark(#f2f2f2, #080809);
+  --clr-txt: light-dark(#070708, #fefefe);
+  --clr-bg: light-dark(#fcfcfc, #070708);
   --clr-wbg: light-dark(#f4f4f4, #0a0a0b);
-  --clr-p: #7c9d45;
+  --clr-p: #7a9b43;
 
   /* Font Sizes */
   --fs-xs: clamp(1rem, 0.96rem + 0.2vw, 1.2rem);
@@ -28,15 +28,15 @@
 }
 
 html[data-theme='light'] {
-  --clr-txt: #080809;
-  --clr-bg: #f2f2f2;
+  --clr-txt: #070708;
+  --clr-bg: #fcfcfc;
   --clr-wbg: #f4f4f4;
 }
 
 /* Dark Mode */
 html[data-theme='dark'] {
-  --clr-txt: #fdfdfd;
-  --clr-bg: #080809;
+  --clr-txt: #fefefe;
+  --clr-bg: #070708;
   --clr-wbg: #0a0a0b;
 }
 
