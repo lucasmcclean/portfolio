@@ -1,3 +1,5 @@
+'use strict';
+
 import { Card } from './modules/flip-card.js';
 
 const TITLE_CARD_ID = 'card';
@@ -5,7 +7,7 @@ const TITLE_CARD_ID = 'card';
 window.onload = initializeCard;
 
 function initializeCard() {
-  const cardElement = document.getElementById(TITLE_CARD_ID)
+  const cardElement = document.getElementById(TITLE_CARD_ID);
 
   if (cardElement !== null) {
     let card = new Card(cardElement);
@@ -15,7 +17,7 @@ function initializeCard() {
       card.initializeWithoutHover();
     }
   } else {
-    console.error(`element [${TITLE_CARD_ID}] is null, cannot do flip effect`)
+    console.error(`element [${TITLE_CARD_ID}] is null, cannot do flip effect`);
   }
 }
 

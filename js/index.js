@@ -1,5 +1,6 @@
-import { ThemeToggle } from './modules/light-dark.js';
+'use strict';
 
+import { ThemeToggle } from './modules/light-dark.js';
 
 window.onload = initializeLightDark;
 

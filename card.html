@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lucas McClean</title>
+
   <link rel="stylesheet" href="/css/core.css" />
   <link rel="stylesheet" href="/css/card.css" />
   <script defer type="module" src="/js/card.js"></script>
@@ -13,9 +14,12 @@
 <body>
   <main>
     <section id="title-section">
+      <!-- Card -->
       <div id="card" aria-live="polite">
         <img id="logo" class="prevent-select" src="/img/logo.png" />
         <div class="frosted-glass"></div>
+
+        <!-- Card Front -->
         <div id="card-front" class="card-face">
           <div id="title">
             <h1>Lucas McClean</h1>
@@ -32,6 +36,8 @@
           </div>
           <button class="flip-button visually-hidden" aria-expanded="false" aria-controls="card-back"></button>
         </div>
+
+        <!-- Card Back -->
         <div id="card-back" class="card-face" aria-hidden="true" inert>
           <ul id="social-links">
             <li>
@@ -74,6 +80,7 @@
       </div>
     </section>
   </main>
+
   <footer>
     <p id="copyright">&copy; 2025 Lucas McClean</p>
   </footer>

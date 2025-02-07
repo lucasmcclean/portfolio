@@ -74,6 +74,7 @@
   }
 }
 
+
 /* CARD FRONT */
 #card-front {
   display: flex;
@@ -82,7 +83,6 @@
   align-items: flex-end;
   text-align: end;
 }
-
 
 @media (max-width: 899px) {
   #card-front {
@@ -119,6 +119,7 @@
   width: var(--fs-l);
   stroke: var(--clr-txt);
 }
+
 
 /* CARD BACK */
 #card-back {
@@ -183,6 +184,7 @@
     bottom: 2%;
   }
 }
+
 
 /* FOOTER */
 footer {

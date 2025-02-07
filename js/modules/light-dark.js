@@ -1,3 +1,5 @@
+'use strict';
+
 const THEME_TOGGLE_ID = 'theme-toggle';
 
 const Theme = {
@@ -40,7 +42,7 @@ export class ThemeToggle {
 
   #initializeTheme() {
     if (this.#currentTheme == Theme.NONE) {
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches)
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches)
         this.#currentTheme = Theme.DARK;
       else
         this.#currentTheme = Theme.DARK;
@@ -51,7 +53,7 @@ export class ThemeToggle {
   #toggleThemeOn(onEvent) {
     this.#toggleElement.addEventListener(onEvent, () => {
       this.#currentTheme = this.#currentTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
-      this.#setTheme()
+      this.#setTheme();
     });
   }
 
@@ -62,10 +64,10 @@ export class ThemeToggle {
 
   #playToggleAnimationOn(onEvent) {
     this.#toggleElement.addEventListener(onEvent, () => {
-      this.#toggleElement.classList.add("pressed");
+      this.#toggleElement.classList.add('pressed');
 
       setTimeout(() => {
-        this.#toggleElement.classList.remove("pressed");
+        this.#toggleElement.classList.remove('pressed');
       }, this.#toggleSpeed * 1000);
     });
   }

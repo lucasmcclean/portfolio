@@ -1,3 +1,6 @@
+'use strict';
+
+// Constants controlling the viusal strength of tilt and shadow effects
 const SHADOW_LENGTH = 20;
 const SHADOW_OFFSET_Y = 2;
 const SHADOW_OFFSET_X = 4;
@@ -7,12 +10,12 @@ const CARD_TILT_STRENGTH_X = 4;
 export class Card {
   #card = null;
   #cardRect;
-  #currentAngle = 0;
+  #currentAngle = 0; // Used to flip card in differing directions
   #isFlipping = false;
 
   constructor(cardElement) {
     if (cardElement === null) {
-      throw new Error("cardElement is null, must be valid DOM element");
+      throw new Error('card element is null, must be a valid DOM element');
     }
     this.#card = cardElement;
   }
@@ -56,7 +59,7 @@ export class Card {
 
       const tiltX = ((mouseY - cardCenterY) / cardCenterY) * CARD_TILT_STRENGTH_Y;
       const tiltY = ((mouseX - cardCenterX) / cardCenterX) * -CARD_TILT_STRENGTH_X;
-      this.#updateCardOrientation(this.#card, tiltX, tiltY)
+      this.#updateCardOrientation(this.#card, tiltX, tiltY);
 
       const shadowOffsetY = ((mouseY - cardCenterY) / cardCenterY) * SHADOW_OFFSET_Y;
       const shadowOffsetX = ((mouseX - cardCenterX) / cardCenterX) * SHADOW_OFFSET_X;
@@ -81,6 +84,7 @@ export class Card {
 
       const cardCenterX = this.#cardRect.width / 2;
       const mouseX = ev.clientX - this.#cardRect.left;
+      // Controls the direction of the flip
       this.#currentAngle += mouseX > cardCenterX ? 180 : -180;
 
       this.#isFlipping = true;
@@ -91,10 +95,11 @@ export class Card {
       this.#card.style.transition = `all var(--flip-speed) ease-in-out`;
 
       setTimeout(() => {
+        // Restore the previous transition settings
         this.#card.style.transition = prevTransition;
         this.#isFlipping = false;
 
-        this.#updateAccessibilityAttrs(onEvent)
+        this.#updateAccessibilityAttrs(onEvent);
       }, flipTime * 1000);
 
       this.#updateCardOrientation(this.#card, 0, 0);
@@ -120,12 +125,12 @@ export class Card {
 
     // If the event was a click, there's no need to focus the flip button
     if (isFlipped) {
-      cardFront.setAttribute("inert", "");
-      cardBack.removeAttribute("inert");
+      cardFront.setAttribute('inert', '');
+      cardBack.removeAttribute('inert');
       if (ev !== 'click') btnBack.focus();
     } else {
-      cardBack.setAttribute("inert", "");
-      cardFront.removeAttribute("inert");
+      cardBack.setAttribute('inert', '');
+      cardFront.removeAttribute('inert');
       if (ev !== 'click') btnFront.focus();
     }
   }
@@ -140,6 +145,6 @@ export class Card {
       // Ignore non-engament keys
       if (!(ev.key === 'Enter' || ev.key === ' ')) return true;
     }
-    return false
+    return false;
   }
 }
