@@ -11,26 +11,37 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'pnpm'
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Install dependencies
-        run: npm install
+        run: pnpm install --frozen-lockfile
 
-      - name: Build the app
-        run: npm run build
+      - name: Build app
+        run: pnpm build
 
       - name: Deploy to GitHub Pages
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git init
-          git remote add origin https://github.com/lucasmcclean/portfolio.git
+          git remote add origin git@github.com:lucasmcclean/portfolio.git
           git checkout -b gh-pages
-          git add -f build
+          git add -f dist
           git commit -m "Deploy to GitHub Pages"
           git push --force origin gh-pages
