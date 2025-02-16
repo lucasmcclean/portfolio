@@ -1,107 +1,105 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-@layer base {
+@theme inline {
+  --color-theme-txt: var(--theme-txt);
+  --color-theme-bg: var(--theme-bg);
+  --color-theme-primary: var(--theme-primary);
+  --color-theme-ring: var(--theme-ring);
+}
+
+:root {
+  --theme-txt: #070708;
+  --theme-bg: #fcfcfc;
+  --theme-primary: #7a9b43;
+  --theme-ring: #8888ff;
+}
+
+.dark {
+  --theme-txt: #fefefe;
+  --theme-bg: #070708;
+}
+
+@media (prefers-reduced-motion: reduce) {
   :root {
-    --theme-txt: #070708;
-    --theme-bg: #fcfcfc;
-    --theme-primary: #7a9b43;
-    --theme-focus: #8888ff;
-
-    --trans-xs: .5s;
-    --trans-s: .3s;
-    --trans-m: .2s;
-    --trans-f: .1s;
-    --trans-xf: .05s;
+    --trans-xs: 0s;
+    --trans-s: 0s;
+    --trans-m: 0s;
+    --trans-f: 0s;
+    --trans-xf: 0s;
   }
+}
 
-  .dark {
-    --theme-txt: #fefefe;
-    --theme-bg: #070708;
-  }
+html {
+  color-scheme: light dark;
+}
 
-  @media (prefers-reduced-motion: reduce) {
-    :root {
-      --trans-xs: 0s;
-      --trans-s: 0s;
-      --trans-m: 0s;
-      --trans-f: 0s;
-      --trans-xf: 0s;
-    }
-  }
+body {
+  min-height: 100svh;
 
-  html {
-    color-scheme: light dark;
-  }
+  color: var(--theme-txt);
+  background-color: var(--theme-bg);
+  transition: background-color var(--trans-m), color var(--trans-m);
 
-  body {
-    min-height: 100svh;
+  line-height: 1.5;
+  font-weight: 400;
 
-    color: var(--theme-txt);
-    background-color: var(--theme-bg);
-    transition: background-color var(--trans-m), color var(--trans-m);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
-    line-height: 1.5;
-    font-weight: 400;
+  @apply font-sans;
+}
 
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--theme-focus);
+  outline-offset: 2px;
+}
 
-    @apply font-sans;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-  button:focus-visible,
-  input:focus-visible,
-  textarea:focus-visible,
-  select:focus-visible {
-    outline: 2px solid var(--theme-focus);
-    outline-offset: 2px;
-  }
+input,
+button,
+textarea,
+select {
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+}
 
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
 
-  input,
-  button,
-  textarea,
-  select {
-    padding: 0;
-    border: none;
-    background: none;
-    font: inherit;
-  }
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
 
-  p,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    overflow-wrap: break-word;
-  }
+ul {
+  list-style: none;
+}
 
-  img,
-  picture,
-  video,
-  canvas,
-  svg {
-    display: block;
-    max-width: 100%;
-  }
-
-  ul {
-    list-style: none;
-  }
-
-  ul,
-  li {
-    margin: 0;
-    padding: 0;
-  }
-
+ul,
+li {
+  margin: 0;
+  padding: 0;
 }
