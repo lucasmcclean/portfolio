@@ -1,4 +1,4 @@
-(function() {
+(() => {
   try {
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme !== null) {

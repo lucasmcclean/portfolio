@@ -3,6 +3,7 @@
 @theme inline {
   --color-theme-txt: var(--theme-txt);
   --color-theme-bg: var(--theme-bg);
+  --color-theme-fg: var(--theme-fg);
   --color-theme-primary: var(--theme-primary);
   --color-theme-ring: var(--theme-ring);
 }
@@ -10,13 +11,21 @@
 :root {
   --theme-txt: #070708;
   --theme-bg: #fcfcfc;
+  --theme-fg: #dcdcdc;
   --theme-primary: #7a9b43;
   --theme-ring: #8888ff;
+
+  --trans-xs: .7s;
+  --trans-s: .3s;
+  --trans-m: .2s;
+  --trans-f: .1s;
+  --trans-xf: .05s;
 }
 
 .dark {
   --theme-txt: #fefefe;
   --theme-bg: #070708;
+  --theme-fg: #272728;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -30,49 +39,32 @@
 }
 
 html {
-  color-scheme: light dark;
+  @apply scheme-light-dark;
 }
 
 body {
-  min-height: 100svh;
-
-  color: var(--theme-txt);
-  background-color: var(--theme-bg);
-  transition: background-color var(--trans-m), color var(--trans-m);
-
-  line-height: 1.5;
-  font-weight: 400;
+  @apply min-h-svh;
+  @apply font-sans text-base font-normal;
+  @apply text-theme-txt bg-theme-bg transition-colors duration-[var(--trans-m)];
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @apply font-sans;
 }
 
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 2px solid var(--theme-focus);
-  outline-offset: 2px;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+  @apply ring-2 ring-theme-ring;
 }
 
 input,
 button,
 textarea,
 select {
-  padding: 0;
-  border: none;
-  background: none;
-  font: inherit;
+  @apply p-0 bg-none border-0;
 }
 
 p,
@@ -82,7 +74,7 @@ h3,
 h4,
 h5,
 h6 {
-  overflow-wrap: break-word;
+  @apply break-words;
 }
 
 img,
@@ -90,16 +82,14 @@ picture,
 video,
 canvas,
 svg {
-  display: block;
-  max-width: 100%;
+  @apply block max-w-full;
 }
 
 ul {
-  list-style: none;
+  @apply list-none;
 }
 
 ul,
 li {
-  margin: 0;
-  padding: 0;
+  @apply m-0 p-0;
 }
