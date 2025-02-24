@@ -1,9 +1,12 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --color-txt: var(--txt);
   --color-bg: var(--bg);
   --color-prim: var(--prim);
+  --color-sec: var(--sec);
   --color-acc: var(--acc);
   --color-ring: var(--ring);
 }
@@ -12,8 +15,9 @@
 :root {
   --txt: #232323;
   --bg: #fbfbf6;
-  --prim: #ffd639;
-  --acc: #7fb446;
+  --prim: theme('colors.sky-300');
+  --sec: theme('colors.sky-200');
+  --acc: theme('colors.sky-100');
   --ring: var(--txt);
 
   --trans-xs: .7s;
@@ -25,9 +29,10 @@
 
 .dark {
   --txt: #f8f8f6;
-  --bg: #1a1a1a;
-  --prim: #7fb446;
-  --acc: #ffd639;
+  --bg: #0a0a0a;
+  --prim: theme('colors.sky-300');
+  --sec: theme('colors.sky-200');
+  --acc: theme('colors.sky-100');
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -47,7 +52,7 @@ html {
 body {
   @apply min-h-svh;
   @apply font-sans text-base font-normal;
-  @apply text-txt bg-bg transition-colors duration-[var(--trans-s)];
+  @apply text-txt bg-bg transition-colors duration-[var(--trans-m)];
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
