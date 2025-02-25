@@ -5,7 +5,7 @@ interface HomeDividerProps {
 export default function HomeDivider({ className = "" }: HomeDividerProps) {
   return (
     <svg
-      className={`relative scale-y-[-1] z-[-5] ${className}`}
+      className={`relative rotate-x-180 z-[-5] ${className}`}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1200 120"
       preserveAspectRatio="none"

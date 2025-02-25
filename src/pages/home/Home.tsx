@@ -50,11 +50,11 @@ export default function Home() {
         <p className="place-self-end">Software Engineer</p>
       </header>
       <main
-        className="h-screen not-motion-reduce:scroll-smooth"
+        className="h-screen not-motion-reduce:scroll-smooth transition-colors duration-(--trans-m)"
       >
         <section
           id="about"
-          className="h-screen flex justify-center items-center gap-16 bg-acc dark:bg-bg transition-colors duration-(--trans-m)"
+          className="h-screen flex justify-center items-center gap-16 bg-acc dark:bg-bg"
         >
           <p className="max-w-xl">
             I’m a software engineer driven by the why&mdash;why languages work the way they do, why
@@ -65,13 +65,17 @@ export default function Home() {
           </p>
           <img
             className="max-h-[50svh] rounded-lg"
-            style={{ transform: `translateY(${offset * 0.1}px)` }}
-            src="/tree.jpeg" />
+            style={{
+              transform: `translateY(${offset * 0.1}px)`,
+              aspectRatio: '3024 / 4032',
+            }}
+            src="/tree.jpeg"
+          />
         </section>
-        <HomeDivider className="bg-acc fill-sec dark:opacity-0" />
+        <HomeDivider className="bg-acc fill-sec dark:bg-bg dark:fill-bg" />
         <section
           id="work"
-          className="h-screen flex flex-col justify-center items-center bg-sec dark:bg-bg transition-colors duration-(--trans-m)"
+          className="h-screen flex flex-col justify-center items-center bg-sec dark:bg-bg"
         >
           <div>
             <h3>URL Shortener</h3>
@@ -89,7 +93,7 @@ export default function Home() {
         <HomeDivider className="rotate-y-180 bg-sec fill-prim dark:opacity-0" />
         <section
           id="contact"
-          className="h-screen flex flex-col justify-center items-center bg-prim dark:bg-bg transition-colors duration-(--trans-m)"
+          className="h-screen flex flex-col justify-center items-center bg-prim dark:bg-bg"
         >
           <p>Let's get in touch.</p>
         </section>
