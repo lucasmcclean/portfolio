@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Roboto, Exo_2 } from "next/font/google";
 import "./globals.css";
 
-const roboto = Roboto({
+const robotoSans = Roboto({
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-roboto-sans",
 });
+
+const exo2 = Exo_2({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-exo2",
+})
 
 export const metadata: Metadata = {
   title: "Lucas McClean",
@@ -16,10 +23,10 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode; }>) {
   return (
-    <html lang="en" dir="ltr" className={roboto.className}>
+    <html lang="en" dir="ltr" className={`${robotoSans.variable} ${exo2.variable}`} >
 
       <body>{children}</body>
 
-    </html>
+    </html >
   );
 }

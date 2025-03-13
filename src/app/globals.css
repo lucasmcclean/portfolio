@@ -11,6 +11,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-roboto-sans);
   --font-mono: var(--font-roboto-mono);
+  --font-display: var(--font-exo2);
 }
 
 @media (prefers-color-scheme: dark) {
