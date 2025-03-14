@@ -24,12 +24,11 @@ export default function Home() {
   return (
     <div className="h-screen overflow-y-scroll snap-y snap-proximity">
       <header ref={headerRef} className="
-        snap-center snap-always
         min-h-screen w-screen grid grid-cols-3 grid-rows-5
         p-4 gap-4 sm:p-8 sm:gap-8"
       >
         <div className="
-          @container
+          @container snap-none
           flex items-end p-8 rounded-xl bg-foreground
           row-span-3 col-span-3 md:row-span-4"
         >
@@ -42,7 +41,7 @@ export default function Home() {
           @container
           h-full flex items-center justify-center
           row-span-1 col-span-3 md:col-span-1
-          border-2 border-solid border-accent rounded-xl snap-center snap-always"
+          border-2 border-solid border-accent rounded-xl"
         >
           <h2 className="
             text-xl @sm:text-2xl
@@ -69,7 +68,7 @@ export default function Home() {
         </nav>
       </header>
       <main>
-        <section id="about" className="min-h-screen m-8 p-8 flex items-center justify-center snap-center snap-always">
+        <section id="about" className="min-h-screen m-8 p-8 flex items-center justify-center snap-center">
           <div className="max-w-[75ch] text-lg">
             <h2 className="mb-2 flex items-center gap-2 font-display text-xl font-bold uppercase">
               <FillLine className="w-1/16 bg-accent h-[2px]" />About<FillLine className="w-1/8 bg-accent h-[2px]" />
@@ -84,7 +83,7 @@ export default function Home() {
             </p>
           </div>
         </section>
-        <section id="experience" className="min-h-screen m-8 p-8 flex items-center justify-center snap-center snap-always">
+        <section id="experience" className="min-h-screen m-8 p-8 flex items-center justify-center snap-center">
           <div className="max-w-[75ch] text-lg">
             <h2 className="mb-2 font-display text-xl font-bold uppercase">Experience</h2>
             <p className="mb-2">
@@ -92,7 +91,7 @@ export default function Home() {
             </p>
           </div>
         </section>
-        <section id="contact" className="min-h-screen m-8 p-8 flex items-center justify-center snap-center snap-always">
+        <section id="contact" className="min-h-screen m-8 p-8 flex items-center justify-center snap-center">
           <div className="max-w-[75ch] text-lg">
             <h2 className="mb-2 font-display text-xl font-bold uppercase">Contact</h2>
             <p className="mb-2">
