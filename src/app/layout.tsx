@@ -23,7 +23,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode; }>) {
   return (
-    <html lang="en" dir="ltr" className={`${robotoSans.variable} ${exo2.variable}`} >
+    <html lang="en" dir="ltr" className={`${robotoSans.variable} ${exo2.variable} motion-safe:scroll-smooth`} >
 
       <body>{children}</body>
 
