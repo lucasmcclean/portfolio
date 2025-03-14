@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 
 import FillLine from "@/components/fill-line";
+import CardFlipThrough from "@/components/card-flip-through";
+import Image from "next/image";
 
 export default function Home() {
   const [isOnHeader, setIsOnHeader] = useState(false);
@@ -22,9 +24,10 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="h-screen overflow-y-scroll snap-y snap-proximity">
+    <div className="h-screen overflow-y-scroll snap-y snap-proximity motion-safe:scroll-smooth">
+
       <header ref={headerRef} className="
-        min-h-screen w-screen grid grid-cols-3 grid-rows-5
+        min-h-screen w-full grid grid-cols-3 grid-rows-5
         p-4 gap-4 sm:p-8 sm:gap-8"
       >
         <div className="
@@ -54,24 +57,34 @@ export default function Home() {
           `@container ${isOnHeader ? "row-span-1 col-span-3 md:col-span-2" : "fixed top-4 right-4 sm:right-8"}`
         }>
           <ul className={
-            `h-full flex items-center font-display
+            `h-full flex items-center font-display group
               ${isOnHeader ?
               "justify-evenly text-xl @sm:text-2xl @md:text-3xl @lg:text-4xl" :
               "justify-end gap-2 text-lg sm:gap-4 sm:text-2xl"}`
           }>
-            <li><a href="#about">About</a></li>
+            <li><a href="#about" className="hover:opacity-100 group-hover:opacity-75 transition-opacity duration-200">
+              About
+            </a></li>
             <li className="text-accent" aria-hidden="true">|</li>
-            <li><a href="#experience">Experience</a></li>
+            <li><a href="#experience" className="hover:opacity-100 group-hover:opacity-75 transition-opacity duration-200">
+              Experience
+            </a></li>
             <li className="text-accent" aria-hidden="true">|</li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact" className="hover:opacity-100 group-hover:opacity-75 transition-opacity duration-200">
+              Contact
+            </a></li>
           </ul>
         </nav>
       </header>
+
       <main>
+
         <section id="about" className="min-h-screen m-8 p-8 flex items-center justify-center snap-center">
           <div className="max-w-[75ch] text-lg">
             <h2 className="mb-2 flex items-center gap-2 font-display text-xl font-bold uppercase">
-              <FillLine className="w-1/16 bg-accent h-[2px]" />About<FillLine className="w-1/8 bg-accent h-[2px]" />
+              <FillLine className="w-1/16 bg-accent h-[2px]" />
+              About
+              <FillLine className="w-1/8 bg-accent h-[2px]" />
             </h2>
             <p className="mb-2">
               I’m a software engineer driven by the why&mdash;why languages work the way they do, why
@@ -83,23 +96,38 @@ export default function Home() {
             </p>
           </div>
         </section>
+
         <section id="experience" className="min-h-screen m-8 p-8 flex items-center justify-center snap-center">
           <div className="max-w-[75ch] text-lg">
-            <h2 className="mb-2 font-display text-xl font-bold uppercase">Experience</h2>
-            <p className="mb-2">
-              I’ve had the privilege to work with incredible teams and build impactful projects in a variety of domains.
-            </p>
+            <h2 className="mb-2 flex items-center gap-2 font-display text-xl font-bold uppercase">
+              <FillLine className="w-3/32 bg-accent h-[2px]" />
+              Experience
+              <FillLine className="w-3/32 bg-accent h-[2px]" />
+            </h2>
+            <CardFlipThrough>
+              <article className="relative border-2 border-surface overflow-clip rounded-xl">
+                <h3 className="absolute top-8 left-8 mix-blend-difference">Portfolio</h3>
+                <Image src="/portfolio.png" alt="" height={1463} width={2961} />
+              </article>
+            </CardFlipThrough>
           </div>
         </section>
+
         <section id="contact" className="min-h-screen m-8 p-8 flex items-center justify-center snap-center">
           <div className="max-w-[75ch] text-lg">
-            <h2 className="mb-2 font-display text-xl font-bold uppercase">Contact</h2>
+            <h2 className="mb-2 flex items-center gap-2 font-display text-xl font-bold uppercase">
+              <FillLine className="w-1/8 bg-accent h-[2px]" />
+              Contact
+              <FillLine className="w-1/16 bg-accent h-[2px]" />
+            </h2>
             <p className="mb-2">
               You can reach me at my email or through LinkedIn for potential collaborations or opportunities.
             </p>
           </div>
         </section>
+
       </main >
-    </div>
+
+    </div >
   );
 }
