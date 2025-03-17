@@ -3,8 +3,10 @@
 import { useState, useEffect, useRef } from "react";
 
 import FillLine from "@/components/fill-line";
-import CardFlipThrough from "@/components/card-flip-through";
-import Image from "next/image";
+import ProjectTabs from "@/components/project-tabs";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import Link from "next/link";
+import { MdEmail } from "react-icons/md";
 
 export default function Home() {
   const [isOnHeader, setIsOnHeader] = useState(false);
@@ -40,19 +42,6 @@ export default function Home() {
             text-3xl @sm:text-6xl @md:text-8xl"
           >Lucas McClean</h1>
         </div>
-        <div className="
-          @container
-          h-full flex items-center justify-center
-          row-span-1 col-span-3 md:col-span-1
-          border-2 border-solid border-accent rounded-xl"
-        >
-          <h2 className="
-            text-xl @sm:text-2xl
-            text-center text-balance font-display"
-          >
-            Solving problems with code.
-          </h2>
-        </div>
         <nav className={
           `@container ${isOnHeader ? "row-span-1 col-span-3 md:col-span-2" : "fixed top-4 right-4 sm:right-8"}`
         }>
@@ -75,12 +64,25 @@ export default function Home() {
             </a></li>
           </ul>
         </nav>
+        <div className="
+          @container
+          h-full flex items-center justify-center
+          row-span-1 col-span-3 md:col-span-1
+          border-2 border-solid border-accent rounded-xl"
+        >
+          <h2 className="
+            text-xl @sm:text-2xl
+            text-center text-balance font-display"
+          >
+            Solving problems with code.
+          </h2>
+        </div>
       </header>
 
       <main>
 
-        <section id="about" className="min-h-screen m-8 p-8 flex items-center justify-center snap-center">
-          <div className="max-w-[75ch] text-lg">
+        <section id="about" className="min-h-screen m-4 sm:m-8 p-4 sm:p-8 flex items-center justify-center snap-center">
+          <div className="w-[75ch] text-lg">
             <h2 className="mb-2 flex items-center gap-2 font-display text-xl font-bold uppercase">
               <FillLine className="w-1/16 bg-accent h-[2px]" />
               About
@@ -97,32 +99,38 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="experience" className="min-h-screen m-8 p-8 flex items-center justify-center snap-center">
-          <div className="max-w-[75ch] text-lg">
+        <section id="experience" className="min-h-screen m-4 sm:m-8 p-4 sm:p-8 flex items-center justify-center snap-center">
+          <div className="h-[60svh] w-[75ch] text-lg flex flex-col">
             <h2 className="mb-2 flex items-center gap-2 font-display text-xl font-bold uppercase">
               <FillLine className="w-3/32 bg-accent h-[2px]" />
               Experience
               <FillLine className="w-3/32 bg-accent h-[2px]" />
             </h2>
-            <CardFlipThrough>
-              <article className="relative border-2 border-surface overflow-clip rounded-xl">
-                <h3 className="absolute top-8 left-8 mix-blend-difference">Portfolio</h3>
-                <Image src="/portfolio.png" alt="" height={1463} width={2961} />
-              </article>
-            </CardFlipThrough>
+            <ProjectTabs />
+            <Link
+              href="https://github.com/lucasmcclean"
+              className="flex items-center gap-2 p-4 opacity-80"
+            ><FaGithub size={32} className="inline" />See more of my work on GitHub</Link>
           </div>
         </section>
 
-        <section id="contact" className="min-h-screen m-8 p-8 flex items-center justify-center snap-center">
-          <div className="max-w-[75ch] text-lg">
+        <section id="contact" className="min-h-screen m-4 sm:m-8 p-4 sm:p-8 flex items-center justify-center snap-center">
+          <div className="w-[75ch] text-lg">
             <h2 className="mb-2 flex items-center gap-2 font-display text-xl font-bold uppercase">
               <FillLine className="w-1/8 bg-accent h-[2px]" />
               Contact
               <FillLine className="w-1/16 bg-accent h-[2px]" />
             </h2>
-            <p className="mb-2">
-              You can reach me at my email or through LinkedIn for potential collaborations or opportunities.
-            </p>
+            <div className="flex items-center">
+              <p className="max-w-[50ch]">
+                I'd love for you to reach out about any collaborations or opportunities or to talk
+                about anything tech!
+              </p>
+              <div>
+                <FaLinkedin size={64} />
+                <MdEmail size={64} />
+              </div>
+            </div>
           </div>
         </section>
 
