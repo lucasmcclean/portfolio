@@ -69,7 +69,7 @@ export default function ProjectTabs() {
       <div
         role="tabpanel"
         id={`tabpanel-${activeTab}`}
-        aria-labelledby={`tab - ${activeTab}`}
+        aria-labelledby={`tab-${activeTab}`}
         className="
         relative grow flex items-end
         border-2 overflow-hidden
