@@ -84,7 +84,7 @@ export default function ProjectTabs() {
         />
         <div className="w-full h-1/2 p-4 flex items-end justify-between bg-gradient-to-t from-background via-transparent to-transparent">
           <h3 className="hidden sm:inline">{projects[activeTab].title}</h3>
-          <a href={projects[activeTab].url} className="">Learn more &rarr;</a>
+          <a href={projects[activeTab].url} target="_blank" className="">Learn more &rarr;</a>
         </div>
       </div >
     </div >

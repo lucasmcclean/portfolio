@@ -108,7 +108,7 @@ export default function Home() {
             </h2>
             <ProjectTabs />
             <Link
-              href="https://github.com/lucasmcclean"
+              href="https://github.com/lucasmcclean" target="_blank"
               className="flex items-center gap-2 p-4 opacity-80"
             ><FaGithub size={32} className="inline" />See more of my work on GitHub</Link>
           </div>
@@ -127,14 +127,23 @@ export default function Home() {
                 about anything tech!
               </p>
               <div>
-                <FaLinkedin size={64} />
-                <MdEmail size={64} />
+                <Link href="https://linkedin.com/in/lucasmcclean" target="_blank"><FaLinkedin size={64} /></Link>
+                <Link href="mailto:lucasmcclean.com"><MdEmail size={64} /></Link>
               </div>
             </div>
           </div>
         </section>
 
       </main >
+
+      <footer className="min-h-[30svh] m-4 sm:m-8 p-4 sm:p-8 flex flex-col gap-8">
+        <p>&copy; Lucas McClean {new Date().getFullYear()}</p>
+        <ul className="flex gap-4">
+          <li><Link href="https://linkedin.com/in/lucasmcclean" target="_blank"><FaLinkedin size={64} /></Link></li>
+          <li><Link href="mailto:lucasmcclean.com"><MdEmail size={64} /></Link></li>
+          <li><Link href="https://github.com/lucasmcclean" target="_blank"><FaGithub size={64} /></Link></li>
+        </ul>
+      </footer>
 
     </div >
   );
