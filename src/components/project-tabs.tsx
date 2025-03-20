@@ -16,7 +16,7 @@ export default function ProjectTabs() {
   const projects: Project[] = [
     {
       title: "URL Shortener",
-      url: "/url-shortener",
+      url: "https://github.com/lucasmcclean/url-shortener",
       img: "/portfolio.png",
       imgH: 1432,
       imgW: 2904,
@@ -24,7 +24,7 @@ export default function ProjectTabs() {
     },
     {
       title: "Portfolio",
-      url: "/portfolio",
+      url: "https://github.com/lucasmcclean/portfolio/tree/v3",
       img: "/portfolio.png",
       imgH: 1432,
       imgW: 2904,
@@ -32,7 +32,7 @@ export default function ProjectTabs() {
     },
     {
       title: "LSync",
-      url: "/lsync",
+      url: "https://github.com/lucasmcclean/lsync",
       img: "/portfolio.png",
       imgH: 1432,
       imgW: 2904,
