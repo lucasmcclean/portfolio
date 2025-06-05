@@ -1,27 +1,36 @@
-node_modules/
-.pnpm-store/
-.pnp/
-.pnpm/
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
-dist/
+# testing
+/coverage
 
-.tailwind/
+# next.js
+/.next/
+/out/
 
-.env
-.env.local
-.env.development
-.env.production
-.env.test
+# production
+/build
 
-.vite/
-.cache/
+# misc
+.DS_Store
+*.pem
 
+# debug
 npm-debug.log*
-pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
 
+# env files (can opt-in for committing if needed)
+.env
+
+# typescript
 *.tsbuildinfo
-
-yarn.lock
-package-lock.json
-
-.github/workflows/*.log
+next-env.d.ts
