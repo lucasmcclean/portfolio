@@ -1,0 +1,13 @@
+::selection {
+  background-color: var(--prim);
+  color: var(--txt);
+}
+
+.dark ::selection {
+  color: var(--bg);
+}
+
+body {
+  scrollbar-width: none;
+  scrollbar-color: var(--txt) var(--bg);
+}
