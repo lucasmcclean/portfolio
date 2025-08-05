@@ -13,21 +13,21 @@
 	};
 
 	const skills = [
-		{ name: 'Rust', level: 'Novice' },
-		{ name: 'Go', level: 'Advanced' },
-		{ name: 'Python', level: 'Intermediate' },
-		{ name: 'JS/TS', level: 'Intermediate' },
-		{ name: 'Svelte', level: 'Intermediate' },
-		{ name: 'Docker', level: 'Advanced' },
-		{ name: 'Linux', level: 'Advanced' },
-		{ name: 'HTML/CSS', level: 'Advanced' },
-		{ name: 'Lua', level: 'Novice' },
-		{ name: 'C', level: 'Novice' },
-		{ name: 'HTMX', level: 'Intermediate' },
-		{ name: 'Bash', level: 'Novice' },
-		{ name: 'PostgreSQL', level: 'Novice' },
-		{ name: 'MongoDB', level: 'Novice' },
-		{ name: 'NeoVim', level: 'Expert' }
+		{ name: 'Rust', level: 'Novice', types: ['language'] },
+		{ name: 'Go', level: 'Advanced', types: ['language'] },
+		{ name: 'Python', level: 'Intermediate', types: ['language'] },
+		{ name: 'JS/TS', level: 'Intermediate', types: ['language', 'frontend'] },
+		{ name: 'Svelte', level: 'Intermediate', types: ['language', 'frontend'] },
+		{ name: 'Docker', level: 'Advanced', types: ['infrastructure'] },
+		{ name: 'Linux', level: 'Advanced', types: ['infrastructure', 'productivity'] },
+		{ name: 'HTML/CSS', level: 'Advanced', types: ['language', 'frontend'] },
+		{ name: 'Lua', level: 'Novice', types: ['language'] },
+		{ name: 'C', level: 'Novice', types: ['language'] },
+		{ name: 'HTMX', level: 'Intermediate', types: ['frontend'] },
+		{ name: 'Bash', level: 'Novice', types: ['language', 'infrastructure'] },
+		{ name: 'PostgreSQL', level: 'Novice', types: ['database'] },
+		{ name: 'MongoDB', level: 'Novice', types: ['database'] },
+		{ name: 'NeoVim', level: 'Expert', types: ['productivity'] }
 	].sort((a, b) => {
 		return (
 			levelMap[b.level.toLowerCase() as keyof typeof levelMap] -
@@ -45,7 +45,7 @@
 	<a href="#main-content" class="sr-only focus:not-sr-only">Skip to main content</a>
 
 	<!-- <header class="w-fit pt-16 pb-0 sm:pb-16"> -->
-	<header class="xs:self-start w-fit self-center pt-16 pb-0 sm:pb-0">
+	<header class="xs:self-start w-fit self-center pt-16 pb-0">
 		<h1 class="xs:text-6xl text-4xl font-semibold tracking-tight sm:text-7xl">Lucas McClean</h1>
 		<h2 class="xs:text-4xl flex justify-between text-2xl font-light ordinal sm:text-5xl">
 			Portfolio
@@ -89,15 +89,15 @@
 
 	<main id="main-content" class="xs:space-y-16 my-8 space-y-8">
 		<p class="text-justify font-light">
-			I didn’t originally plan to work in software. But I was drawn to how it blends creativity with
+			I didn’t originally plan to work in software, but I was drawn to how it blends creativity with
 			logic and makes global impact accessible. I try to write code that’s no more than it needs to
 			be and no less than it should be. In my experience, writing good software comes down to
 			managing complexity and clear communication—both with code and with people.
 		</p>
 
 		<section class="space-y-4">
-			<h3>Tools & technologies I'm familiar with:</h3>
-			<ul class="xs:gap-x-8 flex flex-wrap gap-x-4 gap-y-2">
+			<h3>Tools & Technologies</h3>
+			<ul class="xs:gap-x-8 flex flex-wrap gap-x-4 gap-y-2 font-light">
 				{#each skills as skill}
 					<li>
 						<p>
@@ -109,16 +109,6 @@
 					</li>
 				{/each}
 			</ul>
-			<p class="font-light">
-				Feel free to check out <Link
-					href="https://github.com/lucasmcclean"
-					rel="me noopener"
-					referrerpolicy="origin"
-					external
-				>
-					GitHub
-				</Link> to see my work.
-			</p>
 		</section>
 
 		<section class="space-y-4">
