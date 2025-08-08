@@ -20,6 +20,9 @@
 
 	<header class="xs:self-start w-fit self-center pt-16 pb-0">
 		<h1 class="xs:text-6xl text-4xl font-semibold tracking-tight sm:text-7xl">Articles</h1>
+		<h2 class="xs:text-4xl flex justify-between text-2xl font-light ordinal sm:text-5xl">
+			on Tech & Philosophy
+		</h2>
 	</header>
 
 	<nav class="xs:justify-start flex w-full justify-center py-4 text-lg sm:justify-between">
