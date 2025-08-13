@@ -27,7 +27,7 @@
 
 	<nav class="flex w-full justify-start py-4 text-lg sm:justify-between">
 		<ul class="hidden gap-x-4 sm:flex">
-			<li><Link href="/">//LM</Link></li>
+			<li><Link href="/">//</Link></li>
 		</ul>
 
 		<ul class="flex gap-x-4">
@@ -60,4 +60,11 @@
 			</ul>
 		{/if}
 	</main>
+
+	<footer class="xs:text-base mt-auto w-full space-y-2 py-8 text-sm opacity-80">
+		<div class="flex flex-wrap justify-between">
+			<p>&copy; 2025 Lucas McClean. All rights reserved.</p>
+			<p class="font-display text-primary ms-auto">//LM</p>
+		</div>
+	</footer>
 </div>
