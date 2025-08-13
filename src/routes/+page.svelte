@@ -96,7 +96,7 @@
 
 		<section class="space-y-4">
 			<h3>Tools & Technologies</h3>
-			<ul class="xs:gap-x-8 flex flex-wrap gap-x-4 gap-y-2 font-light">
+			<ul class="xs:gap-x-8 flex flex-wrap gap-x-4 gap-y-2 font-light md:justify-between">
 				{#each skills as skill}
 					<li>
 						<p>
@@ -107,6 +107,7 @@
 						</p>
 					</li>
 				{/each}
+				<li aria-hidden="true" class="invisible grow"></li>
 			</ul>
 		</section>
 
