@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <rss version="2.0">
+    <channel>
+      <title>Lucas McClean's Articles</title>
+      <category>Software Development</category> 
+      <copyright>2025 Lucas McClean. All rights reserved.</copyright> 
+      <language>en-us</language> 
+      <link>https://mcclean.dev</link>
+      <description>Lucas McClean's articles and insights into software craftmanship.</description>
+      <item>
+        <title><![CDATA[Check Back Later]]></title>
+        <link>https://mcclean.dev/articles/check-back-later</link>
+        <guid isPermaLink="true">https://mcclean.dev/articles/check-back-later</guid>
+        <pubDate>Mon, 18 Aug 2025 00:00:00 GMT</pubDate>
+        <description><![CDATA[I don't have any articles yet, but check back later!]]></description>
+      </item>
+    </channel>
+    </rss>
