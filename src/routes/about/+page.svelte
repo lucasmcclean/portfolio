@@ -75,8 +75,8 @@
 					<p class="font-light">
 						I began my first year as an Honors CS student at the University of Central Florida (<abbr
 							title="University of Central Florida">UCF</abbr
-						>) and joined Knight Hacks—a club which has had a major impact on my development as a
-						developer. Through Knight Hacks I attended my first two hackathons which reinforced my
+						>) and joined Knight Hacks—a club which has had a major impact on my journey as a
+						developer. Through Knight Hacks, I attended my first two hackathons which reinforced my
 						passion about development and collaboration.
 					</p>
 				</li>
@@ -96,7 +96,7 @@
 				<li>
 					<h4><span class="text-secondary">2025</span> - CLI and Lower-Level Development</h4>
 					<p class="font-light">
-						As I continued my exploration of the many fields in software Rust caught my interest.
+						As I continued my exploration of the many fields in software, Rust caught my interest.
 						Since then, Rust has become one of my main areas of foucs in my free time. In addition
 						to Go, Rust is one of the primary languages I enjoy using to build CLI tools and other
 						lower-level projects.
