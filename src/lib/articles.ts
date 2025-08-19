@@ -17,7 +17,8 @@ const ArticleMetaSchema = z.object({
 			src: z.string(),
 			alt: z.string()
 		})
-		.optional()
+		.optional(),
+	published: z.boolean()
 });
 
 export type ArticleMeta = z.infer<typeof ArticleMetaSchema>;
@@ -29,6 +30,7 @@ const metaModules = import.meta.glob<{ metadata: unknown }>('../articles/*.{svx,
 export function getAllArticleMetadata(): ArticleMeta[] {
 	return Object.values(metaModules)
 		.map((mod) => ArticleMetaSchema.parse(mod.metadata))
+		.filter((meta) => meta.published)
 		.sort((a, b) => +new Date(b.date) - +new Date(a.date));
 }
 
@@ -43,6 +45,7 @@ export function getAllArticles(): ArticleMeta[] {
 			const meta = ArticleMetaSchema.parse(mod.metadata);
 			return meta;
 		})
+		.filter((meta) => meta.published)
 		.sort((a, b) => +new Date(b.date) - +new Date(a.date));
 }
 
@@ -56,6 +59,8 @@ export function getArticleModule(
 	if (!mod) return null;
 
 	const metadata = ArticleMetaSchema.parse(mod.metadata);
+
+	if (!metadata.published) return null;
 
 	return { Content: mod.default, metadata };
 }
