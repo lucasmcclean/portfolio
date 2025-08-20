@@ -18,7 +18,7 @@ import"../chunks/Bzak7iHL.js";import"../chunks/DA2SEM1y.js";import{p as D,n as G
 						passion about development and collaboration.</p></li> <li><h4><span class="text-secondary">2025</span> - First Job in Tech</h4> <p class="font-light">After a semester of university, I wanted to take on a job in addition to my courses. I
 						heard about a web development position from a member of Knight Hacks and decided to
 						apply. A few weeks later I became a <!> at <abbr title="University of Central Florida">UCF</abbr>.</p></li> <li><h4><span class="text-secondary">2025</span> - CLI and Lower-Level Development</h4> <p class="font-light">As I continued my exploration of the many fields in software, Rust caught my interest.
-						Since then, Rust has become one of my main areas of foucs in my free time. In addition
+						Since then, Rust has become one of my main areas of focus in my free time. In addition
 						to Go, Rust is one of the primary languages I enjoy using to build CLI tools and other
 						lower-level projects.</p></li> <li><h4><span class="text-secondary"> </span> - Now</h4> <p class="font-light">I'm still attending <abbr title="University of Central Florida">UCF</abbr>, I'm a
 						Techranger, and I'm still working on projects with Rust and Go. If you're interested,
