@@ -97,7 +97,7 @@
 					<h4><span class="text-secondary">2025</span> - CLI and Lower-Level Development</h4>
 					<p class="font-light">
 						As I continued my exploration of the many fields in software, Rust caught my interest.
-						Since then, Rust has become one of my main areas of foucs in my free time. In addition
+						Since then, Rust has become one of my main areas of focus in my free time. In addition
 						to Go, Rust is one of the primary languages I enjoy using to build CLI tools and other
 						lower-level projects.
 					</p>

@@ -76,8 +76,8 @@
 				</li>
 				<li>
 					<p>
-						<Link href="https://crates.io/crates/kvd" external>KVD</Link> is a key-value differ that
-						is generic over file types. Built with <strong>Rust</strong>.
+						<Link href="https://crates.io/crates/kvd" external>KVD</Link> (not yet published) is a key-value
+						differ that is generic over file types. Built with <strong>Rust</strong>.
 					</p>
 				</li>
 			</ul>

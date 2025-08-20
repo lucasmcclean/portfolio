@@ -13,27 +13,22 @@
 	};
 
 	const skills = [
-		{ name: 'Rust', level: 'Novice', types: ['language'] },
-		{ name: 'Go', level: 'Advanced', types: ['language'] },
-		{ name: 'Python', level: 'Intermediate', types: ['language'] },
-		{ name: 'JS/TS', level: 'Intermediate', types: ['language', 'frontend'] },
-		{ name: 'Svelte', level: 'Intermediate', types: ['language', 'frontend'] },
-		{ name: 'Docker', level: 'Advanced', types: ['infrastructure'] },
-		{ name: 'Linux', level: 'Advanced', types: ['infrastructure', 'productivity'] },
-		{ name: 'HTML/CSS', level: 'Advanced', types: ['language', 'frontend'] },
-		{ name: 'Lua', level: 'Novice', types: ['language'] },
-		{ name: 'C', level: 'Novice', types: ['language'] },
-		{ name: 'HTMX', level: 'Intermediate', types: ['frontend'] },
-		{ name: 'Bash', level: 'Novice', types: ['language', 'infrastructure'] },
-		{ name: 'PostgreSQL', level: 'Novice', types: ['database'] },
-		{ name: 'MongoDB', level: 'Novice', types: ['database'] },
-		{ name: 'NeoVim', level: 'Expert', types: ['productivity'] }
-	].sort((a, b) => {
-		return (
-			levelMap[b.level.toLowerCase() as keyof typeof levelMap] -
-			levelMap[a.level.toLowerCase() as keyof typeof levelMap]
-		);
-	});
+		{ name: 'Rust', types: ['language'] },
+		{ name: 'Go', types: ['language'] },
+		{ name: 'Python', types: ['language'] },
+		{ name: 'JS/TS', types: ['language', 'frontend'] },
+		{ name: 'Svelte', types: ['language', 'frontend'] },
+		{ name: 'Docker', types: ['infrastructure'] },
+		{ name: 'Linux', types: ['infrastructure', 'productivity'] },
+		{ name: 'HTML/CSS', types: ['language', 'frontend'] },
+		{ name: 'Lua', types: ['language'] },
+		{ name: 'C', types: ['language'] },
+		{ name: 'HTMX', types: ['frontend'] },
+		{ name: 'Bash', types: ['language', 'infrastructure'] },
+		{ name: 'PostgreSQL', types: ['database'] },
+		{ name: 'MongoDB', types: ['database'] },
+		{ name: 'NeoVim', types: ['productivity'] }
+	];
 
 	const allArticles = getAllArticles();
 	const recentArticles = allArticles.slice(0, 3);
@@ -96,14 +91,11 @@
 
 		<section class="space-y-4">
 			<h3>Tools & Technologies</h3>
-			<ul class="xs:gap-x-8 flex flex-wrap gap-x-4 gap-y-2 font-light md:justify-between">
+			<ul class="xs:gap-x-4 flex flex-wrap gap-x-2 gap-y-2 font-light md:justify-between">
 				{#each skills as skill}
 					<li>
 						<p>
 							{skill.name}
-							<span title={skill.level} class="text-secondary">
-								{'●'.repeat(levelMap[skill.level.toLowerCase() as keyof typeof levelMap] || 0)}
-							</span>
 						</p>
 					</li>
 				{/each}
