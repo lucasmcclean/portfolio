@@ -1,7 +1,7 @@
 <script lang="ts">
+	import Navbar from '$lib/Navbar.svelte';
 	import type { ArticleMeta } from '$lib/articles';
 	import ArticleCollectionMeta from '$lib/components/ArticleCollectionMeta.svelte';
-	import Link from '$lib/components/Link.svelte';
 	import { SITE_NAME } from '$lib/consts.js';
 
 	const { data } = $props();
@@ -25,17 +25,7 @@
 		</h2>
 	</header>
 
-	<nav class="flex w-full justify-start py-4 text-lg sm:justify-between">
-		<ul class="hidden gap-x-4 sm:flex">
-			<li><Link href="/">//</Link></li>
-		</ul>
-
-		<ul class="flex gap-x-4">
-			<li><Link href="/">Home</Link></li>
-			<li><Link href="/about">About</Link></li>
-			<li><Link href="/now">Now</Link></li>
-		</ul>
-	</nav>
+	<Navbar />
 
 	<main id="main-content" class="xs:space-y-16 my-8 w-full space-y-8">
 		{#if articles.length === 0}
