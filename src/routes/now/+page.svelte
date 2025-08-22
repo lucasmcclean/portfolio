@@ -84,8 +84,9 @@
 			<ul class="list-disc space-y-4 font-light">
 				<li>
 					<p>
-						Reading philosophical fiction. Most recently I finished Crime and Punishment and I'm now
-						reading Notes from Underground.
+						Reading philosophical fiction. Most recently I finished <cite>Crime and Punishment</cite
+						>
+						and I'm now reading <cite>Notes from Underground</cite>.
 					</p>
 				</li>
 				<li>
@@ -97,7 +98,7 @@
 					</p>
 				</li>
 				<li>
-					Learning French by reading <em>Le Petit Prince</em>.
+					Learning French by reading <cite>Le Petit Prince</cite>.
 				</li>
 			</ul>
 		</section>
