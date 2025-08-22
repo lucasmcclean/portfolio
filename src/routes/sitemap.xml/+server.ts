@@ -24,6 +24,15 @@ export const GET: RequestHandler = () => {
       <url>
         <loc>${BASE_URL}</loc>
       </url>
+      <url>
+        <loc>${BASE_URL}/about</loc>
+      </url>
+      <url>
+        <loc>${BASE_URL}/now</loc>
+      </url>
+      <url>
+        <loc>${BASE_URL}/articles</loc>
+      </url>
       ${urls}
     </urlset>`.trim(),
 		{
