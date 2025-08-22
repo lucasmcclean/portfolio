@@ -5,7 +5,12 @@
 	import { SITE_NAME } from '$lib/consts';
 </script>
 
-<Meta type="webpage" title={`Now | ${SITE_NAME}`} description="Temp" path="/now" />
+<Meta
+	type="webpage"
+	title={`Now | ${SITE_NAME}`}
+	description="Current projects and focus of Lucas McClean, software developer at UCF exploring Rust, Go, backend development, Linux, and continued learning in computer science."
+	path="/now"
+/>
 
 <div class="xs:text-lg mx-auto flex max-w-2xl flex-col items-center px-8">
 	<a href="#main-content" class="sr-only focus:not-sr-only">Skip to main content</a>

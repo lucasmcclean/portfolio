@@ -5,7 +5,14 @@
 	import { SITE_NAME } from '$lib/consts';
 </script>
 
-<Meta type="webpage" title={`About | ${SITE_NAME}`} description="Temp" path="/about" />
+<Meta
+	type="webpage"
+	title={`About | ${SITE_NAME}`}
+	description="
+	Honors CS student and software developer at UCF, exploring software architecture, language design, Linux, and low-level and backend development with Rust and Go.
+  "
+	path="/about"
+/>
 
 <div class="xs:text-lg mx-auto flex max-w-2xl flex-col items-center px-8">
 	<a href="#main-content" class="sr-only focus:not-sr-only">Skip to main content</a>

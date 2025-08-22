@@ -7,7 +7,7 @@ export const ARTICLES_DIR = 'src/articles';
 
 export const SITE_NAME = 'Lucas McClean';
 export const SITE_DESCRIPTION =
-	"Lucas McClean's software engineering portfolio, articles, and software craftmanship insights.";
+	'Software developer at UCF and honors CS student. Experienced with Rust, Go, and web tech. Portfolio, computer science articles, and open-source work.';
 
 export const RSS_TITLE = "Lucas McClean's Articles";
 export const RSS_CATEGORY = 'Software Development';

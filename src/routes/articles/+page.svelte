@@ -10,7 +10,7 @@
 
 <ArticleCollectionMeta
 	title={`Articles | ${SITE_NAME}`}
-	description="Temp"
+	description="Technical articles by Lucas McClean covering software architecture, programming languages, backend development, Rust, Go, and practical software craftsmanship."
 	path="/articles"
 	{articles}
 />
