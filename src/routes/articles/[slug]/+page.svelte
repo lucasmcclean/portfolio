@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { error } from '@sveltejs/kit';
 	import { getArticleModule } from '$lib/articles';
-	import Navbar from '$lib/Navbar.svelte';
+	import Navbar from '$lib/components/Navbar.svelte';
 	import ArticleMeta from '$lib/components/ArticleMeta.svelte';
 
 	const { data } = $props();

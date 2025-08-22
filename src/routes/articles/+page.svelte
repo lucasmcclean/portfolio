@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Navbar from '$lib/Navbar.svelte';
+	import Navbar from '$lib/components/Navbar.svelte';
 	import type { ArticleMeta } from '$lib/articles';
 	import ArticleCollectionMeta from '$lib/components/ArticleCollectionMeta.svelte';
 	import { SITE_NAME } from '$lib/consts.js';

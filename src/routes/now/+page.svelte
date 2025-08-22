@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Navbar from '$lib/Navbar.svelte';
+	import Navbar from '$lib/components/Navbar.svelte';
 	import Link from '$lib/components/Link.svelte';
 	import Meta from '$lib/components/Meta.svelte';
 	import { SITE_NAME } from '$lib/consts';
