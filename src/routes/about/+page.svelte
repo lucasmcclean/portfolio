@@ -23,7 +23,7 @@
 		<section class="">
 			<ol class="space-y-8 [&_li]:space-y-4">
 				<li>
-					<h4><span class="text-secondary">2022</span> - First Interaction with Software</h4>
+					<h4><span class="text-secondary">2022-2023</span> - First Interaction with Software</h4>
 					<p class="font-light">
 						High school was the first time I took a serious interest in programming. I was enjoying
 						simpler, indie games and decided to attempt making one. Unity was the mainstream game
@@ -31,20 +31,40 @@
 						it, I had developed a few small games and a strong desire to learn more about software
 						as a whole.
 					</p>
+					<p class="font-light">
+						<strong>Projects:</strong>
+						<Link href="https://github.com/lucasmcclean/godot-game-template" external
+							>Godot Template</Link
+						>,
+						<Link href="https://github.com/lucasmcclean/doomsday-catastrophe-gwj63" external
+							>Game Jam</Link
+						>,
+						<Link href="https://github.com/lucasmcclean/Top-Down-RPG" external>School Project</Link>
+					</p>
 				</li>
 
 				<li>
-					<h4><span class="text-secondary">2023</span> - Frontend Web Development</h4>
+					<h4><span class="text-secondary">2024 / Former-Half</span> - Frontend Web Development</h4>
 					<p class="font-light">
 						As I was exploring different applications of software, I came to realize that the web
 						was one of the most impactful and accessible platforms. My priority, then, was to master
 						the fundamentals of HTML, CSS, and JS. I built many smaller apps using just the basics
 						and began to realize the importance of accessibility, scalability, and modularity.
 					</p>
+					<p class="font-light">
+						<strong>Projects:</strong>
+						<Link href="https://github.com/lucasmcclean/first-website" external>First Site</Link>,
+						<Link href="https://github.com/lucasmcclean/first-portfolio" external
+							>First Portfolio</Link
+						>,
+						<Link href="https://github.com/lucasmcclean/crown-and-anchor" external
+							>Crown & Anchor</Link
+						>
+					</p>
 				</li>
 
 				<li>
-					<h4><span class="text-secondary">2024</span> - Backend Development</h4>
+					<h4><span class="text-secondary">2024 / Latter-Half</span> - Backend Development</h4>
 					<p class="font-light">
 						As I continued to research, I finally realized that to bring many of my ideas to life, I
 						would need to venture into the backend. I compared most of the major fullstack
@@ -59,16 +79,32 @@
 						understanding, but I quickly came to enjoy the pillars of simplicity and explicitness
 						that it encouraged.
 					</p>
+					<p class="font-light">
+						<strong>Projects:</strong>
+						<Link href="https://github.com/lucasmcclean/notes-app" external>Notes App</Link>,
+						<Link href="https://github.com/lucasmcclean/post-website" external>Post Site</Link>,
+						<Link href="https://github.com/lucasmcclean/todo-cli" external>To-Do CLI</Link>,
+						<Link href="https://github.com/lucasmcclean/personal-website" external
+							>Personal Website</Link
+						>
+					</p>
 				</li>
 
 				<li>
-					<h4><span class="text-secondary">2024</span> - Started University</h4>
+					<h4><span class="text-secondary">2024 / Latter-Half Cont.</span> - Started University</h4>
 					<p class="font-light">
 						I began my first year as an Honors CS student at the University of Central Florida (<abbr
 							title="University of Central Florida">UCF</abbr
 						>) and joined Knight Hacks—a club which has had a major impact on my journey as a
 						developer. Through Knight Hacks, I attended my first two hackathons which reinforced my
 						passion about development and collaboration.
+					</p>
+					<p class="font-light">
+						<strong>Projects:</strong>
+						<Link href="https://github.com/lucasmcclean/shell-hacks-24" external>Shell Hacks</Link>,
+						<Link href="https://github.com/lucasmcclean/knight-hacks-24" external>Knight Hacks</Link
+						>,
+						<Link href="https://github.com/lucasmcclean/dsa-go" external>Go DSA</Link>
 					</p>
 				</li>
 
@@ -92,6 +128,11 @@
 						to Go, Rust is one of the primary languages I enjoy using to build CLI tools and other
 						lower-level projects.
 					</p>
+					<p class="font-light">
+						<strong>Projects:</strong>
+						<Link href="https://github.com/lucasmcclean/limitlink" external>Limitl.ink</Link>,
+						<Link href="https://github.com/lucasmcclean/kvd" external>KVD (in progress)</Link>
+					</p>
 				</li>
 
 				<li>
@@ -101,6 +142,13 @@
 						Techranger, and I'm still working on projects with Rust and Go. If you're interested,
 						you can see more of
 						<Link href="/now" class="font-light">what I'm doing now</Link>.
+					</p>
+					<p class="font-light">
+						<strong>Projects:</strong>
+						<Link href="https://github.com/lucasmcclean/portfolio" external>This Site</Link>,
+						<Link href="https://github.com/lucasmcclean/kitenv" external
+							>Kitenv (not yet public)</Link
+						>
 					</p>
 				</li>
 			</ol>
