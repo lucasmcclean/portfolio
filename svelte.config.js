@@ -20,7 +20,9 @@ const config = {
 		})
 	],
 	kit: {
-		adapter: staticAdapter()
+		adapter: staticAdapter({
+			fallback: '404.html'
+		})
 	},
 	extensions: ['.svelte', '.svx', '.md']
 };
