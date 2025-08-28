@@ -1,7 +1,10 @@
 <script lang="ts">
+	import Header from '$lib/components/Header.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
-	import type { ArticleMeta } from '$lib/articles';
+	import Footer from '$lib/components/Footer.svelte';
 	import ArticleCollectionMeta from '$lib/components/ArticleCollectionMeta.svelte';
+
+	import type { ArticleMeta } from '$lib/articles';
 	import { SITE_NAME } from '$lib/consts.js';
 
 	const { data } = $props();
@@ -15,46 +18,32 @@
 	{articles}
 />
 
-<div class="xs:text-lg mx-auto flex max-w-2xl flex-col items-center px-8">
-	<a href="#main-content" class="sr-only focus:not-sr-only">Skip to main content</a>
+<Header main="Articles" sub="On Tech & Philosophy" />
 
-	<header class="w-fit self-start pt-16 pb-0">
-		<h1 class="xs:text-6xl text-4xl font-semibold tracking-tight sm:text-7xl">Articles</h1>
-		<h2 class="xs:text-4xl flex justify-between text-2xl font-light ordinal sm:text-5xl">
-			On Tech & Philosophy
-		</h2>
-	</header>
+<Navbar />
 
-	<Navbar />
+<main id="main-content" class="xs:space-y-16 my-8 w-full space-y-8">
+	{#if articles.length === 0}
+		<p>No articles found.</p>
+	{:else}
+		<ul>
+			{#each articles as article}
+				<li>
+					<a href={`/articles/${article.slug}`}>
+						<h2>{article.title}</h2>
+					</a>
+					<p>
+						{new Date(article.date).toLocaleDateString(undefined, {
+							year: 'numeric',
+							month: 'long',
+							day: 'numeric'
+						})}
+					</p>
+					<p>{article.description}</p>
+				</li>
+			{/each}
+		</ul>
+	{/if}
+</main>
 
-	<main id="main-content" class="xs:space-y-16 my-8 w-full space-y-8">
-		{#if articles.length === 0}
-			<p>No articles found.</p>
-		{:else}
-			<ul>
-				{#each articles as article}
-					<li>
-						<a href={`/articles/${article.slug}`}>
-							<h2>{article.title}</h2>
-						</a>
-						<p>
-							{new Date(article.date).toLocaleDateString(undefined, {
-								year: 'numeric',
-								month: 'long',
-								day: 'numeric'
-							})}
-						</p>
-						<p>{article.description}</p>
-					</li>
-				{/each}
-			</ul>
-		{/if}
-	</main>
-
-	<footer class="xs:text-base mt-auto w-full space-y-2 py-8 text-sm opacity-80">
-		<div class="flex flex-wrap justify-between">
-			<p>&copy; 2025 Lucas McClean. All rights reserved.</p>
-			<p class="font-display text-primary ms-auto">//LM</p>
-		</div>
-	</footer>
-</div>
+<Footer />

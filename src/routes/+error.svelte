@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/state';
+	import Footer from '$lib/components/Footer.svelte';
 	import Link from '$lib/components/Link.svelte';
 </script>
 
@@ -18,8 +19,5 @@
 		</Link>
 	</div>
 
-	<footer class="mt-auto flex w-full flex-wrap justify-between py-8 text-base opacity-80">
-		<p>&copy; 2025 Lucas McClean. All rights reserved.</p>
-		<p class="font-display text-primary">//LM</p>
-	</footer>
+	<Footer />
 </div>

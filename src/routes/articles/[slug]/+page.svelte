@@ -1,8 +1,12 @@
 <script lang="ts">
-	import { error } from '@sveltejs/kit';
-	import { getArticleModule } from '$lib/articles';
+	import Header from '$lib/components/Header.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import ArticleMeta from '$lib/components/ArticleMeta.svelte';
+	import Note from '$lib/components/Note.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+
+	import { error } from '@sveltejs/kit';
+	import { getArticleModule } from '$lib/articles';
 
 	const { data } = $props();
 	const { slug } = data;
@@ -16,30 +20,23 @@
 
 <ArticleMeta {article} />
 
+<Header main={article.title} />
+
 <Navbar />
 
-{#if Content && article}
-	<article>
-		<h1>{article.title}</h1>
-		<p>
-			{new Date(article.date).toLocaleDateString(undefined, {
-				year: 'numeric',
-				month: 'long',
-				day: 'numeric'
-			})}
-			{#if article.authors.length}
-				· by {article.authors.join(', ')}
-			{/if}
-		</p>
-		<Content />
-	</article>
-{:else}
-	<p>Loading...</p>
-{/if}
+<main id="main-content" class="space-y-4">
+	<Content />
 
-<footer class="xs:text-base mt-auto w-full space-y-2 py-8 text-sm opacity-80">
-	<div class="flex flex-wrap justify-between">
-		<p>&copy; 2025 Lucas McClean. All rights reserved.</p>
-		<p class="font-display text-primary ms-auto">//LM</p>
-	</div>
-</footer>
+	<Note>
+		{new Date(article.date).toLocaleDateString(undefined, {
+			year: 'numeric',
+			month: 'long',
+			day: 'numeric'
+		})}
+		{#if article.authors.length}
+			· by {article.authors.join(', ')}
+		{/if}
+	</Note>
+</main>
+
+<Footer />
