@@ -7,12 +7,14 @@ export const prerender = true;
 export const GET: RequestHandler = () => {
 	const articles = getAllArticleMetadata();
 
-	const urls = articles
+	const article_urls = articles
 		.map((article) =>
 			`
       <url>
         <loc>${BASE_URL}/articles/${article.slug}</loc>
         <lastmod>${new Date(article.updated ?? article.date).toISOString()}</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.6</priority>
       </url>`.trim()
 		)
 		.join('\n');
@@ -23,17 +25,35 @@ export const GET: RequestHandler = () => {
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
         <loc>${BASE_URL}</loc>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
       </url>
       <url>
         <loc>${BASE_URL}/about</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
       </url>
       <url>
         <loc>${BASE_URL}/now</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
       </url>
       <url>
         <loc>${BASE_URL}/articles</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
       </url>
-      ${urls}
+      <url>
+        <loc>${BASE_URL}/contact</loc>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+      </url>
+      ${article_urls}
+      <url>
+        <loc>${BASE_URL}/rss.xml</loc>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+      </url>
     </urlset>`.trim(),
 		{
 			headers: {

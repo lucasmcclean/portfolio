@@ -11,7 +11,7 @@
 <Meta
 	type="webpage"
 	title={`Now | ${SITE_NAME}`}
-	description="Current projects and focus of Lucas McClean, software developer at UCF exploring Rust, Go, backend development, Linux, and continued learning in computer science."
+	description="Current projects and focus of Lucas McClean, honors CS student and software developer at UCF, exploring Rust, Go, backend development, Linux, and computer science."
 	path="/now"
 />
 

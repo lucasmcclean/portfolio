@@ -12,7 +12,7 @@
 	type="webpage"
 	title={`About | ${SITE_NAME}`}
 	description="
-	Honors CS student and software developer at UCF, exploring software architecture, language design, Linux, and low-level and backend development with Rust and Go.
+  Honors CS student and software developer at UCF focusing on software architecture, language design, Linux, and backend development with Rust and Go.
   "
 	path="/about"
 />

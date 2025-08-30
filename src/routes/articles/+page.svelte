@@ -13,7 +13,7 @@
 
 <ArticleCollectionMeta
 	title={`Articles | ${SITE_NAME}`}
-	description="Technical articles by Lucas McClean covering software architecture, programming languages, backend development, Rust, Go, and practical software craftsmanship."
+	description="Lucas McClean’s articles on software architecture, programming languages, backend development, and reflections on software craftsmanship and career growth."
 	path="/articles"
 	{articles}
 />

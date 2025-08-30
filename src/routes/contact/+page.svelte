@@ -11,9 +11,7 @@
 <Meta
 	type="webpage"
 	title={`Contact | ${SITE_NAME}`}
-	description="
-  Get in contact with Lucas McClean 
-  "
+	description="Contact Lucas McClean to discuss software development, collaborations, or career opportunities. Available via email and LinkedIn."
 	path="/about"
 />
 
