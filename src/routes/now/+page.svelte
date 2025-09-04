@@ -45,7 +45,7 @@
 		<ul class="list-disc space-y-4 font-light">
 			<li>
 				<p>
-					I’m currently working as a
+					Working as a
 					<Link
 						href="https://techrangers.cdl.ucf.edu/techrangers_current/lucas_mcclean.html"
 						external>Techranger</Link
@@ -85,7 +85,7 @@
 			</li>
 			<li>
 				<p>
-					Switching from Arch Linux to Void Linux and polishing up my <Link
+					Switching from Arch Linux to Void Linux and working on my <Link
 						href="https://github.com/lucasmcclean/.dotfiles"
 						external>NeoVim config</Link
 					>.
