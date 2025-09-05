@@ -1,6 +1,6 @@
 <script lang="ts">
 	import CoreMeta from '$lib/components/internal/CoreMeta.svelte';
-	import { BASE_URL, SITE_IMAGE_ALT, SITE_IMAGE_URL } from '$lib/consts';
+	import { BASE_URL } from '$lib/consts';
 	import {
 		getOgType,
 		getSafeImage,

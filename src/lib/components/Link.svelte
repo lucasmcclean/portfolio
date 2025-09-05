@@ -25,7 +25,7 @@
 	{...rest}
 	target={computedTarget}
 	rel={computedRel}
-	class={`relative inline-flex items-center gap-1 transition-colors
+	class={`relative inline items-center gap-1 transition-colors
           after:absolute after:bottom-[2px] after:left-0 after:h-[2px] after:w-0
           after:bg-current after:transition-all
           hover:after:w-full focus-visible:after:w-full ${className}`}

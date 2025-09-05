@@ -42,5 +42,5 @@
 
 	{@html extraMeta}
 
-	{@html `<script type="application/ld+json">${jsonLd}</script>`}
+	{@html `<script type="application/ld+json">${jsonLd.replace(/</g, '\\u003c')}</script>`}
 </svelte:head>
