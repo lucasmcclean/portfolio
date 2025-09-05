@@ -82,7 +82,7 @@
 	<section class="space-y-4">
 		<h3>Tools & Technologies</h3>
 		<ul class="xs:gap-x-4 flex flex-wrap gap-x-2 gap-y-2 font-light md:justify-between">
-			{#each skills as skill}
+			{#each skills as skill (skill.name)}
 				<li>
 					<p>
 						{skill.name}
@@ -96,7 +96,7 @@
 	<section class="space-y-4">
 		<h3>Recent Articles</h3>
 		<ul class="space-y-4">
-			{#each recentArticles as article}
+			{#each recentArticles as article (article.slug)}
 				<li class="border-primary border-s-2 ps-4">
 					<Link href={`/articles/${article.slug}`} class="text-primary text-lg">
 						{article.title}

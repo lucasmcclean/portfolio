@@ -22,7 +22,23 @@
 <Navbar />
 
 <main id="main-content" class="xs:space-y-16 my-8 w-full space-y-8">
-	<section class="">
+	<section class="xs:py-4 flex flex-col items-center gap-8 md:flex-row">
+		<img
+			src="/portrait.png"
+			alt="Lucas holding a tea cup and gazing into the distance."
+			class="xs:w-1/2 w-3/4 max-w-sm rounded-2xl shadow-lg md:w-1/3"
+		/>
+		<div class="space-y-4 md:w-2/3">
+			<p class="max-w-md font-light">
+				I’m a software developer at UCF, where I also study computer science. I love working with
+				backend systems and systems programming. Outside of code, I enjoy spending time outdoors,
+				longboarding, reading challenging books, and bookending my days with coffee and tea.
+			</p>
+		</div>
+	</section>
+
+	<section>
+		<h3 class="mb-8 text-2xl font-bold">The Road So Far</h3>
 		<ol class="space-y-8 [&_li]:space-y-4">
 			<li>
 				<h4><span class="text-secondary">2022-2023</span> - First Interaction with Software</h4>

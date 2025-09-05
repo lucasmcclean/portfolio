@@ -27,7 +27,7 @@
 		<p>No articles found.</p>
 	{:else}
 		<ul>
-			{#each articles as article}
+			{#each articles as article (article.slug)}
 				<li>
 					<a href={`/articles/${article.slug}`}>
 						<h2>{article.title}</h2>
