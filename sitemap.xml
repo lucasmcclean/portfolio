@@ -2,16 +2,25 @@
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
         <loc>https://mcclean.dev</loc>
+        <image:image>
+          <image:loc>https://mcclean.dev/portrait.png</image:loc>
+        </image:image>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
       </url>
       <url>
         <loc>https://mcclean.dev/about</loc>
+        <image:image>
+          <image:loc>https://mcclean.dev/portrait.png</image:loc>
+        </image:image>
         <changefreq>yearly</changefreq>
         <priority>0.7</priority>
       </url>
       <url>
         <loc>https://mcclean.dev/now</loc>
+        <image:image>
+          <image:loc>https://mcclean.dev/portrait.png</image:loc>
+        </image:image>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
       </url>
@@ -22,6 +31,9 @@
       </url>
       <url>
         <loc>https://mcclean.dev/contact</loc>
+        <image:image>
+          <image:loc>https://mcclean.dev/portrait.png</image:loc>
+        </image:image>
         <changefreq>yearly</changefreq>
         <priority>0.4</priority>
       </url>
