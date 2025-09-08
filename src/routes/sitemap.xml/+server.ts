@@ -25,16 +25,25 @@ export const GET: RequestHandler = () => {
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
         <loc>${BASE_URL}</loc>
+        <image:image>
+          <image:loc>${BASE_URL}/portrait.png</image:loc>
+        </image:image>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
       </url>
       <url>
         <loc>${BASE_URL}/about</loc>
+        <image:image>
+          <image:loc>${BASE_URL}/portrait.png</image:loc>
+        </image:image>
         <changefreq>yearly</changefreq>
         <priority>0.7</priority>
       </url>
       <url>
         <loc>${BASE_URL}/now</loc>
+        <image:image>
+          <image:loc>${BASE_URL}/portrait.png</image:loc>
+        </image:image>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
       </url>
@@ -45,6 +54,9 @@ export const GET: RequestHandler = () => {
       </url>
       <url>
         <loc>${BASE_URL}/contact</loc>
+        <image:image>
+          <image:loc>${BASE_URL}/portrait.png</image:loc>
+        </image:image>
         <changefreq>yearly</changefreq>
         <priority>0.4</priority>
       </url>

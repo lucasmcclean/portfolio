@@ -27,6 +27,8 @@
 			src="/portrait.png"
 			alt="Lucas holding a tea cup and gazing into the distance."
 			class="xs:w-1/2 w-3/4 max-w-sm rounded-2xl shadow-lg md:w-1/3"
+			height="768"
+			width="768"
 		/>
 		<div class="space-y-4 md:w-2/3">
 			<p class="max-w-md font-light">
