@@ -37,6 +37,14 @@
 					> engineering honor society.
 				</p>
 			</li>
+			<li>
+				<p>
+					Preparing and presenting workshops for the <Link
+						href="https://club.knighthacks.org/"
+						external>Knight Hacks</Link
+					> software development club at UCF.
+				</p>
+			</li>
 		</ul>
 	</section>
 
