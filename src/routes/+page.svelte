@@ -73,10 +73,9 @@
 
 <main id="main-content" class="xs:space-y-16 my-8 space-y-8">
 	<p class="text-justify font-light">
-		I didn’t originally plan to work in software, but I was drawn to how it blends creativity with
-		logic and makes global impact accessible. I try to write code that’s no more than it needs to be
-		and no less than it should be. In my experience, writing good software comes down to managing
-		complexity and clear communication—both with code and with people.
+		I'm a software developer and honors CS student at UCF. I didn’t plan to end up in software. I
+		just wanted to build things, and code turned out to be a really good way to do that. My
+		development philosophy is to write code that’s as simple as possible and no simpler.
 	</p>
 
 	<section class="space-y-4">
