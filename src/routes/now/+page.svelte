@@ -39,10 +39,9 @@
 			</li>
 			<li>
 				<p>
-					Preparing and presenting workshops for the <Link
-						href="https://club.knighthacks.org/"
-						external>Knight Hacks</Link
-					> software development club at UCF.
+					Preparing and presenting workshops for <Link href="https://club.knighthacks.org/" external
+						>Knight Hacks</Link
+					>, UCF's software development club.
 				</p>
 			</li>
 		</ul>
@@ -105,7 +104,7 @@
 		</ul>
 	</section>
 
-	<p class="xs:text-base text-end text-sm italic opacity-80">Last updated: August 2025</p>
+	<p class="xs:text-base text-end text-sm italic opacity-80">Last updated: September 2025</p>
 </main>
 
 <Footer />
