@@ -73,7 +73,7 @@
 
 <main id="main-content" class="xs:space-y-16 my-8 space-y-8">
 	<p class="text-justify font-light">
-		I'm a software developer and honors CS student at UCF. I didn’t plan to end up in software. I
+		I'm a software developer and honors CS student at UCF. I didn’t always plan to end up here. I
 		just wanted to build things, and code turned out to be a really good way to do that. My
 		development philosophy is to write code that’s as simple as possible and no simpler.
 	</p>
