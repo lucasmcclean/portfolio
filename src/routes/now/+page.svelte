@@ -92,7 +92,7 @@
 			</li>
 			<li>
 				<p>
-					Switching from Arch Linux to Void Linux and working on my <Link
+					Switching from Arch to Void Linux and working on my <Link
 						href="https://github.com/lucasmcclean/.dotfiles"
 						external>NeoVim config</Link
 					>.
