@@ -60,6 +60,14 @@ export const GET: RequestHandler = () => {
         <changefreq>yearly</changefreq>
         <priority>0.4</priority>
       </url>
+      <url>
+        <loc>${BASE_URL}/reading</loc>
+        <image:image>
+          <image:loc>${BASE_URL}/portrait.png</image:loc>
+        </image:image>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+      </url>
       ${article_urls}
       <url>
         <loc>${BASE_URL}/rss.xml</loc>

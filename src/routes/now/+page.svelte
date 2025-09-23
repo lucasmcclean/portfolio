@@ -101,6 +101,9 @@
 			<li>
 				Learning French by reading <cite>Le Petit Prince</cite>.
 			</li>
+			<li>
+				You can see everything I'm reading on my <Link href="/reading">reading list</Link>.
+			</li>
 		</ul>
 	</section>
 

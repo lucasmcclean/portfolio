@@ -34,7 +34,8 @@
 			<p class="max-w-md font-light">
 				I’m a software developer at UCF, where I also study computer science. I love working with
 				backend systems and systems programming. Outside of code, I enjoy spending time outdoors,
-				longboarding, reading challenging books, and bookending my days with coffee and tea.
+				longboarding, <Link href="/reading">reading</Link>, and bookending my days with coffee and
+				tea.
 			</p>
 		</div>
 	</section>
