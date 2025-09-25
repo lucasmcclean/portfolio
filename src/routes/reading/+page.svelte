@@ -82,8 +82,8 @@
 			</li>
 			<li>
 				<p class="font-base">
-					<cite>The Letters of Ignatius of Antioch</cite>
-					<span class="opacity-80">by Ignatius of Antioch</span>
+					<cite>The Epistles of Ignatius of Antioch</cite>
+					<span class="opacity-80">by Saint Ignatius of Antioch</span>
 				</p>
 			</li>
 			<li>
