@@ -39,6 +39,12 @@
 					<span class="opacity-80">by Thomas Merton</span>
 				</p>
 			</li>
+			<li>
+				<p class="font-base">
+					<cite>Designing Data-Intensive Applications</cite>
+					<span class="opacity-80">by Martin Kleppmann</span>
+				</p>
+			</li>
 		</ol>
 	</section>
 
@@ -106,6 +112,12 @@
 				<p class="font-base">
 					<cite>The Brothers Karamazov</cite>
 					<span class="opacity-80">by Fyodor Dostoyevsky</span>
+				</p>
+			</li>
+			<li>
+				<p class="font-base">
+					<cite>Lord of the World</cite>
+					<span class="opacity-80">by Robert Hugh Benson</span>
 				</p>
 			</li>
 		</ol>
