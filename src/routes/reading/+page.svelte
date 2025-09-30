@@ -94,18 +94,18 @@
 			</li>
 			<li>
 				<p class="font-base">
-					<cite>The Mystery of Christianity</cite>
-					<span class="opacity-80">by Romano Guardini</span>
-				</p>
-			</li>
-			<li>
-				<p class="font-base">
 					<cite>Demons</cite> <span class="opacity-80">by Fyodor Dostoyevsky</span>
 				</p>
 			</li>
 			<li>
 				<p class="font-base">
 					<cite>The Idiot</cite> <span class="opacity-80">by Fyodor Dostoyevsky</span>
+				</p>
+			</li>
+			<li>
+				<p class="font-base">
+					<cite>The Mystery of Christianity</cite>
+					<span class="opacity-80">by Romano Guardini</span>
 				</p>
 			</li>
 			<li>
@@ -118,6 +118,12 @@
 				<p class="font-base">
 					<cite>Lord of the World</cite>
 					<span class="opacity-80">by Robert Hugh Benson</span>
+				</p>
+			</li>
+			<li>
+				<p class="font-base">
+					<cite>On the Apostolic Preaching</cite>
+					<span class="opacity-80">by Saint Irenaeus of Lyon</span>
 				</p>
 			</li>
 		</ol>
