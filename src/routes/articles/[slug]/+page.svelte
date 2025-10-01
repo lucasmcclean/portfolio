@@ -5,6 +5,8 @@
 	import Note from '$lib/components/Note.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 
+	import '../../../styles/articles.css';
+
 	import { error } from '@sveltejs/kit';
 	import { getArticleModule } from '$lib/articles';
 
@@ -24,8 +26,10 @@
 
 <Navbar />
 
-<main id="main-content" class="space-y-4">
-	<Content />
+<main id="main-content" class="w-full space-y-4">
+	<article class="article">
+		<Content />
+	</article>
 
 	<Note>
 		{new Date(article.date).toLocaleDateString(undefined, {

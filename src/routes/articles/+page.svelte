@@ -22,11 +22,11 @@
 
 <Navbar />
 
-<main id="main-content" class="xs:space-y-16 my-8 w-full space-y-8">
+<main id="main-content" class="my-8 w-full">
 	{#if articles.length === 0}
 		<p>No articles found.</p>
 	{:else}
-		<ul>
+		<ul class="xs:space-y-16 space-y-8">
 			{#each articles as article (article.slug)}
 				<li>
 					<a href={`/articles/${article.slug}`}>

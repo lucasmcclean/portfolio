@@ -9,7 +9,6 @@ const ArticleMetaSchema = z.object({
 	authors: z.array(z.string()),
 	date: z.string(),
 	updated: z.string().optional(),
-	collections: z.array(z.string()),
 	tags: z.array(z.string()),
 	readTime: z.number(),
 	image: z
@@ -41,7 +40,11 @@ const modules = import.meta.glob<{
 
 export function getAllArticles(): ArticleMeta[] {
 	return Object.entries(modules)
-		.map(([_, mod]) => {
+		.map(([path, mod]) => {
+			if (!mod.metadata) {
+				throw new Error(`No metadata found in ${path}`);
+			}
+
 			const meta = ArticleMetaSchema.parse(mod.metadata);
 			return meta;
 		})

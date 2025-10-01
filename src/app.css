@@ -1,5 +1,4 @@
 @import 'tailwindcss';
-@plugin '@tailwindcss/forms';
 
 @theme {
 	--breakpoint-xs: 30rem; /* 480px */
@@ -11,6 +10,7 @@
 
 	--color-bg: #fdfdfa;
 	--color-txt: #121212;
+	--color-surface: #eeeeee;
 	--color-primary: #839362;
 	--color-secondary: #aeba8c;
 	--color-accent: #ff9b71;
@@ -22,12 +22,14 @@
 	:root {
 		--color-bg: #121212;
 		--color-txt: #fdfdfa;
+		--color-surface: #181818;
 	}
 }
 
 [data-theme='dark'] {
 	--color-bg: #121212;
 	--color-txt: #fdfdfa;
+	--color-surface: #181818;
 }
 
 ::selection {

@@ -41,10 +41,15 @@
 	"pnpm": {
 		"onlyBuiltDependencies": [
 			"esbuild"
+		],
+		"ignoredBuiltDependencies": [
+			"@tailwindcss/oxide"
 		]
 	},
 	"dependencies": {
+		"@shikijs/themes": "^3.13.0",
 		"gray-matter": "^4.0.3",
+		"shiki": "^3.13.0",
 		"zod": "^4.1.5"
 	}
 }

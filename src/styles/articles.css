@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+
+.article {
+	@apply space-y-8 font-light;
+}
+
+.article h2 {
+	@apply mb-8 text-2xl font-bold;
+}
+
+.article ul {
+	@apply ms-8 list-disc space-y-4;
+}
+
+.article pre {
+	@apply max-w-full overflow-x-scroll rounded-xl px-6 py-4 text-base;
+}
+
+.article code {
+	@apply text-base;
+	background-color: var(--color-surface);
+}
+
+.article strong {
+	@apply font-bold;
+}
+
+pre.shiki code {
+	background: none !important;
+}

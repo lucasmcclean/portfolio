@@ -1,6 +1,13 @@
 import { mdsvex } from 'mdsvex';
+import { createHighlighter } from 'shiki';
 import staticAdapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+
+const { default: theme } = await import('@shikijs/themes/vitesse-dark');
+const highlighter = await createHighlighter({
+	theme: theme,
+	langs: ['go', 'bash']
+});
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -8,6 +15,12 @@ const config = {
 		vitePreprocess(),
 		mdsvex({
 			extensions: ['.svx', '.md'],
+			highlight: {
+				highlighter: async (code, lang) => {
+					let html = highlighter.codeToHtml(code, { lang: lang, theme: theme });
+					return `{@html \`${html}\`}`;
+				}
+			},
 			smartypants: {
 				quotes: true,
 				ellipses: true,
