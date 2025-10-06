@@ -14,41 +14,41 @@
 	path="/photography"
 />
 
-<Header main="Photography" sub="Some Photos from Around" />
+<Header main="Photography" sub="Photos from Around" />
 
 <Navbar />
 
 <main id="main-content" class="xs:space-y-16 my-8 w-full space-y-8">
-	<section class="flex flex-wrap justify-around gap-8">
+	<section class="xs:columns-2 columns-1 gap-4 space-y-4">
 		<img
-			class="max-w-4/10 object-contain"
+			class="mb-4 h-auto w-full rounded-lg"
 			src="/photos/blue_sky_leaves.jpg"
 			alt="Blue sky through tree leaves above"
 		/>
 		<img
-			class="max-w-4/10 object-contain"
-			src="/photos/fire_hydrant_bird.jpg"
-			alt="Grainy shot of bird perched on top of a fire hydrant"
-		/>
-		<img
-			class="max-w-4/10 object-contain"
-			src="/photos/light_through_trees.jpg"
-			alt="Bright sunlight coming between bases of trees on a hillside"
-		/>
-		<img
-			class="max-w-4/10 object-contain"
-			src="/photos/sunset_tree.jpg"
-			alt="Dead tree with empty branches on with pink and orange clouds behind"
-		/>
-		<img
-			class="max-w-4/10 object-contain"
+			class="mb-4 h-auto w-full rounded-lg"
 			src="/photos/tree_leaves_green.jpg"
-			alt="Top of tree with bright green leaves with blue sky behind "
+			alt="Green tree leaves"
 		/>
 		<img
-			class="max-w-4/10 object-contain"
+			class="mb-4 h-auto w-full rounded-lg"
+			src="/photos/fire_hydrant_bird.jpg"
+			alt="Bird perched on a fire hydrant"
+		/>
+		<img
+			class="mb-4 h-auto w-full rounded-lg"
+			src="/photos/light_through_trees.jpg"
+			alt="Bright sunlight through trees"
+		/>
+		<img
+			class="mb-4 h-auto w-full rounded-lg"
+			src="/photos/sunset_tree.jpg"
+			alt="Tree silhouette at sunset"
+		/>
+		<img
+			class="mb-4 h-auto w-full rounded-lg"
 			src="/photos/tree_leaves_yellow.jpg"
-			alt="Top of tree with bright greenish-yellow leaves with blue sky behind "
+			alt="Yellow tree leaves"
 		/>
 	</section>
 </main>
