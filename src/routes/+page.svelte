@@ -71,7 +71,7 @@
 	</ul>
 </nav>
 
-<main id="main-content" class="xs:space-y-16 my-8 space-y-8">
+<main id="main-content" class="xs:space-y-24 my-16 space-y-16">
 	<p class="text-justify font-light">
 		I'm a software developer and honors CS student at UCF. I didn’t always plan to end up here. I
 		just wanted to build things, and code turned out to be a really good way to do that. My
