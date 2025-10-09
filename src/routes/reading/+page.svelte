@@ -45,6 +45,12 @@
 					<span class="opacity-80">by Martin Kleppmann</span>
 				</p>
 			</li>
+			<li>
+				<p class="font-base">
+					<cite>The Miracle of Father Kapaun</cite>
+					<span class="opacity-80">by Roy Wenzl & Travis Heying</span>
+				</p>
+			</li>
 		</ol>
 	</section>
 
