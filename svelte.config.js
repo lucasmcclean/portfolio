@@ -3,7 +3,7 @@ import { createHighlighter } from 'shiki';
 import staticAdapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
-const { default: theme } = await import('@shikijs/themes/vitesse-dark');
+const { default: theme } = await import('@shikijs/themes/tokyo-night');
 const highlighter = await createHighlighter({
 	theme: theme,
 	langs: ['go', 'bash']
@@ -17,7 +17,22 @@ const config = {
 			extensions: ['.svx', '.md'],
 			highlight: {
 				highlighter: async (code, lang) => {
-					let html = highlighter.codeToHtml(code, { lang: lang, theme: theme });
+					let html = highlighter.codeToHtml(code, {
+						lang: lang,
+						theme: theme,
+						transformers: [
+							{
+								name: 'color-replace',
+								tokens(tokens) {
+									for (const line of tokens) {
+										for (const token of line) {
+											if (token.color === '#51597D') token.color = '#CCAAAA';
+										}
+									}
+								}
+							}
+						]
+					});
 					return `{@html \`${html}\`}`;
 				}
 			},
