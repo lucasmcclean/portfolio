@@ -27,7 +27,7 @@
 <Navbar />
 
 <main id="main-content" class="w-full space-y-4">
-	<article class="article">
+	<article class="article mt-8">
 		<Content />
 	</article>
 
