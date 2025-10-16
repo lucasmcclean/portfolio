@@ -4,12 +4,14 @@
 
 	const {
 		children,
-		external = false,
+		href = '',
+		external,
 		target,
 		rel,
 		class: className = '',
 		...rest
 	}: HTMLAnchorAttributes & {
+		href?: string;
 		external?: boolean;
 		target?: string;
 		rel?: string;
@@ -17,21 +19,26 @@
 		children: () => unknown;
 	} = $props();
 
-	const computedTarget = external ? '_blank' : target;
-	const computedRel = external ? (rel ?? 'noopener noreferrer') : rel;
+	const isExternal = external ?? /^https?:\/\//.test(href);
+	const isHeadingLink = href?.startsWith('#');
+
+	const computedTarget = isExternal ? '_blank' : target;
+	const computedRel = isExternal ? (rel ?? 'noopener noreferrer') : rel;
 </script>
 
 <a
 	{...rest}
+	{href}
 	target={computedTarget}
 	rel={computedRel}
-	class={`relative inline items-center gap-1 transition-colors
-          after:absolute after:bottom-[0px] after:left-0 after:h-[2px] after:w-0
-          after:bg-current after:transition-all
-          hover:after:w-full focus-visible:after:w-full ${className}`}
+	class={`relative inline-flex items-center transition-colors
+		${!isHeadingLink ? 'after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full' : ''}
+		${className}`}
 >
 	{@render children()}
-	{#if external}
-		<LinkArrow />
+	{#if isExternal}
+		<span class="ml-1" aria-hidden="true">
+			<LinkArrow />
+		</span>
 	{/if}
 </a>

@@ -18,6 +18,7 @@ image:
   src: ''
   alt: ''
 published: true
+layout: article
 ---
 
 This article is merely meant as a brief introduction that I hope will encourage

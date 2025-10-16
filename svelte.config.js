@@ -61,7 +61,7 @@ const config = {
 				]
 			],
 			layout: {
-				article: 'src/lib/components/internal/ArticleLayout.svelte'
+				article: './src/lib/components/internal/ArticleLayout.svelte'
 			}
 		})
 	],
