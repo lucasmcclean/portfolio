@@ -7,6 +7,7 @@ const ArticleMetaSchema = z.object({
 	description: z.string(),
 	slug: z.string(),
 	authors: z.array(z.string()),
+	reviewers: z.array(z.string()),
 	date: z.string(),
 	updated: z.string().optional(),
 	tags: z.array(z.string()),
