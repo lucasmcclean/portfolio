@@ -102,7 +102,6 @@ func main() {
         }
         x++
     }
-
 }
 ```
 
@@ -151,7 +150,6 @@ func (e *Example) MakeCool() {
     e.isCool = true
 }
 
-
 // Go doesn't require constructors, but a common convention
 // is to use \`NewType\`
 func NewExample(name string) *Example {
@@ -174,7 +172,6 @@ func main() {
     ex.MakeCool() // Modify through pointer receiver
     ex.PrintInfo() // Outputs: 42 true
 }
-
 ```
 
 Go automatically handles pointer/value method calls; so you can call both
