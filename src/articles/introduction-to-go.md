@@ -67,42 +67,42 @@ import "fmt"
 // In Go, types come *after* the variable or function name
 var test int
 
-// Capitalized identifiers (functions, variables, types, etc.)
-// are *exported* (visible outside of the package)
+// Capitalized identifiers (functions, variables, types,
+// etc.) are *exported* (visible outside of the package)
 func Sum(x int, y int) int {
-    return x + y
+	return x + y
 }
 
 func main() {
-    // \`range\` can be used to iterate (only as of Go 1.22+)
-    for i := range 5 {
-        // Using formatted output
-        fmt.Printf("%d ", Sum(i, i - 1))
-    }
+	// \`range\` can be used to iterate (only as of Go 1.22+)
+	for i := range 5 {
+		// Using formatted output
+		fmt.Printf("%d ", Sum(i, i-1))
+	}
 
-    // Traditional loop syntax also works:
-    for i := 0; i < 5; i++ {
-        fmt.Printf("%d ", Sum(i, i - 1))
-    }
+	// Traditional loop syntax also works:
+	for i := 0; i < 5; i++ {
+		fmt.Printf("%d ", Sum(i, i-1))
+	}
 
-    // Explicit type declaration
-    var a bool = true
-    // Short variable declaration which infers the type
-    b := false
+	// Explicit type declaration
+	var a bool = true
+	// Short variable declaration which infers the type
+	b := false
 
-    // No parentheses around conditions
-    if a || b {
-        fmt.Println("a or b")
-    }
+	// No parentheses around conditions
+	if a || b {
+		fmt.Println("a or b")
+	}
 
-    x := 0
-    // Infinite loop
-    for {
-        if x > 10 {
-            break
-        }
-        x++
-    }
+	x := 0
+	// Infinite loop
+	for {
+		if x > 10 {
+			break
+		}
+		x++
+	}
 }
 ```
 
@@ -127,51 +127,51 @@ package main
 import "fmt"
 
 type Example struct {
-    name string         // unexported (private)
-    isCool bool
-    FavoriteNumber int  // exported (public)
-    SomeArray []int
+	name           string // unexported (private)
+	isCool         bool
+	FavoriteNumber int // exported (public)
+	SomeArray      []int
 }
 
 // Method with value receiver which receives a *copy* of
 // \`Example\`
 func (e Example) PrintName() {
-    // unexported \`name\` still available inside the method
-    fmt.Println(e.name)
+	// unexported \`name\` still available inside the method
+	fmt.Println(e.name)
 }
 
 func (e Example) PrintInfo() {
-    fmt.Printf("%d %t\n", e.FavoriteNumber, e.isCool)
+	fmt.Printf("%d %t\\n", e.FavoriteNumber, e.isCool)
 }
 
 // Method with pointer receiver which allows modification of
 // the original
 func (e *Example) MakeCool() {
-    e.FavoriteNumber = 42
-    e.isCool = true
+	e.FavoriteNumber = 42
+	e.isCool = true
 }
 
 // Go doesn't require constructors, but a common convention
 // is to use \`NewType\`
 func NewExample(name string) *Example {
-    return &Example{
-        name:       name,
-        isCool:     false,
-        FavoriteNumber: 67,
-        // Because \`SomeArray\` is omitted, it will default
-        // to \`nil\`
-    }
+	return &Example{
+		name:           name,
+		isCool:         false,
+		FavoriteNumber: 67,
+		// Because \`SomeArray\` is omitted, it will default
+		// to \`nil\`
+	}
 }
 
 // The main function runs when a package is executed
 func main() {
-    ex := NewExample("Wyatt")
+	ex := NewExample("Wyatt")
 
-    ex.PrintName() // Outputs: Wyatt
-    ex.PrintInfo() // Outputs: 67 false
+	ex.PrintName() // Outputs: Wyatt
+	ex.PrintInfo() // Outputs: 67 false
 
-    ex.MakeCool() // Modify through pointer receiver
-    ex.PrintInfo() // Outputs: 42 true
+	ex.MakeCool()  // Modify through pointer receiver
+	ex.PrintInfo() // Outputs: 42 true
 }
 ```
 
@@ -192,26 +192,27 @@ handling to be highly indicative of its general principles. Go's approach is
 package main
 
 import (
-    "errors"
-    "fmt"
+	"errors"
+	"fmt"
 )
 
 // Go supports multiple return values
 func canFail(x int) (int, error) {
-    if x <= 5 {
-        return 0, errors.New("x should be greater than 5")
-    } else {
-        return x, nil
-    }
+	if x <= 5 {
+		return 0, errors.New("x should be greater than 5")
+	} else {
+		return x, nil
+	}
 }
 
 func main() {
-    value, err := canFail(4)
-    if err != nil { // You'll see this check quite often in Go code
-        fmt.Printf("Uh oh: %v\n", err)
-        return
-    }
-    fmt.Printf("Success: %d was big enough!\n", value)
+	value, err := canFail(4)
+	// You'll see this check quite often in Go code
+	if err != nil {
+		fmt.Printf("Uh oh: %v\\n", err)
+		return
+	}
+	fmt.Printf("Success: %d was big enough!\\n", value)
 }
 ```
 
@@ -281,36 +282,36 @@ language. The primary tool for concurrency in Go is the **goroutine**.
 package main
 
 import (
-    "fmt"
-    "sync"
-    "time"
+	"fmt"
+	"sync"
+	"time"
 )
 
 func DoSomething(x int, wg *sync.WaitGroup) {
-    // \`defer\` performs the action at the end of the function
-    defer wg.Done()
+	// \`defer\` performs the action at the end of the function
+	defer wg.Done()
 	time.Sleep(time.Duration(x) * time.Second)
-	fmt.Printf("Waited for %d seconds\n", x)
+	fmt.Printf("Waited for %d seconds\\n", x)
 }
 
 func main() {
-    var wg sync.WaitGroup
+	var wg sync.WaitGroup
 
-    for i := range 4 {
-        wg.Add(1)
-        // Simply put \`go\` in front of a function to run it
-        // as a goroutine
-        go DoSomething(i, &wg)
-    }
+	for i := range 4 {
+		wg.Add(1)
+		// Simply put \`go\` in front of a function to run
+		// it as a goroutine
+		go DoSomething(i, &wg)
+	}
 
-    // Wait for all goroutines to finish
-    wg.Wait()
+	// Wait for all goroutines to finish
+	wg.Wait()
 
-    // Both output:
-    // Waited for 0 seconds
-    // Waited for 1 seconds
-    // Waited for 2 seconds
-    // Waited for 3 seconds
+	// Both output:
+	// Waited for 0 seconds
+	// Waited for 1 seconds
+	// Waited for 2 seconds
+	// Waited for 3 seconds
 }
 ```
 
@@ -321,55 +322,61 @@ communicating between goroutines, and they come with some of their own syntax.
 package main
 
 import (
-    "fmt"
-    "time"
+	"fmt"
+	"time"
 )
 
 func DoWork(id string, delay int, ch chan string) {
-    time.Sleep(time.Duration(delay) * time.Second)
-    // Put this message into the provided channel
-    ch <- fmt.Sprintf("%s finished after %d seconds", id, delay)
+	time.Sleep(time.Duration(delay) * time.Second)
+	// Put this message into the provided channel
+	ch <- fmt.Sprintf(
+		"%s finished after %d seconds",
+		id,
+		delay,
+	)
 }
 
 func main() {
-    // \`make\` is used to create channels
-    ch1 := make(chan string)
-    ch2 := make(chan string)
+	// \`make\` is used to create channels
+	ch1 := make(chan string)
+	ch2 := make(chan string)
 
-    // Goroutine 1 will finish first and 2 will finish around
-    // three seconds after
-    go DoWork("Goroutine 1", 2, ch1)
-    go DoWork("Goroutine 2", 5, ch2)
+	// Goroutine 1 will finish first and 2 will finish around
+	// three seconds after
+	go DoWork("Goroutine 1", 2, ch1)
+	go DoWork("Goroutine 2", 5, ch2)
 
-    for range 2 {
-        // \`select\` matches on whichever channel is ready
-        select {
-        // \`<-\` used to receive value from channel
-        case msg1 := <-ch1:
-            fmt.Println(msg1)
-        case msg2 := <-ch2:
-            fmt.Println(msg2)
-        }
-    }
+	for range 2 {
+		// \`select\` matches on whichever channel is ready
+		select {
+		// \`<-\` used to receive value from channel
+		case msg1 := <-ch1:
+			fmt.Println(msg1)
+		case msg2 := <-ch2:
+			fmt.Println(msg2)
+		}
+	}
 
-    // Outputs:
-    // Goroutine 1 finished after 2 seconds
-    // Goroutine 2 finished after 5 seconds
+	// Outputs:
+	// Goroutine 1 finished after 2 seconds
+	// Goroutine 2 finished after 5 seconds
 
-    // Capacity is specified as last argument to \`make\`
-    buffered := make(chan int, 2)
-    buffered <- 10
-    buffered <- 20
-    close(buffered) // closing signals no more values will be sent
+	// Capacity is specified as last argument to \`make\`
+	buffered := make(chan int, 2)
+	buffered <- 10
+	buffered <- 20
+	// closing signals no more values will be sent
+	close(buffered)
 
-    // 'range' can be used to receive values until the channel closes
-    for val := range buffered {
-        fmt.Printf("Buffered value: %d\n", val)
-    }
+	// 'range' can be used to receive values until the
+	// channel closes
+	for val := range buffered {
+		fmt.Printf("Buffered value: %d\\n", val)
+	}
 
-    // Outptuts:
-    // Buffered value: 10
-    // Buffered value: 20
+	// Outptuts:
+	// Buffered value: 10
+	// Buffered value: 20
 }
 ```
 
