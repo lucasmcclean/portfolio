@@ -4,7 +4,8 @@ description: A concise intro to Go, covering its design, syntax, concurrency mod
 slug: introduction-to-go
 authors:
   - Lucas McClean
-reviewers: []
+reviewers:
+  - Lucas Velasco
 date: 2025-10-15
 updated: 2025-10-15
 tags:
