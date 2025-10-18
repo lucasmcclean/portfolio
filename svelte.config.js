@@ -5,6 +5,8 @@ import { createHighlighter } from 'shiki';
 import staticAdapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
+import { resolve } from 'path';
+
 const { default: theme } = await import('@shikijs/themes/tokyo-night');
 const highlighter = await createHighlighter({
 	theme: theme,
@@ -61,7 +63,7 @@ const config = {
 				]
 			],
 			layout: {
-				article: './src/lib/components/internal/ArticleLayout.svelte'
+				article: resolve('./src/lib/components/internal/ArticleLayout.svelte')
 			}
 		})
 	],
