@@ -40,6 +40,10 @@
 		{#if article.authors.length}
 			· by {article.authors.join(', ')}
 		{/if}
+		{#if article.reviewers.length}
+			<br />
+			reviewed by {article.reviewers.join(', ')}
+		{/if}
 	</Note>
 </main>
 
