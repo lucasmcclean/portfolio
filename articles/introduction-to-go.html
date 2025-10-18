@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="../favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+		<link rel="shortcut icon" href="../favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="McClean" />
+		<link rel="manifest" href="../site.webmanifest" />
+
+		<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
+		<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<link href="../_app/immutable/assets/0.B0jMtj2n.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/5.DVR1zxJM.css" rel="stylesheet"><!--[--><meta name="description" content="A concise intro to Go, covering its design, syntax, concurrency model, standard library, and ecosystem."/> <link rel="canonical" href="https://mcclean.dev/articles/introduction-to-go"/> <meta property="og:type" content="article"/> <meta property="og:title" content="Introduction to Go"/> <meta property="og:description" content="A concise intro to Go, covering its design, syntax, concurrency model, standard library, and ecosystem."/> <meta property="og:url" content="https://mcclean.dev/articles/introduction-to-go"/> <meta property="og:image" content="https://mcclean.dev/"/> <meta property="og:image:alt" content=""/> <meta property="og:site_name" content="Lucas McClean"/> <meta name="twitter:card" content="summary_large_image"/> <meta name="twitter:title" content="Introduction to Go"/> <meta name="twitter:description" content="A concise intro to Go, covering its design, syntax, concurrency model, standard library, and ecosystem."/> <meta name="twitter:image" content="https://mcclean.dev/"/> <!---->
+    <meta property="article:published_time" content="2025-10-15T00:00:00.000Z" />
+    <meta property="article:modified_time" content="2025-10-15T00:00:00.000Z" />
+    <meta property="article:section" content="Technology" />
+    <meta property="article:author" content="Lucas McClean" />
+    <meta property="article:tag" content="go" />
+<meta property="article:tag" content="golang" />
+<meta property="article:tag" content="beginner" />
+<meta property="article:tag" content="programming" />
+<meta property="article:tag" content="concurrency" />
+  <!----> <!----><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Introduction to Go",
+  "description": "A concise intro to Go, covering its design, syntax, concurrency model, standard library, and ecosystem.",
+  "url": "https://mcclean.dev/articles/introduction-to-go",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Lucas McClean"
+    }
+  ],
+  "image": "https://mcclean.dev/",
+  "datePublished": "2025-10-15T00:00:00.000Z",
+  "dateModified": "2025-10-15T00:00:00.000Z",
+  "keywords": "go, golang, beginner, programming, concurrency",
+  "mainEntityOfPage": "https://mcclean.dev/articles/introduction-to-go"
+}</script><!----><!--]--><title>Introduction to Go</title>
+		<style>
+			@font-face {
+				font-family: 'Exo 2';
+				src:
+					url('/fonts/exo2/exo2-var.woff2') format('woff2'),
+					url('/fonts/exo2/exo2-var.woff') format('woff');
+				font-weight: 100 900;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: 'Exo 2';
+				src:
+					url('/fonts/exo2/exo2-italic-var.woff2') format('woff2'),
+					url('/fonts/exo2/exo2-italic-var.woff') format('woff');
+				font-weight: 100 900;
+				font-style: italic;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: 'Roboto';
+				src:
+					url('/fonts/roboto/roboto-var.woff2') format('woff2'),
+					url('/fonts/roboto/roboto-var.woff') format('woff');
+				font-weight: 100 900;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: 'Roboto';
+				src:
+					url('/fonts/roboto/roboto-italic-var.woff2') format('woff2'),
+					url('/fonts/roboto/roboto-italic-var.woff') format('woff');
+				font-weight: 100 900;
+				font-style: italic;
+				font-display: swap;
+			}
+		</style>
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents"><!--[--><!--[--><!----><div class="xs:text-lg mx-auto flex max-w-3xl flex-col items-center px-8"><a href="#main-content" class="sr-only focus:not-sr-only">Skip to main content</a> <!----><!----> <header class="w-fit self-start pt-16 pb-0"><h1 class="xs:text-6xl text-4xl font-semibold tracking-tight sm:text-7xl">Introduction to Go</h1> <!--[!--><!--]--></header><!----> <nav class="flex w-full justify-start py-4 text-lg sm:justify-between"><ul class="hidden gap-x-4 sm:flex"><li><a href="/" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->//<!----> <!--[!--><!--]--></a><!----></li></ul> <ul class="flex gap-x-4"><li><a href="/" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->Home<!----> <!--[!--><!--]--></a><!----></li> <li><a href="/about" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->About<!----> <!--[!--><!--]--></a><!----></li> <li><a href="/now" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->Now<!----> <!--[!--><!--]--></a><!----></li> <li><a href="/articles" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->Articles<!----> <!--[!--><!--]--></a><!----></li></ul></nav><!----> <main id="main-content" class="w-full space-y-4"><article class="article mt-8"><p>This article is merely meant as a brief introduction that I hope will encourage
+you to further research Go and its principles. It is far from exhaustive but
+does capture the core ideas of Go and some of the features that I find most
+interesting. I will cover Go’s: <a href="#gos-design" class="relative inline-flex items-center transition-colors
+		
+		"><!---->Design<!----> <!--[!--><!--]--></a><!---->, <a href="#gos-syntax" class="relative inline-flex items-center transition-colors
+		
+		"><!---->Syntax<!----> <!--[!--><!--]--></a><!---->, <a href="#gos-ecosystem" class="relative inline-flex items-center transition-colors
+		
+		"><!---->Ecosystem<!----> <!--[!--><!--]--></a><!---->, <a href="#gos-standard-library" class="relative inline-flex items-center transition-colors
+		
+		"><!---->Standard Library<!----> <!--[!--><!--]--></a><!---->, <a href="#gos-concurrency-model" class="relative inline-flex items-center transition-colors
+		
+		"><!---->Concurrency Model<!----> <!--[!--><!--]--></a><!---->, and approach to <a href="#gos-error-handling" class="relative inline-flex items-center transition-colors
+		
+		"><!---->Error Handling<!----> <!--[!--><!--]--></a><!---->. At the end of each section I also add
+resources that I found useful when I was learning Go.</p> <p><em>The only expectation is that you are familiar with programming basics – though
+if you have less experience, I think you will still find most of the article
+digestible.</em></p> <p><em>Note: examples target Go 1.25</em></p> <h2 id="gos-design">Go’s Design<a aria-label="Link to this section" href="#gos-design" class="relative inline-flex items-center transition-colors
+		
+		"><!---->  §<!----> <!--[!--><!--]--></a><!----></h2> <p>Go is a programming language built around the core principles of <strong>simplicity</strong>, <strong>efficiency</strong>, and <strong>concurrency</strong>. Many programming languages prioritize
+expressiveness or control. But Go often makes sacrifices in these areas in
+exchange for clarity and predictable performance.</p> <p>In my experience, simplicity is the greatest indicator of an effective and
+maintainable code base. The simpler a project is – both architecturally and
+line-by-line – the easier it is for developers to work with it effectively. Go’s
+design encourages code that is more readable and maintainable, almost by
+default.</p> <p><em>Resources</em>: <a href="https://go-proverbs.github.io/" target="_blank" rel="nofollow" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->Go Proverbs<!----> <!--[--><span class="ml-1" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.29166 132.29167" class="inline w-auto h-[.7em] pe-0.5" aria-hidden="true"><g><rect width="105.83333" height="18.520832" x="26.458336" y="0" ry="11.1125" fill="currentColor"></rect><rect width="105.83333" height="18.520832" x="-105.83333" y="113.77084" ry="11.1125" transform="rotate(-90)" fill="currentColor"></rect><rect width="178.02951" height="18.520834" x="-89.014755" y="84.283913" ry="11.1125" transform="rotate(-45)" fill="currentColor"></rect></g></svg><!----></span><!--]--></a><!---->, <a href="https://go.dev/doc/effective_go" target="_blank" rel="nofollow" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->Effective Go<!----> <!--[--><span class="ml-1" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.29166 132.29167" class="inline w-auto h-[.7em] pe-0.5" aria-hidden="true"><g><rect width="105.83333" height="18.520832" x="26.458336" y="0" ry="11.1125" fill="currentColor"></rect><rect width="105.83333" height="18.520832" x="-105.83333" y="113.77084" ry="11.1125" transform="rotate(-90)" fill="currentColor"></rect><rect width="178.02951" height="18.520834" x="-89.014755" y="84.283913" ry="11.1125" transform="rotate(-45)" fill="currentColor"></rect></g></svg><!----></span><!--]--></a><!----></p> <h2 id="gos-syntax">Go’s Syntax<a aria-label="Link to this section" href="#gos-syntax" class="relative inline-flex items-center transition-colors
+		
+		"><!---->  §<!----> <!--[!--><!--]--></a><!----></h2> <p>If you’re familiar with general programming concepts, then Go shouldn’t be too
+difficult to pick up. Its syntax is relatively basic, with just a few key
+differences from other C-like languages.</p> <!----><pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">package</span><span style="color:#C0CAF5"> main</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#89DDFF"> "</span><span style="color:#C0CAF5">fmt</span><span style="color:#89DDFF">"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">// In Go, types come *after* the variable or function name</span></span>
+<span class="line"><span style="color:#BB9AF7">var</span><span style="color:#C0CAF5"> test</span><span style="color:#BB9AF7"> int</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">// Capitalized identifiers (functions, variables, types, etc.)</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">// are *exported* (visible outside of the package)</span></span>
+<span class="line"><span style="color:#BB9AF7">func</span><span style="color:#7AA2F7"> Sum</span><span style="color:#9ABDF5">(</span><span style="color:#E0AF68">x</span><span style="color:#BB9AF7"> int</span><span style="color:#89DDFF">,</span><span style="color:#E0AF68"> y</span><span style="color:#BB9AF7"> int</span><span style="color:#9ABDF5">)</span><span style="color:#BB9AF7"> int</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7">    return</span><span style="color:#C0CAF5"> x</span><span style="color:#89DDFF"> +</span><span style="color:#C0CAF5"> y</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7">func</span><span style="color:#7AA2F7"> main</span><span style="color:#9ABDF5">()</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // `range` can be used to iterate (only as of Go 1.22+)</span></span>
+<span class="line"><span style="color:#BB9AF7">    for</span><span style="color:#C0CAF5"> i</span><span style="color:#89DDFF"> :=</span><span style="color:#BB9AF7"> range</span><span style="color:#FF9E64"> 5</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">        // Using formatted output</span></span>
+<span class="line"><span style="color:#C0CAF5">        fmt</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">Printf</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">"</span><span style="color:#C0CAF5">%d</span><span style="color:#89DDFF"> "</span><span style="color:#89DDFF">,</span><span style="color:#7AA2F7"> Sum</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">i</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> i</span><span style="color:#89DDFF"> -</span><span style="color:#FF9E64"> 1</span><span style="color:#9ABDF5">))</span></span>
+<span class="line"><span style="color:#9ABDF5">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // Traditional loop syntax also works:</span></span>
+<span class="line"><span style="color:#BB9AF7">    for</span><span style="color:#C0CAF5"> i</span><span style="color:#89DDFF"> :=</span><span style="color:#FF9E64"> 0</span><span style="color:#89DDFF">;</span><span style="color:#C0CAF5"> i</span><span style="color:#BB9AF7"> &#x3C;</span><span style="color:#FF9E64"> 5</span><span style="color:#89DDFF">;</span><span style="color:#C0CAF5"> i</span><span style="color:#89DDFF">++</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">        fmt</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">Printf</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">"</span><span style="color:#C0CAF5">%d</span><span style="color:#89DDFF"> "</span><span style="color:#89DDFF">,</span><span style="color:#7AA2F7"> Sum</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">i</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> i</span><span style="color:#89DDFF"> -</span><span style="color:#FF9E64"> 1</span><span style="color:#9ABDF5">))</span></span>
+<span class="line"><span style="color:#9ABDF5">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // Explicit type declaration</span></span>
+<span class="line"><span style="color:#BB9AF7">    var</span><span style="color:#C0CAF5"> a</span><span style="color:#BB9AF7"> bool</span><span style="color:#89DDFF"> =</span><span style="color:#FF9E64"> true</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // Short variable declaration which infers the type</span></span>
+<span class="line"><span style="color:#C0CAF5">    b</span><span style="color:#89DDFF"> :=</span><span style="color:#FF9E64"> false</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // No parentheses around conditions</span></span>
+<span class="line"><span style="color:#BB9AF7">    if</span><span style="color:#C0CAF5"> a</span><span style="color:#BB9AF7"> ||</span><span style="color:#C0CAF5"> b</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">        fmt</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">Println</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">a or b</span><span style="color:#89DDFF">"</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#9ABDF5">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C0CAF5">    x</span><span style="color:#89DDFF"> :=</span><span style="color:#FF9E64"> 0</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // Infinite loop</span></span>
+<span class="line"><span style="color:#BB9AF7">    for</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7">        if</span><span style="color:#C0CAF5"> x</span><span style="color:#BB9AF7"> ></span><span style="color:#FF9E64"> 10</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7">            break</span></span>
+<span class="line"><span style="color:#9ABDF5">        }</span></span>
+<span class="line"><span style="color:#C0CAF5">        x</span><span style="color:#89DDFF">++</span></span>
+<span class="line"><span style="color:#9ABDF5">    }</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span></code></pre><!----> <p>The main <em>syntactic</em> differences from other languages:</p> <ul><li>No semicolons at the ends of lines</li> <li>Types <em>after</em> identifiers in declarations (<code>x int</code>)</li> <li>Export via capitalization, rather than a keyword</li> <li>No parentheses are present around conditions</li></ul> <p>Go doesn’t have classes or inheritance. Instead, it uses <strong>structs</strong> for
+grouping data and <strong>methods</strong> (i.e. functions that operate on types) for
+behaviour.</p> <p>Go’s methods look different from methods in many other mainstream languages.
+They are defined outside the struct and use a receiver to specify which type
+they operate on.</p> <!----><pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">package</span><span style="color:#C0CAF5"> main</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#89DDFF"> "</span><span style="color:#C0CAF5">fmt</span><span style="color:#89DDFF">"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7">type</span><span style="color:#C0CAF5"> Example</span><span style="color:#BB9AF7"> struct</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#7DCFFF">    name</span><span style="color:#BB9AF7"> string</span><span style="color:#CCAAAA;font-style:italic">         // unexported (private)</span></span>
+<span class="line"><span style="color:#7DCFFF">    isCool</span><span style="color:#BB9AF7"> bool</span></span>
+<span class="line"><span style="color:#7DCFFF">    FavoriteNumber</span><span style="color:#BB9AF7"> int</span><span style="color:#CCAAAA;font-style:italic">  // exported (public)</span></span>
+<span class="line"><span style="color:#7DCFFF">    SomeArray</span><span style="color:#9ABDF5"> []</span><span style="color:#BB9AF7">int</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">// Method with value receiver which receives a *copy* of</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">// `Example`</span></span>
+<span class="line"><span style="color:#BB9AF7">func</span><span style="color:#9ABDF5"> (</span><span style="color:#E0AF68">e </span><span style="color:#C0CAF5">Example</span><span style="color:#9ABDF5">)</span><span style="color:#7AA2F7"> PrintName</span><span style="color:#9ABDF5">()</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // unexported `name` still available inside the method</span></span>
+<span class="line"><span style="color:#C0CAF5">    fmt</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">Println</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">e</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">name</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7">func</span><span style="color:#9ABDF5"> (</span><span style="color:#E0AF68">e </span><span style="color:#C0CAF5">Example</span><span style="color:#9ABDF5">)</span><span style="color:#7AA2F7"> PrintInfo</span><span style="color:#9ABDF5">()</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">    fmt</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">Printf</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">"</span><span style="color:#C0CAF5">%d</span><span style="color:#C0CAF5"> %t</span><span style="color:#89DDFF">
+"</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> e</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">FavoriteNumber</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> e</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">isCool</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">// Method with pointer receiver which allows modification of</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">// the original</span></span>
+<span class="line"><span style="color:#BB9AF7">func</span><span style="color:#9ABDF5"> (</span><span style="color:#E0AF68">e </span><span style="color:#89DDFF">*</span><span style="color:#C0CAF5">Example</span><span style="color:#9ABDF5">)</span><span style="color:#7AA2F7"> MakeCool</span><span style="color:#9ABDF5">()</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">    e</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">FavoriteNumber</span><span style="color:#89DDFF"> =</span><span style="color:#FF9E64"> 42</span></span>
+<span class="line"><span style="color:#C0CAF5">    e</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">isCool</span><span style="color:#89DDFF"> =</span><span style="color:#FF9E64"> true</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">// Go doesn't require constructors, but a common convention</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">// is to use `NewType`</span></span>
+<span class="line"><span style="color:#BB9AF7">func</span><span style="color:#7AA2F7"> NewExample</span><span style="color:#9ABDF5">(</span><span style="color:#E0AF68">name</span><span style="color:#BB9AF7"> string</span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF"> *</span><span style="color:#C0CAF5">Example</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7">    return</span><span style="color:#89DDFF"> &#x26;</span><span style="color:#C0CAF5">Example</span><span style="color:#9ABDF5">{</span></span>
+<span class="line"><span style="color:#7DCFFF">        name</span><span style="color:#89DDFF">:</span><span style="color:#C0CAF5">       name</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#7DCFFF">        isCool</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64">     false</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#7DCFFF">        FavoriteNumber</span><span style="color:#89DDFF">:</span><span style="color:#FF9E64"> 67</span><span style="color:#89DDFF">,</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">        // Because `SomeArray` is omitted, it will default</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">        // to `nil`</span></span>
+<span class="line"><span style="color:#9ABDF5">    }</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">// The main function runs when a package is executed</span></span>
+<span class="line"><span style="color:#BB9AF7">func</span><span style="color:#7AA2F7"> main</span><span style="color:#9ABDF5">()</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">    ex</span><span style="color:#89DDFF"> :=</span><span style="color:#7AA2F7"> NewExample</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">Wyatt</span><span style="color:#89DDFF">"</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C0CAF5">    ex</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">PrintName</span><span style="color:#9ABDF5">()</span><span style="color:#CCAAAA;font-style:italic"> // Outputs: Wyatt</span></span>
+<span class="line"><span style="color:#C0CAF5">    ex</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">PrintInfo</span><span style="color:#9ABDF5">()</span><span style="color:#CCAAAA;font-style:italic"> // Outputs: 67 false</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#C0CAF5">    ex</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">MakeCool</span><span style="color:#9ABDF5">()</span><span style="color:#CCAAAA;font-style:italic"> // Modify through pointer receiver</span></span>
+<span class="line"><span style="color:#C0CAF5">    ex</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">PrintInfo</span><span style="color:#9ABDF5">()</span><span style="color:#CCAAAA;font-style:italic"> // Outputs: 42 true</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span></code></pre><!----> <p>Go automatically handles pointer/value method calls; so you can call both <code>ex.PrintName()</code> and <code>ex.MakeCool()</code> the same way, and Go will handle the
+reference conversion for you.</p> <p><em>Resources</em>: <a href="https://go.dev/tour/welcome/1" target="_blank" rel="nofollow" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->Tour of Go<!----> <!--[--><span class="ml-1" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.29166 132.29167" class="inline w-auto h-[.7em] pe-0.5" aria-hidden="true"><g><rect width="105.83333" height="18.520832" x="26.458336" y="0" ry="11.1125" fill="currentColor"></rect><rect width="105.83333" height="18.520832" x="-105.83333" y="113.77084" ry="11.1125" transform="rotate(-90)" fill="currentColor"></rect><rect width="178.02951" height="18.520834" x="-89.014755" y="84.283913" ry="11.1125" transform="rotate(-45)" fill="currentColor"></rect></g></svg><!----></span><!--]--></a><!---->, <a href="https://gobyexample.com/" target="_blank" rel="nofollow" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->Go by Example<!----> <!--[--><span class="ml-1" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.29166 132.29167" class="inline w-auto h-[.7em] pe-0.5" aria-hidden="true"><g><rect width="105.83333" height="18.520832" x="26.458336" y="0" ry="11.1125" fill="currentColor"></rect><rect width="105.83333" height="18.520832" x="-105.83333" y="113.77084" ry="11.1125" transform="rotate(-90)" fill="currentColor"></rect><rect width="178.02951" height="18.520834" x="-89.014755" y="84.283913" ry="11.1125" transform="rotate(-45)" fill="currentColor"></rect></g></svg><!----></span><!--]--></a><!----></p> <h2 id="gos-error-handling">Go’s Error Handling<a aria-label="Link to this section" href="#gos-error-handling" class="relative inline-flex items-center transition-colors
+		
+		"><!---->  §<!----> <!--[!--><!--]--></a><!----></h2> <p>I’ve made this its own section, as I often find a language’s approach to error
+handling to be highly indicative of its general principles. Go’s approach is
+‘errors as values.’</p> <!----><pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">package</span><span style="color:#C0CAF5"> main</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#89DDFF"> (</span></span>
+<span class="line"><span style="color:#89DDFF">    "</span><span style="color:#C0CAF5">errors</span><span style="color:#89DDFF">"</span></span>
+<span class="line"><span style="color:#89DDFF">    "</span><span style="color:#C0CAF5">fmt</span><span style="color:#89DDFF">"</span></span>
+<span class="line"><span style="color:#89DDFF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">// Go supports multiple return values</span></span>
+<span class="line"><span style="color:#BB9AF7">func</span><span style="color:#7AA2F7"> canFail</span><span style="color:#9ABDF5">(</span><span style="color:#E0AF68">x</span><span style="color:#BB9AF7"> int</span><span style="color:#9ABDF5">)</span><span style="color:#9ABDF5"> (</span><span style="color:#BB9AF7">int</span><span style="color:#89DDFF">,</span><span style="color:#BB9AF7"> error</span><span style="color:#9ABDF5">)</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7">    if</span><span style="color:#C0CAF5"> x</span><span style="color:#BB9AF7"> &#x3C;=</span><span style="color:#FF9E64"> 5</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7">        return</span><span style="color:#FF9E64"> 0</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> errors</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">New</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">x should be greater than 5</span><span style="color:#89DDFF">"</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#9ABDF5">    }</span><span style="color:#BB9AF7"> else</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7">        return</span><span style="color:#C0CAF5"> x</span><span style="color:#89DDFF">,</span><span style="color:#FF9E64"> nil</span></span>
+<span class="line"><span style="color:#9ABDF5">    }</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7">func</span><span style="color:#7AA2F7"> main</span><span style="color:#9ABDF5">()</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">    value</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> err</span><span style="color:#89DDFF"> :=</span><span style="color:#7AA2F7"> canFail</span><span style="color:#9ABDF5">(</span><span style="color:#FF9E64">4</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#BB9AF7">    if</span><span style="color:#C0CAF5"> err</span><span style="color:#BB9AF7"> !=</span><span style="color:#FF9E64"> nil</span><span style="color:#9ABDF5"> {</span><span style="color:#CCAAAA;font-style:italic"> // You'll see this check quite often in Go code</span></span>
+<span class="line"><span style="color:#C0CAF5">        fmt</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">Printf</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">Uh oh: </span><span style="color:#C0CAF5">%v</span><span style="color:#89DDFF">
+"</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> err</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#BB9AF7">        return</span></span>
+<span class="line"><span style="color:#9ABDF5">    }</span></span>
+<span class="line"><span style="color:#C0CAF5">    fmt</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">Printf</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">Success: </span><span style="color:#C0CAF5">%d</span><span style="color:#9ECE6A"> was big enough!</span><span style="color:#89DDFF">
+"</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> value</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span></code></pre><!----> <p><em>Resources</em>: <a href="https://go.dev/blog/go1.13-errors" target="_blank" rel="nofollow" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->Working with Errors<!----> <!--[--><span class="ml-1" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.29166 132.29167" class="inline w-auto h-[.7em] pe-0.5" aria-hidden="true"><g><rect width="105.83333" height="18.520832" x="26.458336" y="0" ry="11.1125" fill="currentColor"></rect><rect width="105.83333" height="18.520832" x="-105.83333" y="113.77084" ry="11.1125" transform="rotate(-90)" fill="currentColor"></rect><rect width="178.02951" height="18.520834" x="-89.014755" y="84.283913" ry="11.1125" transform="rotate(-45)" fill="currentColor"></rect></g></svg><!----></span><!--]--></a><!---->, <a href="https://go.dev/blog/error-handling-and-go" target="_blank" rel="nofollow" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->Error Handling in Go<!----> <!--[--><span class="ml-1" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.29166 132.29167" class="inline w-auto h-[.7em] pe-0.5" aria-hidden="true"><g><rect width="105.83333" height="18.520832" x="26.458336" y="0" ry="11.1125" fill="currentColor"></rect><rect width="105.83333" height="18.520832" x="-105.83333" y="113.77084" ry="11.1125" transform="rotate(-90)" fill="currentColor"></rect><rect width="178.02951" height="18.520834" x="-89.014755" y="84.283913" ry="11.1125" transform="rotate(-45)" fill="currentColor"></rect></g></svg><!----></span><!--]--></a><!----></p> <h2 id="gos-ecosystem">Go’s Ecosystem<a aria-label="Link to this section" href="#gos-ecosystem" class="relative inline-flex items-center transition-colors
+		
+		"><!---->  §<!----> <!--[!--><!--]--></a><!----></h2> <p>The pillars that Go is built on also affect the package system and community. Go
+developers tend to avoid dependencies if possible and prefer straightforward
+designs. There’s a preference for ‘obvious’ designs, and composition as opposed
+to inheritance.</p> <p>In most Go codebases, you’ll find:</p> <ul><li>Shallow directory structures</li> <li>Minimal abstraction</li> <li>Composition over inheritance</li> <li>A preference for plain interfaces and simple tooling</li></ul> <p>To start a new Go project:</p> <!----><pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#CCAAAA;font-style:italic"># First, install Go from https://go.dev/doc/install</span></span>
+<span class="line"><span style="color:#C0CAF5">mkdir</span><span style="color:#9ECE6A"> my-project</span></span>
+<span class="line"><span style="color:#0DB9D7">cd</span><span style="color:#9ECE6A"> my-project</span></span>
+<span class="line"><span style="color:#C0CAF5">go</span><span style="color:#9ECE6A"> mod</span><span style="color:#9ECE6A"> init</span><span style="color:#9ECE6A"> github.com/your-username/my-project</span></span></code></pre><!----> <p>To add a dependency:</p> <!----><pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#C0CAF5">go</span><span style="color:#9ECE6A"> get</span><span style="color:#9ECE6A"> github.com/dependency-owner/dependency-name@latest</span></span></code></pre><!----> <p>To clean up unused or redundant dependencies:</p> <!----><pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#C0CAF5">go</span><span style="color:#9ECE6A"> mod</span><span style="color:#9ECE6A"> tidy</span></span></code></pre><!----> <p>And finally, to run your project:</p> <!----><pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#C0CAF5">go</span><span style="color:#9ECE6A"> run</span><span style="color:#9ECE6A"> .</span></span></code></pre><!----> <p><code>go.mod</code> defines the module path and your direct dependencies and the hashes of
+those dependencies are stored in <code>go.sum</code>.</p> <p>Some other tools you may see:</p> <ul><li><code>gofmt</code> / <code>go fmt</code>: formatting (Go culture strongly relies on auto-formatting)</li> <li><code>go vet</code> and <code>staticcheck</code>: static analysis</li> <li><code>go test</code>: testing</li> <li><code>go install pkg@version</code>: install a binary from a module</li></ul> <p><em>Resources</em>: <a href="https://awesome-go.com/" target="_blank" rel="nofollow" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->Awesome Go<!----> <!--[--><span class="ml-1" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.29166 132.29167" class="inline w-auto h-[.7em] pe-0.5" aria-hidden="true"><g><rect width="105.83333" height="18.520832" x="26.458336" y="0" ry="11.1125" fill="currentColor"></rect><rect width="105.83333" height="18.520832" x="-105.83333" y="113.77084" ry="11.1125" transform="rotate(-90)" fill="currentColor"></rect><rect width="178.02951" height="18.520834" x="-89.014755" y="84.283913" ry="11.1125" transform="rotate(-45)" fill="currentColor"></rect></g></svg><!----></span><!--]--></a><!---->, <a href="https://go.dev/ref/mod" target="_blank" rel="nofollow" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->Go Modules Reference<!----> <!--[--><span class="ml-1" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.29166 132.29167" class="inline w-auto h-[.7em] pe-0.5" aria-hidden="true"><g><rect width="105.83333" height="18.520832" x="26.458336" y="0" ry="11.1125" fill="currentColor"></rect><rect width="105.83333" height="18.520832" x="-105.83333" y="113.77084" ry="11.1125" transform="rotate(-90)" fill="currentColor"></rect><rect width="178.02951" height="18.520834" x="-89.014755" y="84.283913" ry="11.1125" transform="rotate(-45)" fill="currentColor"></rect></g></svg><!----></span><!--]--></a><!----></p> <h2 id="gos-concurrency-model">Go’s Concurrency Model<a aria-label="Link to this section" href="#gos-concurrency-model" class="relative inline-flex items-center transition-colors
+		
+		"><!---->  §<!----> <!--[!--><!--]--></a><!----></h2> <p>In Go, concurrency is first class: it’s built right into the syntax of the
+language. The primary tool for concurrency in Go is the <strong>goroutine</strong>.</p> <!----><pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">package</span><span style="color:#C0CAF5"> main</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#89DDFF"> (</span></span>
+<span class="line"><span style="color:#89DDFF">    "</span><span style="color:#C0CAF5">fmt</span><span style="color:#89DDFF">"</span></span>
+<span class="line"><span style="color:#89DDFF">    "</span><span style="color:#C0CAF5">sync</span><span style="color:#89DDFF">"</span></span>
+<span class="line"><span style="color:#89DDFF">    "</span><span style="color:#C0CAF5">time</span><span style="color:#89DDFF">"</span></span>
+<span class="line"><span style="color:#89DDFF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7">func</span><span style="color:#7AA2F7"> DoSomething</span><span style="color:#9ABDF5">(</span><span style="color:#E0AF68">x</span><span style="color:#BB9AF7"> int</span><span style="color:#89DDFF">,</span><span style="color:#E0AF68"> wg</span><span style="color:#89DDFF"> *</span><span style="color:#C0CAF5">sync</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">WaitGroup</span><span style="color:#9ABDF5">)</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // `defer` performs the action at the end of the function</span></span>
+<span class="line"><span style="color:#BB9AF7">    defer</span><span style="color:#C0CAF5"> wg</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">Done</span><span style="color:#9ABDF5">()</span></span>
+<span class="line"><span style="color:#C0CAF5">	time</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">Sleep</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">time</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">Duration</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">x</span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF"> *</span><span style="color:#C0CAF5"> time</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">Second</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#C0CAF5">	fmt</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">Printf</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">Waited for </span><span style="color:#C0CAF5">%d</span><span style="color:#9ECE6A"> seconds</span><span style="color:#89DDFF">
+"</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> x</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7">func</span><span style="color:#7AA2F7"> main</span><span style="color:#9ABDF5">()</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#BB9AF7">    var</span><span style="color:#C0CAF5"> wg</span><span style="color:#C0CAF5"> sync</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">WaitGroup</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7">    for</span><span style="color:#C0CAF5"> i</span><span style="color:#89DDFF"> :=</span><span style="color:#BB9AF7"> range</span><span style="color:#FF9E64"> 4</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">        wg</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">Add</span><span style="color:#9ABDF5">(</span><span style="color:#FF9E64">1</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">        // Simply put `go` in front of a function to run it</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">        // as a goroutine</span></span>
+<span class="line"><span style="color:#BB9AF7">        go</span><span style="color:#7AA2F7"> DoSomething</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">i</span><span style="color:#89DDFF">,</span><span style="color:#89DDFF"> &#x26;</span><span style="color:#C0CAF5">wg</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#9ABDF5">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // Wait for all goroutines to finish</span></span>
+<span class="line"><span style="color:#C0CAF5">    wg</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">Wait</span><span style="color:#9ABDF5">()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // Both output:</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // Waited for 0 seconds</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // Waited for 1 seconds</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // Waited for 2 seconds</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // Waited for 3 seconds</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span></code></pre><!----> <p>The other core concurrency tool is the <strong>channel</strong>. Channels are used for
+communicating between goroutines, and they come with some of their own syntax.</p> <!----><pre class="shiki tokyo-night" style="background-color:#1a1b26;color:#a9b1d6" tabindex="0"><code><span class="line"><span style="color:#BB9AF7">package</span><span style="color:#C0CAF5"> main</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7DCFFF">import</span><span style="color:#89DDFF"> (</span></span>
+<span class="line"><span style="color:#89DDFF">    "</span><span style="color:#C0CAF5">fmt</span><span style="color:#89DDFF">"</span></span>
+<span class="line"><span style="color:#89DDFF">    "</span><span style="color:#C0CAF5">time</span><span style="color:#89DDFF">"</span></span>
+<span class="line"><span style="color:#89DDFF">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7">func</span><span style="color:#7AA2F7"> DoWork</span><span style="color:#9ABDF5">(</span><span style="color:#E0AF68">id</span><span style="color:#BB9AF7"> string</span><span style="color:#89DDFF">,</span><span style="color:#E0AF68"> delay</span><span style="color:#BB9AF7"> int</span><span style="color:#89DDFF">,</span><span style="color:#E0AF68"> ch</span><span style="color:#BB9AF7"> chan</span><span style="color:#BB9AF7"> string</span><span style="color:#9ABDF5">)</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">    time</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">Sleep</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">time</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">Duration</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">delay</span><span style="color:#9ABDF5">)</span><span style="color:#89DDFF"> *</span><span style="color:#C0CAF5"> time</span><span style="color:#89DDFF">.</span><span style="color:#C0CAF5">Second</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // Put this message into the provided channel</span></span>
+<span class="line"><span style="color:#C0CAF5">    ch</span><span style="color:#89DDFF"> &#x3C;-</span><span style="color:#C0CAF5"> fmt</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">Sprintf</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">"</span><span style="color:#C0CAF5">%s</span><span style="color:#9ECE6A"> finished after </span><span style="color:#C0CAF5">%d</span><span style="color:#9ECE6A"> seconds</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> id</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> delay</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7">func</span><span style="color:#7AA2F7"> main</span><span style="color:#9ABDF5">()</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // `make` is used to create channels</span></span>
+<span class="line"><span style="color:#C0CAF5">    ch1</span><span style="color:#89DDFF"> :=</span><span style="color:#7AA2F7"> make</span><span style="color:#9ABDF5">(</span><span style="color:#BB9AF7">chan</span><span style="color:#BB9AF7"> string</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#C0CAF5">    ch2</span><span style="color:#89DDFF"> :=</span><span style="color:#7AA2F7"> make</span><span style="color:#9ABDF5">(</span><span style="color:#BB9AF7">chan</span><span style="color:#BB9AF7"> string</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // Goroutine 1 will finish first and 2 will finish around</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // three seconds after</span></span>
+<span class="line"><span style="color:#BB9AF7">    go</span><span style="color:#7AA2F7"> DoWork</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">Goroutine 1</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span><span style="color:#FF9E64"> 2</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> ch1</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#BB9AF7">    go</span><span style="color:#7AA2F7"> DoWork</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">Goroutine 2</span><span style="color:#89DDFF">"</span><span style="color:#89DDFF">,</span><span style="color:#FF9E64"> 5</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> ch2</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#BB9AF7">    for</span><span style="color:#BB9AF7"> range</span><span style="color:#FF9E64"> 2</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">        // `select` matches on whichever channel is ready</span></span>
+<span class="line"><span style="color:#BB9AF7">        select</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">        // `&#x3C;-` used to receive value from channel</span></span>
+<span class="line"><span style="color:#BB9AF7">        case</span><span style="color:#C0CAF5"> msg1</span><span style="color:#89DDFF"> :=</span><span style="color:#89DDFF"> &#x3C;-</span><span style="color:#C0CAF5">ch1</span><span style="color:#89DDFF">:</span></span>
+<span class="line"><span style="color:#C0CAF5">            fmt</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">Println</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">msg1</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#BB9AF7">        case</span><span style="color:#C0CAF5"> msg2</span><span style="color:#89DDFF"> :=</span><span style="color:#89DDFF"> &#x3C;-</span><span style="color:#C0CAF5">ch2</span><span style="color:#89DDFF">:</span></span>
+<span class="line"><span style="color:#C0CAF5">            fmt</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">Println</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">msg2</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#9ABDF5">        }</span></span>
+<span class="line"><span style="color:#9ABDF5">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // Outputs:</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // Goroutine 1 finished after 2 seconds</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // Goroutine 2 finished after 5 seconds</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // Capacity is specified as last argument to `make`</span></span>
+<span class="line"><span style="color:#C0CAF5">    buffered</span><span style="color:#89DDFF"> :=</span><span style="color:#7AA2F7"> make</span><span style="color:#9ABDF5">(</span><span style="color:#BB9AF7">chan</span><span style="color:#BB9AF7"> int</span><span style="color:#89DDFF">,</span><span style="color:#FF9E64"> 2</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#C0CAF5">    buffered</span><span style="color:#89DDFF"> &#x3C;-</span><span style="color:#FF9E64"> 10</span></span>
+<span class="line"><span style="color:#C0CAF5">    buffered</span><span style="color:#89DDFF"> &#x3C;-</span><span style="color:#FF9E64"> 20</span></span>
+<span class="line"><span style="color:#7AA2F7">    close</span><span style="color:#9ABDF5">(</span><span style="color:#C0CAF5">buffered</span><span style="color:#9ABDF5">)</span><span style="color:#CCAAAA;font-style:italic"> // closing signals no more values will be sent</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // 'range' can be used to receive values until the channel closes</span></span>
+<span class="line"><span style="color:#BB9AF7">    for</span><span style="color:#C0CAF5"> val</span><span style="color:#89DDFF"> :=</span><span style="color:#BB9AF7"> range</span><span style="color:#C0CAF5"> buffered</span><span style="color:#9ABDF5"> {</span></span>
+<span class="line"><span style="color:#C0CAF5">        fmt</span><span style="color:#89DDFF">.</span><span style="color:#7AA2F7">Printf</span><span style="color:#9ABDF5">(</span><span style="color:#89DDFF">"</span><span style="color:#9ECE6A">Buffered value: </span><span style="color:#C0CAF5">%d</span><span style="color:#89DDFF">
+"</span><span style="color:#89DDFF">,</span><span style="color:#C0CAF5"> val</span><span style="color:#9ABDF5">)</span></span>
+<span class="line"><span style="color:#9ABDF5">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // Outptuts:</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // Buffered value: 10</span></span>
+<span class="line"><span style="color:#CCAAAA;font-style:italic">    // Buffered value: 20</span></span>
+<span class="line"><span style="color:#9ABDF5">}</span></span></code></pre><!----> <p><em>Resources</em>: <a href="https://go101.org/article/channel.html" target="_blank" rel="nofollow" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->Go 101<!----> <!--[--><span class="ml-1" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.29166 132.29167" class="inline w-auto h-[.7em] pe-0.5" aria-hidden="true"><g><rect width="105.83333" height="18.520832" x="26.458336" y="0" ry="11.1125" fill="currentColor"></rect><rect width="105.83333" height="18.520832" x="-105.83333" y="113.77084" ry="11.1125" transform="rotate(-90)" fill="currentColor"></rect><rect width="178.02951" height="18.520834" x="-89.014755" y="84.283913" ry="11.1125" transform="rotate(-45)" fill="currentColor"></rect></g></svg><!----></span><!--]--></a><!---->, <a href="https://www.youtube.com/watch?v=f6kdp27TYZs" target="_blank" rel="nofollow" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->Go Concurrency Patterns (video)<!----> <!--[--><span class="ml-1" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.29166 132.29167" class="inline w-auto h-[.7em] pe-0.5" aria-hidden="true"><g><rect width="105.83333" height="18.520832" x="26.458336" y="0" ry="11.1125" fill="currentColor"></rect><rect width="105.83333" height="18.520832" x="-105.83333" y="113.77084" ry="11.1125" transform="rotate(-90)" fill="currentColor"></rect><rect width="178.02951" height="18.520834" x="-89.014755" y="84.283913" ry="11.1125" transform="rotate(-45)" fill="currentColor"></rect></g></svg><!----></span><!--]--></a><!---->, <a href="https://go.dev/ref/mem" target="_blank" rel="nofollow" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->The Go Memory Model<!----> <!--[--><span class="ml-1" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.29166 132.29167" class="inline w-auto h-[.7em] pe-0.5" aria-hidden="true"><g><rect width="105.83333" height="18.520832" x="26.458336" y="0" ry="11.1125" fill="currentColor"></rect><rect width="105.83333" height="18.520832" x="-105.83333" y="113.77084" ry="11.1125" transform="rotate(-90)" fill="currentColor"></rect><rect width="178.02951" height="18.520834" x="-89.014755" y="84.283913" ry="11.1125" transform="rotate(-45)" fill="currentColor"></rect></g></svg><!----></span><!--]--></a><!----></p> <h2 id="gos-standard-library">Go’s Standard Library<a aria-label="Link to this section" href="#gos-standard-library" class="relative inline-flex items-center transition-colors
+		
+		"><!---->  §<!----> <!--[!--><!--]--></a><!----></h2> <p>Given the Go community’s general opposition to unnecessary dependencies, Go’s
+standard library is quite comprehensive – particularly in the areas of I/O and
+networking. It is very often not necessary to look outside the standard library.
+Before adding a dependency, always check <a href="https://pkg.go.dev/std" target="_blank" rel="nofollow" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->Go’s Standard Library<!----> <!--[--><span class="ml-1" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.29166 132.29167" class="inline w-auto h-[.7em] pe-0.5" aria-hidden="true"><g><rect width="105.83333" height="18.520832" x="26.458336" y="0" ry="11.1125" fill="currentColor"></rect><rect width="105.83333" height="18.520832" x="-105.83333" y="113.77084" ry="11.1125" transform="rotate(-90)" fill="currentColor"></rect><rect width="178.02951" height="18.520834" x="-89.014755" y="84.283913" ry="11.1125" transform="rotate(-45)" fill="currentColor"></rect></g></svg><!----></span><!--]--></a><!----> and see if it provides what you
+need.</p> <p>Some of the big packages:</p> <ul><li><code>net</code>: TCP, UDP, HTTP, DNS, Unix sockets, and more (including <code>net/http</code>).</li> <li><code>io</code> / <code>os</code>: file I/O, environment, <code>io.Reader</code>/<code>io.Writer</code> patterns.</li> <li><code>encoding</code>: JSON, XML, gob, base64, etc.</li> <li><code>crypto</code>: common cryptographic tools.</li> <li><code>testing</code>: unit tests, benchmarks, and examples.</li></ul> <p>Long story short: if you need it, Go often has a solid foundation in the
+standard library.</p> <h2 id="further-resources">Further Resources<a aria-label="Link to this section" href="#further-resources" class="relative inline-flex items-center transition-colors
+		
+		"><!---->  §<!----> <!--[!--><!--]--></a><!----></h2> <p>There’s still a lot I didn’t cover, and much left to explore. But I hope that
+what I <em>did</em> show impressed you enough to continue looking into it. Go is one of
+my favourite programming languages; I find the trade-offs it makes appealing,
+and I love how simple it is to pick up.</p> <p><strong><a href="https://go.dev/tour/" target="_blank" rel="nofollow" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->Tour of Go<!----> <!--[--><span class="ml-1" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.29166 132.29167" class="inline w-auto h-[.7em] pe-0.5" aria-hidden="true"><g><rect width="105.83333" height="18.520832" x="26.458336" y="0" ry="11.1125" fill="currentColor"></rect><rect width="105.83333" height="18.520832" x="-105.83333" y="113.77084" ry="11.1125" transform="rotate(-90)" fill="currentColor"></rect><rect width="178.02951" height="18.520834" x="-89.014755" y="84.283913" ry="11.1125" transform="rotate(-45)" fill="currentColor"></rect></g></svg><!----></span><!--]--></a><!----></strong> is a hands-on tour of the syntax and
+standard library of Go. It walks you through all of its critical components with
+a built-in editor.</p> <p><strong><a href="https://go.dev/doc/effective_go" target="_blank" rel="nofollow" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->Effective Go<!----> <!--[--><span class="ml-1" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.29166 132.29167" class="inline w-auto h-[.7em] pe-0.5" aria-hidden="true"><g><rect width="105.83333" height="18.520832" x="26.458336" y="0" ry="11.1125" fill="currentColor"></rect><rect width="105.83333" height="18.520832" x="-105.83333" y="113.77084" ry="11.1125" transform="rotate(-90)" fill="currentColor"></rect><rect width="178.02951" height="18.520834" x="-89.014755" y="84.283913" ry="11.1125" transform="rotate(-45)" fill="currentColor"></rect></g></svg><!----></span><!--]--></a><!----></strong> provides idioms for common
+patterns. This was probably the resource I found <strong>most useful</strong> in my journey
+learning more advanced Go.</p> <p><strong><a href="https://pkg.go.dev/std" target="_blank" rel="nofollow" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->pkg.go.dev/std<!----> <!--[--><span class="ml-1" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.29166 132.29167" class="inline w-auto h-[.7em] pe-0.5" aria-hidden="true"><g><rect width="105.83333" height="18.520832" x="26.458336" y="0" ry="11.1125" fill="currentColor"></rect><rect width="105.83333" height="18.520832" x="-105.83333" y="113.77084" ry="11.1125" transform="rotate(-90)" fill="currentColor"></rect><rect width="178.02951" height="18.520834" x="-89.014755" y="84.283913" ry="11.1125" transform="rotate(-45)" fill="currentColor"></rect></g></svg><!----></span><!--]--></a><!----></strong> is the standard library
+documentation.</p> <p><strong><a href="https://go.dev/blog/" target="_blank" rel="nofollow" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->Go Blog<!----> <!--[--><span class="ml-1" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.29166 132.29167" class="inline w-auto h-[.7em] pe-0.5" aria-hidden="true"><g><rect width="105.83333" height="18.520832" x="26.458336" y="0" ry="11.1125" fill="currentColor"></rect><rect width="105.83333" height="18.520832" x="-105.83333" y="113.77084" ry="11.1125" transform="rotate(-90)" fill="currentColor"></rect><rect width="178.02951" height="18.520834" x="-89.014755" y="84.283913" ry="11.1125" transform="rotate(-45)" fill="currentColor"></rect></g></svg><!----></span><!--]--></a><!----></strong> covers particular topics. Some topics I
+didn’t mention or only briefly mentioned, such as generics, channels,
+concurrency, and advanced error handling, are also worth exploring on the Go
+Blog.</p> <p>If you have any questions or enjoyed the article, feel free to reach out! You
+can find me on <a href="https://www.linkedin.com/in/lucasmcclean" target="_blank" rel="nofollow" class="relative inline-flex items-center transition-colors
+		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
+		"><!---->LinkedIn<!----> <!--[--><span class="ml-1" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.29166 132.29167" class="inline w-auto h-[.7em] pe-0.5" aria-hidden="true"><g><rect width="105.83333" height="18.520832" x="26.458336" y="0" ry="11.1125" fill="currentColor"></rect><rect width="105.83333" height="18.520832" x="-105.83333" y="113.77084" ry="11.1125" transform="rotate(-90)" fill="currentColor"></rect><rect width="178.02951" height="18.520834" x="-89.014755" y="84.283913" ry="11.1125" transform="rotate(-45)" fill="currentColor"></rect></g></svg><!----></span><!--]--></a><!---->.</p><!----><!----></article> <p class="xs:text-base text-end text-sm italic opacity-80"><!---->October 15, 2025 <!--[-->· by Lucas McClean<!--]--> <!--[--><br/> reviewed by Lucas Velasco<!--]--><!----></p><!----></main> <footer class="xs:text-base mt-auto w-full space-y-2 py-8 text-sm opacity-80"><div class="flex flex-wrap justify-between"><p>© 2025 Lucas McClean. All rights reserved.</p> <p class="font-display text-primary ms-auto">//</p></div></footer><!----><!----><!----></div><!----><!--]--> <!--[!--><!--]--><!--]--></div>
+	</body>
+</html>
