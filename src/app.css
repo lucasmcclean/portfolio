@@ -3,41 +3,52 @@
 @theme {
 	--breakpoint-xs: 30rem; /* 480px */
 
+	--container-site: 43rem; /* 688px */
+
 	--default-transition-duration: 0.2s;
 
-	--font-display: 'Exo 2', 'sans-serif';
-	--font-text: 'Roboto', 'sans-serif';
+	--font-display: 'Exo 2', sans-serif;
+	--font-text: 'Roboto', sans-serif;
 
-	--color-bg: #fdfdfa;
-	--color-txt: #121212;
-	--color-surface: #eeeeee;
-	--color-primary: #839362;
-	--color-secondary: #aeba8c;
-	--color-accent: #ff9b71;
+	--color-bg: var(--_bg);
+	--color-txt: var(--_txt);
+	--color-surface: var(--_surface);
+
+	--color-primary: var(--p);
+	--color-alternate: var(--a);
+	--color-secondary: var(--s);
 }
 
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+:root {
+	--site-alignment: left;
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--color-bg: #121212;
-		--color-txt: #fdfdfa;
-		--color-surface: #1d1d1d;
-	}
+	--p: #879d61;
+	--a: #5a6b31;
+	--s: #b9c8a0;
+
+	--ap: #598d84;
+	--aa: #266358;
+	--as: #9bb8b3;
+
+	--_bg: #fdfdf9;
+	--_txt: #121212;
+	--_surface: #f5f5f5;
 }
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
 [data-theme='dark'] {
-	--color-bg: #121212;
-	--color-txt: #fdfdfa;
-	--color-surface: #1d1d1d;
+	--_bg: #121212;
+	--_txt: #fdfdf9;
+	--_surface: #1d1d1d;
 }
 
-::selection {
-	background-color: var(--color-secondary);
-}
-
-[data-theme='dark'] ::selection {
-	background-color: var(--color-primary);
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme]) {
+		--_bg: #121212;
+		--_txt: #fdfdf9;
+		--_surface: #1d1d1d;
+	}
 }
 
 html {
@@ -46,13 +57,13 @@ html {
 	scroll-behavior: smooth;
 }
 
+body {
+	font-family: var(--font-text);
+}
+
 h1,
 h2 {
 	font-family: var(--font-display);
-}
-
-body {
-	font-family: var(--font-text);
 }
 
 a {
@@ -60,15 +71,12 @@ a {
 }
 
 a:hover {
-	color: var(--color-secondary);
+	color: var(--color-alternate);
 }
 
-[data-theme='dark'] a {
-	color: var(--color-secondary);
-}
-
-[data-theme='dark'] a:hover {
-	color: var(--color-primary);
+::selection {
+	background-color: var(--color-primary);
+	color: var(--color-surface);
 }
 
 :focus-visible {

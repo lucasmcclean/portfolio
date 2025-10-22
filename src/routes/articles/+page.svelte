@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Header from '$lib/components/Header.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
-	import Footer from '$lib/components/Footer.svelte';
 	import ArticleCollectionMeta from '$lib/components/ArticleCollectionMeta.svelte';
 
 	import type { ArticleMeta } from '$lib/articles';
@@ -45,5 +44,3 @@
 		</ul>
 	{/if}
 </main>
-
-<Footer />

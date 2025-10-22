@@ -3,7 +3,6 @@
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Link from '$lib/components/Link.svelte';
 	import Meta from '$lib/components/Meta.svelte';
-	import Footer from '$lib/components/Footer.svelte';
 
 	import { SITE_NAME } from '$lib/consts';
 </script>
@@ -109,5 +108,3 @@
 
 	<p class="xs:text-base text-end text-sm italic opacity-80">Last updated: September 2025</p>
 </main>
-
-<Footer />

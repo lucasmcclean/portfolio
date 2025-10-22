@@ -3,7 +3,6 @@
 	import Navbar from '$lib/components/Navbar.svelte';
 	import ArticleMeta from '$lib/components/ArticleMeta.svelte';
 	import Note from '$lib/components/Note.svelte';
-	import Footer from '$lib/components/Footer.svelte';
 
 	import '../../../styles/articles.css';
 
@@ -46,5 +45,3 @@
 		{/if}
 	</Note>
 </main>
-
-<Footer />

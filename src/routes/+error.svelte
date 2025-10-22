@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import Footer from '$lib/components/Footer.svelte';
 	import Link from '$lib/components/Link.svelte';
 </script>
 
@@ -18,6 +17,4 @@
 			Get me out of this mess
 		</Link>
 	</div>
-
-	<Footer />
 </div>

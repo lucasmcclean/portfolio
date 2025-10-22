@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Meta from '$lib/components/Meta.svelte';
 	import Link from '$lib/components/Link.svelte';
-	import Footer from '$lib/components/Footer.svelte';
 	import { SITE_DESCRIPTION, SITE_NAME } from '$lib/consts';
 	import { getAllArticles } from '$lib/articles';
 
@@ -71,8 +70,8 @@
 	</ul>
 </nav>
 
-<main id="main-content" class="xs:space-y-24 my-16 space-y-16">
-	<p class="text-justify font-light">
+<main id="main-content" class="xs:space-y-24 my-16 space-y-16 font-light">
+	<p>
 		I'm a software developer and honors CS student at UCF. I didn’t always plan to end up here. I
 		just wanted to build things, and code turned out to be a really good way to do that. My
 		development philosophy is to write code that’s as simple as possible and no simpler.
@@ -80,7 +79,7 @@
 
 	<section class="space-y-4">
 		<h3>Tools & Technologies</h3>
-		<ul class="xs:gap-x-4 flex flex-wrap gap-x-2 gap-y-2 font-light md:justify-between">
+		<ul class="xs:gap-x-4 flex flex-wrap gap-x-2 gap-y-2 md:justify-between">
 			{#each skills as skill (skill.name)}
 				<li>
 					<p>
@@ -97,10 +96,10 @@
 		<ul class="space-y-4">
 			{#each recentArticles as article (article.slug)}
 				<li class="border-primary border-s-2 ps-4">
-					<Link href={`/articles/${article.slug}`} class="text-primary text-lg">
+					<Link href={`/articles/${article.slug}`} class="text-txt text-lg font-normal">
 						{article.title}
 					</Link>
-					<p class="text-muted xs:text-base text-sm">{article.description}</p>
+					<p class="opacity-80">{article.description}</p>
 					<p class="text-sm italic opacity-70">
 						{new Date(article.date).toLocaleDateString(undefined, {
 							month: 'short',
@@ -116,7 +115,7 @@
 
 	<section class="space-y-4">
 		<h3>Get In Contact</h3>
-		<p class="text-justify font-light">
+		<p>
 			If you’d like to discuss a project or talk tech, feel free to
 			<Link href="mailto:lucas@mcclean.dev" external>email me</Link> or send me a message on <Link
 				href="https://linkedin.com/in/lucasmcclean"
@@ -129,5 +128,3 @@
 		</p>
 	</section>
 </main>
-
-<Footer />

@@ -3,7 +3,6 @@
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Link from '$lib/components/Link.svelte';
 	import Meta from '$lib/components/Meta.svelte';
-	import Footer from '$lib/components/Footer.svelte';
 
 	import { SITE_NAME } from '$lib/consts';
 </script>
@@ -172,5 +171,3 @@
 		</ol>
 	</section>
 </main>
-
-<Footer />

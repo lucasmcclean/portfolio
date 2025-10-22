@@ -2,7 +2,6 @@
 	import Header from '$lib/components/Header.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Meta from '$lib/components/Meta.svelte';
-	import Footer from '$lib/components/Footer.svelte';
 
 	import { SITE_NAME } from '$lib/consts';
 </script>
@@ -52,5 +51,3 @@
 		/>
 	</section>
 </main>
-
-<Footer />
