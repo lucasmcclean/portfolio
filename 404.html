@@ -1,6 +1,40 @@
 <!doctype html>
 <html lang="en" data-theme="dark">
 	<head>
+		<script>
+			try {
+				const saved = localStorage.getItem('site-settings');
+
+				let mode = 'light';
+				let align = 'left';
+				let primary = 'var(--p)';
+				let alternate = 'var(--a)';
+				let secondary = 'var(--s)';
+
+				if (saved) {
+					const data = JSON.parse(saved);
+					mode = data.mode ?? mode;
+					align = data.align ?? align;
+					primary = data.primary ?? primary;
+					alternate = data.alternate ?? alternate;
+					secondary = data.secondary ?? secondary;
+				} else {
+					const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+					mode = prefersDark ? 'dark' : 'light';
+				}
+
+				const root = document.documentElement;
+
+				root.setAttribute('data-theme', mode);
+				root.style.setProperty('--site-alignment', align);
+				root.style.setProperty('--color-primary', primary);
+				root.style.setProperty('--color-alternate', alternate);
+				root.style.setProperty('--color-secondary', secondary);
+			} catch (e) {
+				console.warn('Failed to preload theme', e);
+			}
+		</script>
+
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -12,16 +46,16 @@
 		<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
 		<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
 		
-		<link rel="modulepreload" href="/_app/immutable/entry/start.D3TTRCwp.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/CG9_1OQW.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/C9WeAB4j.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/D01uuYru.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/B1vWR_rZ.js">
+		<link rel="modulepreload" href="/_app/immutable/entry/start.C0cUxQsO.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/DAagRXNv.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/BhyDxz2u.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/D9Q_RrGI.js">
 		<link rel="modulepreload" href="/_app/immutable/chunks/D0iwhpLH.js">
-		<link rel="modulepreload" href="/_app/immutable/entry/app.DZkkW05M.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/Bzak7iHL.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/DwibsWFW.js">
+		<link rel="modulepreload" href="/_app/immutable/entry/app.C79VF8lp.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/DBIPah4s.js">
+
 		<style>
 			@font-face {
 				font-family: 'Exo 2';
@@ -68,15 +102,15 @@
 		<div style="display: contents">
 			<script>
 				{
-					__sveltekit_9cugl8 = {
+					__sveltekit_189y88u = {
 						base: ""
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("/_app/immutable/entry/start.D3TTRCwp.js"),
-						import("/_app/immutable/entry/app.DZkkW05M.js")
+						import("/_app/immutable/entry/start.C0cUxQsO.js"),
+						import("/_app/immutable/entry/app.C79VF8lp.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element);
 					});
