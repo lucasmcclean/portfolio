@@ -2,36 +2,22 @@
 <html lang="en" data-theme="dark">
 	<head>
 		<script>
+			// Preload the theme to precent FOUC
 			try {
-				const saved = localStorage.getItem('site-settings');
-
-				let mode = 'light';
-				let align = 'left';
-				let primary = 'var(--p)';
-				let alternate = 'var(--a)';
-				let secondary = 'var(--s)';
-
-				if (saved) {
-					const data = JSON.parse(saved);
-					mode = data.mode ?? mode;
-					align = data.align ?? align;
-					primary = data.primary ?? primary;
-					alternate = data.alternate ?? alternate;
-					secondary = data.secondary ?? secondary;
-				} else {
-					const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-					mode = prefersDark ? 'dark' : 'light';
-				}
-
 				const root = document.documentElement;
+				const saved = JSON.parse(localStorage.getItem('site-options') ?? '{}');
 
-				root.setAttribute('data-theme', mode);
-				root.style.setProperty('--site-alignment', align);
-				root.style.setProperty('--color-primary', primary);
-				root.style.setProperty('--color-alternate', alternate);
-				root.style.setProperty('--color-secondary', secondary);
-			} catch (e) {
-				console.warn('Failed to preload theme', e);
+				const theme =
+					saved.theme ??
+					(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+				const palette = saved.palette ?? 'default';
+				const align = saved.align ?? 'left';
+
+				root.setAttribute('data-theme', theme);
+				root.setAttribute('data-palette', palette);
+				root.setAttribute('data-align', align);
+			} catch (err) {
+				console.warn('Failed to apply saved options', err);
 			}
 		</script>
 

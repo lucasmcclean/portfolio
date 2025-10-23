@@ -20,8 +20,6 @@
 }
 
 :root {
-	--site-alignment: left;
-
 	--p: #879d61;
 	--a: #5a6b31;
 	--s: #b9c8a0;
@@ -49,6 +47,26 @@
 		--_txt: #fdfdf9;
 		--_surface: #1d1d1d;
 	}
+}
+
+[data-align='left'] body {
+	text-align: left;
+}
+
+[data-align='justify'] body {
+	text-align: justify;
+}
+
+[data-palette='default'] {
+	--color-primary: var(--p);
+	--color-alternate: var(--a);
+	--color-secondary: var(--s);
+}
+
+[data-palette='alt'] {
+	--color-primary: var(--ap);
+	--color-alternate: var(--aa);
+	--color-secondary: var(--as);
 }
 
 html {

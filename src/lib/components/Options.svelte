@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import {
 		ChevronUp,
 		ChevronDown,
@@ -10,66 +11,68 @@
 		Sun,
 		Moon
 	} from '@lucide/svelte';
-	import { onMount } from 'svelte';
 	import { fade, fly } from 'svelte/transition';
 
-	let mode = $state('dark');
-	let align = $state('left');
-	let primary = $state('var(--p)');
-	let alternate = $state('var(--a)');
-	let secondary = $state('var(--s)');
-	let open = $state(false);
-	let isLarge = $state(false);
+	let menuOpen = false;
+	let isPageLarge = false;
 
-	function saveState() {
-		localStorage.setItem(
-			'site-settings',
-			JSON.stringify({ mode, align, primary, alternate, secondary })
-		);
+	type Theme = 'light' | 'dark';
+	type Palette = 'default' | 'alt';
+	type Align = 'left' | 'justify';
+
+	let theme: Theme = 'light';
+	let palette: Palette = 'default';
+	let align: Align = 'left';
+
+	function saveOptions() {
+		localStorage.setItem('site-options', JSON.stringify({ theme, palette, align }));
+	}
+
+	function applyOptions() {
+		const root = document.documentElement;
+		root.setAttribute('data-theme', theme);
+		root.setAttribute('data-palette', palette);
+		root.setAttribute('data-align', align);
 	}
 
 	function toggleMenu() {
-		open = !open;
+		menuOpen = !menuOpen;
+		localStorage.setItem('site-state', JSON.stringify({ menuOpen }));
 	}
 
-	function toggleDarkMode() {
-		mode = mode === 'dark' ? 'light' : 'dark';
-		document.documentElement.setAttribute('data-theme', mode);
-		saveState();
+	function toggleTheme() {
+		theme = theme === 'dark' ? 'light' : 'dark';
+		applyOptions();
+		saveOptions();
 	}
 
 	function toggleAlign() {
 		align = align === 'left' ? 'justify' : 'left';
-		document.documentElement.style.setProperty('--site-alignment', align);
-		saveState();
+		applyOptions();
+		saveOptions();
 	}
 
 	function cyclePalette() {
-		primary = primary === 'var(--p)' ? 'var(--ap)' : 'var(--p)';
-		alternate = alternate === 'var(--a)' ? 'var(--aa)' : 'var(--a)';
-		secondary = secondary === 'var(--s)' ? 'var(--as)' : 'var(--s)';
-
-		document.documentElement.style.setProperty('--color-primary', primary);
-		document.documentElement.style.setProperty('--color-alternate', alternate);
-		document.documentElement.style.setProperty('--color-secondary', secondary);
-		saveState();
+		palette = palette === 'default' ? 'alt' : 'default';
+		applyOptions();
+		saveOptions();
 	}
 
 	onMount(() => {
-		mode = document.documentElement.getAttribute('data-theme') ?? 'light';
-		align = getComputedStyle(document.documentElement).getPropertyValue('--site-alignment').trim();
-		primary = getComputedStyle(document.documentElement).getPropertyValue('--color-primary').trim();
-		alternate = getComputedStyle(document.documentElement)
-			.getPropertyValue('--color-alternate')
-			.trim();
-		secondary = getComputedStyle(document.documentElement)
-			.getPropertyValue('--color-secondary')
-			.trim();
+		const options = JSON.parse(localStorage.getItem('site-options') ?? '{}');
+		theme =
+			options.theme ??
+			(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+		palette = options.palette ?? 'default';
+		align = options.align ?? 'left';
+		applyOptions();
+
+		const state = JSON.parse(localStorage.getItem('site-state') ?? '{}');
+		menuOpen = state.menuOpen;
 
 		const mql = window.matchMedia('(min-width: 1024px)');
-		isLarge = mql.matches;
-
-		const listener = (e: MediaQueryListEvent) => (isLarge = e.matches);
+		isPageLarge = mql.matches;
+		const listener = (e: MediaQueryListEvent) => (isPageLarge = e.matches);
 		mql.addEventListener('change', listener);
 		return () => mql.removeEventListener('change', listener);
 	});
@@ -80,10 +83,10 @@
 >
 	<button
 		onclick={toggleMenu}
-		class="hover:text-secondary bg-bg xs:p-1 flex h-8 w-8 items-center justify-center rounded-full p-2 lg:order-last lg:bg-none"
+		class="hover:text-secondary bg-bg xs:p-1 flex h-8 w-8 items-center justify-center rounded-full lg:order-last lg:bg-none"
 		title="Menu"
 	>
-		{#if open}
+		{#if menuOpen}
 			<ChevronDown class="hidden lg:block" />
 			<ChevronLeft class="block lg:hidden" />
 		{:else}
@@ -92,22 +95,22 @@
 		{/if}
 	</button>
 
-	{#if open}
+	{#if menuOpen}
 		<div class="flex gap-3 lg:flex-col" transition:fade={{ duration: 150 }}>
 			<button
 				onclick={cyclePalette}
-				class="hover:text-secondary bg-bg xs:p-1 flex h-8 w-8 items-center justify-center rounded-full p-2 lg:bg-none"
+				class="hover:text-secondary bg-bg xs:p-1 flex h-8 w-8 items-center justify-center rounded-full lg:bg-none"
 				title="Cycle Palette"
-				transition:fly={{ x: isLarge ? 0 : -8, y: isLarge ? 8 : 0, duration: 200 }}
+				transition:fly={{ x: isPageLarge ? 0 : -8, y: isPageLarge ? 8 : 0, duration: 200 }}
 			>
 				<Palette />
 			</button>
 
 			<button
 				onclick={toggleAlign}
-				class="hover:text-secondary bg-bg xs:p-1 flex h-8 w-8 items-center justify-center rounded-full p-2 lg:bg-none"
+				class="hover:text-secondary bg-bg xs:p-1 flex h-8 w-8 items-center justify-center rounded-full lg:bg-none"
 				title="Toggle Alignment"
-				transition:fly={{ x: isLarge ? 0 : -8, y: isLarge ? 8 : 0, duration: 200 }}
+				transition:fly={{ x: isPageLarge ? 0 : -8, y: isPageLarge ? 8 : 0, duration: 200 }}
 			>
 				{#if align === 'left'}
 					<TextAlignJustify />
@@ -117,12 +120,12 @@
 			</button>
 
 			<button
-				onclick={toggleDarkMode}
-				class="hover:text-secondary bg-bg xs:p-1 flex h-8 w-8 items-center justify-center rounded-full p-2 lg:bg-none"
-				title="Toggle Dark Mode"
-				transition:fly={{ x: isLarge ? 0 : -8, y: isLarge ? 8 : 0, duration: 200 }}
+				onclick={toggleTheme}
+				class="hover:text-secondary bg-bg xs:p-1 flex h-8 w-8 items-center justify-center rounded-full lg:bg-none"
+				title="Toggle Theme"
+				transition:fly={{ x: isPageLarge ? 0 : -8, y: isPageLarge ? 8 : 0, duration: 200 }}
 			>
-				{#if mode === 'dark'}
+				{#if theme === 'dark'}
 					<Sun />
 				{:else}
 					<Moon />
