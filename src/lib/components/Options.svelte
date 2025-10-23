@@ -79,7 +79,7 @@
 </script>
 
 <div
-	class="fixed bottom-3 left-6 z-50 flex gap-3 lg:bottom-6 lg:left-[calc(50%+var(--container-site)/2+0.25rem)] lg:flex-col"
+	class="fixed bottom-6 left-6 z-50 flex gap-3 lg:bottom-6 lg:left-[calc(50%+var(--container-site)/2+0.25rem)] lg:flex-col"
 >
 	<button
 		onclick={toggleMenu}
