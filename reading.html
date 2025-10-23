@@ -2,36 +2,22 @@
 <html lang="en" data-theme="dark">
 	<head>
 		<script>
+			// Preload the theme to precent FOUC
 			try {
-				const saved = localStorage.getItem('site-settings');
-
-				let mode = 'light';
-				let align = 'left';
-				let primary = 'var(--p)';
-				let alternate = 'var(--a)';
-				let secondary = 'var(--s)';
-
-				if (saved) {
-					const data = JSON.parse(saved);
-					mode = data.mode ?? mode;
-					align = data.align ?? align;
-					primary = data.primary ?? primary;
-					alternate = data.alternate ?? alternate;
-					secondary = data.secondary ?? secondary;
-				} else {
-					const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-					mode = prefersDark ? 'dark' : 'light';
-				}
-
 				const root = document.documentElement;
+				const saved = JSON.parse(localStorage.getItem('site-options') ?? '{}');
 
-				root.setAttribute('data-theme', mode);
-				root.style.setProperty('--site-alignment', align);
-				root.style.setProperty('--color-primary', primary);
-				root.style.setProperty('--color-alternate', alternate);
-				root.style.setProperty('--color-secondary', secondary);
-			} catch (e) {
-				console.warn('Failed to preload theme', e);
+				const theme =
+					saved.theme ??
+					(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+				const palette = saved.palette ?? 'default';
+				const align = saved.align ?? 'left';
+
+				root.setAttribute('data-theme', theme);
+				root.setAttribute('data-palette', palette);
+				root.setAttribute('data-align', align);
+			} catch (err) {
+				console.warn('Failed to apply saved options', err);
 			}
 		</script>
 
@@ -48,16 +34,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 		
-		<link href="./_app/immutable/assets/0.DLqhU5r_.css" rel="stylesheet">
-		<link rel="modulepreload" href="./_app/immutable/entry/start.C0cUxQsO.js">
-		<link rel="modulepreload" href="./_app/immutable/chunks/DAagRXNv.js">
+		<link href="./_app/immutable/assets/0.DZ2gKtc_.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.TCTqogu8.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/9gF5jPAc.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/BhyDxz2u.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/D9Q_RrGI.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/D0iwhpLH.js">
-		<link rel="modulepreload" href="./_app/immutable/entry/app.C79VF8lp.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.Bjj2tvcT.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/DBIPah4s.js">
-		<link rel="modulepreload" href="./_app/immutable/nodes/0.BRMjdmMM.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.BYwqtJmu.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/CjSdXuxl.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/Bn0KDxNK.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/D56Yx67U.js">
 		<link rel="modulepreload" href="./_app/immutable/nodes/9.2GREB4tb.js">
 		<link rel="modulepreload" href="./_app/immutable/chunks/D6TXwNwt.js">
@@ -124,19 +111,19 @@
 		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
 		"><!---->Now<!----> <!--[!--><!--]--></a><!----></li> <li><a href="/articles" class="relative inline-flex items-center transition-colors
 		after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full
-		"><!---->Articles<!----> <!--[!--><!--]--></a><!----></li></ul></nav><!----> <main id="main-content" class="xs:space-y-16 my-8 w-full space-y-8"><section><h3 class="mb-8 text-2xl font-bold">Currently Reading</h3> <ol class="border-primary space-y-4 border-l-2 ps-4"><li><p class="font-base"><cite>Confessions</cite> <span class="opacity-80">by Saint Augustine of Hippo</span></p></li> <li><p class="font-base"><cite>Le Petit Prince</cite> <span class="opacity-80">by Antoine de Saint-Exupéry</span></p></li> <li><p class="font-base"><cite>The Seven Storey Mountain</cite> <span class="opacity-80">by Thomas Merton</span></p></li> <li><p class="font-base"><cite>Designing Data-Intensive Applications</cite> <span class="opacity-80">by Martin Kleppmann</span></p></li> <li><p class="font-base"><cite>The Miracle of Father Kapaun</cite> <span class="opacity-80">by Roy Wenzl &amp; Travis Heying</span></p></li></ol></section> <section><h3 class="mb-8 text-2xl font-bold">Books I've Finished</h3> <ol class="border-primary space-y-4 border-l-2 ps-4"><li><p class="font-base"><cite>Crime and Punishment</cite> <span class="opacity-80">by Fyodor Dostoyevsky</span></p></li> <li><p class="font-base"><cite>Notes from Underground</cite> <span class="opacity-80">by Fyodor Dostoyevsky</span></p></li> <li><p class="font-base"><cite>Flowers for Algernon</cite> <span class="opacity-80">by Daniel Keyes</span></p></li> <li><p class="font-base"><cite>The Death of Ivan Ilyich</cite> <span class="opacity-80">by Leo Tolstoy</span></p></li></ol></section> <section><h3 class="mb-8 text-2xl font-bold">What I Plan to Read</h3> <ol class="border-primary space-y-4 border-l-2 ps-4"><li><p class="font-base"><cite>A Gentle Creature</cite> <span class="opacity-80">by Fyodor Dostoyevsky</span></p></li> <li><p class="font-base"><cite>The Epistles of Ignatius of Antioch</cite> <span class="opacity-80">by Saint Ignatius of Antioch</span></p></li> <li><p class="font-base"><cite>Demons</cite> <span class="opacity-80">by Fyodor Dostoyevsky</span></p></li> <li><p class="font-base"><cite>The Idiot</cite> <span class="opacity-80">by Fyodor Dostoyevsky</span></p></li> <li><p class="font-base"><cite>The Mystery of Christianity</cite> <span class="opacity-80">by Romano Guardini</span></p></li> <li><p class="font-base"><cite>The Brothers Karamazov</cite> <span class="opacity-80">by Fyodor Dostoyevsky</span></p></li> <li><p class="font-base"><cite>Lord of the World</cite> <span class="opacity-80">by Robert Hugh Benson</span></p></li> <li><p class="font-base"><cite>On the Apostolic Preaching</cite> <span class="opacity-80">by Saint Irenaeus of Lyon</span></p></li></ol></section></main><!----><!----> <footer class="xs:text-base mt-auto w-full space-y-2 py-8 text-sm opacity-80"><div class="flex flex-wrap justify-between"><p>© 2025 Lucas McClean. All rights reserved.</p> <p class="font-display text-primary ms-auto">//</p></div></footer><!----></div> <div class="fixed bottom-3 left-6 z-50 flex gap-3 lg:bottom-6 lg:left-[calc(50%+var(--container-site)/2+0.25rem)] lg:flex-col"><button class="hover:text-secondary bg-bg xs:p-1 flex h-8 w-8 items-center justify-center rounded-full p-2 lg:order-last lg:bg-none" title="Menu"><!--[!--><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon lucide lucide-chevron-up hidden lg:block"><!--[--><!----><path d="m18 15-6-6-6 6"><!----></path><!----><!--]--><!----><!----></svg><!----> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon lucide lucide-chevron-right block lg:hidden"><!--[--><!----><path d="m9 18 6-6-6-6"><!----></path><!----><!--]--><!----><!----></svg><!----><!--]--></button> <!--[!--><!--]--></div><!----><!----><!--]--> <!--[!--><!--]--><!--]-->
+		"><!---->Articles<!----> <!--[!--><!--]--></a><!----></li></ul></nav><!----> <main id="main-content" class="xs:space-y-16 my-8 w-full space-y-8"><section><h3 class="mb-8 text-2xl font-bold">Currently Reading</h3> <ol class="border-primary space-y-4 border-l-2 ps-4"><li><p class="font-base"><cite>Confessions</cite> <span class="opacity-80">by Saint Augustine of Hippo</span></p></li> <li><p class="font-base"><cite>Le Petit Prince</cite> <span class="opacity-80">by Antoine de Saint-Exupéry</span></p></li> <li><p class="font-base"><cite>The Seven Storey Mountain</cite> <span class="opacity-80">by Thomas Merton</span></p></li> <li><p class="font-base"><cite>Designing Data-Intensive Applications</cite> <span class="opacity-80">by Martin Kleppmann</span></p></li> <li><p class="font-base"><cite>The Miracle of Father Kapaun</cite> <span class="opacity-80">by Roy Wenzl &amp; Travis Heying</span></p></li></ol></section> <section><h3 class="mb-8 text-2xl font-bold">Books I've Finished</h3> <ol class="border-primary space-y-4 border-l-2 ps-4"><li><p class="font-base"><cite>Crime and Punishment</cite> <span class="opacity-80">by Fyodor Dostoyevsky</span></p></li> <li><p class="font-base"><cite>Notes from Underground</cite> <span class="opacity-80">by Fyodor Dostoyevsky</span></p></li> <li><p class="font-base"><cite>Flowers for Algernon</cite> <span class="opacity-80">by Daniel Keyes</span></p></li> <li><p class="font-base"><cite>The Death of Ivan Ilyich</cite> <span class="opacity-80">by Leo Tolstoy</span></p></li></ol></section> <section><h3 class="mb-8 text-2xl font-bold">What I Plan to Read</h3> <ol class="border-primary space-y-4 border-l-2 ps-4"><li><p class="font-base"><cite>A Gentle Creature</cite> <span class="opacity-80">by Fyodor Dostoyevsky</span></p></li> <li><p class="font-base"><cite>The Epistles of Ignatius of Antioch</cite> <span class="opacity-80">by Saint Ignatius of Antioch</span></p></li> <li><p class="font-base"><cite>Demons</cite> <span class="opacity-80">by Fyodor Dostoyevsky</span></p></li> <li><p class="font-base"><cite>The Idiot</cite> <span class="opacity-80">by Fyodor Dostoyevsky</span></p></li> <li><p class="font-base"><cite>The Mystery of Christianity</cite> <span class="opacity-80">by Romano Guardini</span></p></li> <li><p class="font-base"><cite>The Brothers Karamazov</cite> <span class="opacity-80">by Fyodor Dostoyevsky</span></p></li> <li><p class="font-base"><cite>Lord of the World</cite> <span class="opacity-80">by Robert Hugh Benson</span></p></li> <li><p class="font-base"><cite>On the Apostolic Preaching</cite> <span class="opacity-80">by Saint Irenaeus of Lyon</span></p></li></ol></section></main><!----><!----> <footer class="xs:text-base mt-auto w-full space-y-2 py-8 text-sm opacity-80"><div class="flex flex-wrap justify-between"><p>© 2025 Lucas McClean. All rights reserved.</p> <p class="font-display text-primary ms-auto">//</p></div></footer><!----></div> <div class="fixed bottom-3 left-6 z-50 flex gap-3 lg:bottom-6 lg:left-[calc(50%+var(--container-site)/2+0.25rem)] lg:flex-col"><button class="hover:text-secondary bg-bg xs:p-1 flex h-8 w-8 items-center justify-center rounded-full lg:order-last lg:bg-none" title="Menu"><!--[!--><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon lucide lucide-chevron-up hidden lg:block"><!--[--><!----><path d="m18 15-6-6-6 6"><!----></path><!----><!--]--><!----><!----></svg><!----> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon lucide lucide-chevron-right block lg:hidden"><!--[--><!----><path d="m9 18 6-6-6-6"><!----></path><!----><!--]--><!----><!----></svg><!----><!--]--></button> <!--[!--><!--]--></div><!----><!----><!--]--> <!--[!--><!--]--><!--]-->
 			
 			<script>
 				{
-					__sveltekit_189y88u = {
+					__sveltekit_84hec4 = {
 						base: new URL(".", location).pathname.slice(0, -1)
 					};
 
 					const element = document.currentScript.parentElement;
 
 					Promise.all([
-						import("./_app/immutable/entry/start.C0cUxQsO.js"),
-						import("./_app/immutable/entry/app.C79VF8lp.js")
+						import("./_app/immutable/entry/start.TCTqogu8.js"),
+						import("./_app/immutable/entry/app.Bjj2tvcT.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 9],
