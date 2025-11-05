@@ -19,7 +19,8 @@
 		{ name: 'Bash', types: ['language', 'infrastructure'] },
 		{ name: 'PostgreSQL', types: ['database'] },
 		{ name: 'MongoDB', types: ['database'] },
-		{ name: 'NeoVim', types: ['productivity'] }
+		{ name: 'NeoVim', types: ['productivity'] },
+		{ name: 'AWS', types: ['infastructure'] }
 	];
 
 	const allArticles = getAllArticles();
@@ -72,9 +73,11 @@
 
 <main id="main-content" class="xs:space-y-24 my-16 space-y-16 font-light">
 	<p>
-		I'm a software developer and honors CS student at UCF. I didn’t always plan to end up here. I
-		just wanted to build things, and code turned out to be a really good way to do that. My
-		development philosophy is to write code that’s as simple as possible and no simpler.
+		I'm a <b>software developer</b> and honors CS student at UCF. My philosohpy on development is always
+		changing as I learn, but some of the principles that have held are: prioritize simplicity, design
+		deep components with simple interfaces, and invest time in finding the right abstractions. There
+		are exceptions – such as for short-lived systems – but as a whole, these principles have consistently
+		led me down the right path.
 	</p>
 
 	<section class="space-y-4">

@@ -16,7 +16,7 @@
 	path="/about"
 />
 
-<Header main="About" sub="Who Is This Guy" />
+<Header main="About" />
 
 <Navbar />
 
@@ -31,10 +31,11 @@
 		/>
 		<div class="space-y-4 md:w-2/3">
 			<p class="max-w-md font-light">
-				I’m a software developer at UCF, where I also study computer science. I love working with
-				backend systems and systems programming. Outside of code, I enjoy spending time outdoors,
-				longboarding, <Link href="/reading">reading</Link>, and bookending my days with coffee and
-				tea.
+				I’m a software developer at UCF, where I also study computer science. I love working on
+				backend systems and exploring the lower layers of how software runs. My favorite aspects of
+				software are architecture and design. Outside of coding, I spend time outdoors, longboard, <Link
+					href="/reading">read</Link
+				>, and bookend my days with coffee or tea.
 			</p>
 		</div>
 	</section>
@@ -127,7 +128,7 @@
 			</li>
 
 			<li>
-				<h4><span class="text-secondary">2025</span> - First Job in Tech</h4>
+				<h4><span class="text-secondary">2025 / Former-Half</span> - First Job in Tech</h4>
 				<p class="font-light">
 					After a semester of university, I wanted to take on a job in addition to my courses. I
 					heard about a web development position from a member of Knight Hacks and decided to apply.
@@ -139,7 +140,9 @@
 			</li>
 
 			<li>
-				<h4><span class="text-secondary">2025</span> - CLI and Lower-Level Development</h4>
+				<h4>
+					<span class="text-secondary">2025 / Former-Half Cont.</span> - CLI and Lower-Level Development
+				</h4>
 				<p class="font-light">
 					As I continued my exploration of the many fields in software, Rust caught my interest.
 					Since then, Rust has become one of my main areas of focus in my free time. In addition to
@@ -154,6 +157,39 @@
 			</li>
 
 			<li>
+				<h4>
+					<span class="text-secondary">2025 Latter-Half</span> - More Hackathons
+				</h4>
+				<p class="font-light">
+					I had the opportunity to once again participate in two hackathons. My team for the first
+					was amazing so we decided to stay together for the second. Our first project, <Link
+						href="https://github.com/lucasmcclean/altimate"
+						external>Altimate</Link
+					>, made use of the Gemini API to create a Chrome tool that creatively corrects
+					accessibility issues. It was capable of adjusting inline CSS to fix contrast issues in
+					images and could generate alt text. It didn't win, but we were still excited with how it
+					turned out.
+				</p>
+				<p class="font-light">
+					At the second hackathon, however, we ended up winning <b>Best Game</b>. We made a fighting
+					game called <Link
+						href="https://github.com/lucasmcclean/project-foxtrot-black-trigger-watchtower-omega"
+						external>Crimson Brawl</Link
+					> where one of the players is controlled with an EEG. We landed on this idea not only because
+					it sounded cool, but also because it followed our focus on accessibility. The game turned out
+					really well given the time constraints and the inputs were impressively accurate.
+				</p>
+				<p class="font-light">
+					<strong>Projects:</strong>
+					<Link href="https://github.com/lucasmcclean/altimate" external>Altimate</Link>,
+					<Link
+						href="https://github.com/lucasmcclean/project-foxtrot-black-trigger-watchtower-omega"
+						external>Crimson Brawl</Link
+					>
+				</p>
+			</li>
+
+			<li>
 				<h4><span class="text-secondary">{new Date().getFullYear()}</span> - Now</h4>
 				<p class="font-light">
 					I'm still attending <abbr title="University of Central Florida">UCF</abbr>, I'm a
@@ -164,8 +200,7 @@
 				<p class="font-light">
 					<strong>Projects:</strong>
 					<Link href="https://github.com/lucasmcclean/portfolio" external>This Site</Link>,
-					<Link href="https://github.com/lucasmcclean/kitenv" external>Kitenv (not yet public)</Link
-					>
+					<Link href="https://github.com/lucasmcclean/ttcg" external>TTCG (not yet public)</Link>
 				</p>
 			</li>
 		</ol>

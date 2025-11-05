@@ -66,15 +66,17 @@
 		<ul class="list-disc space-y-4 font-light">
 			<li>
 				<p>
-					<Link href="https://github.com/lucasmcclean/limitlink/tree/v2" external>LimitL.ink</Link> is
-					a URL shortener with usage limits and expiration. Built with <strong>Go</strong>,
-					<strong>Docker</strong>, and <strong>SvelteKit</strong>.
+					<Link href="https://github.com/lucasmcclean/ttcg" external>TTCG</Link> (not yet published)
+					is a terminal-based trading card game where cards are acquired based on your system. CLI built
+					with <strong>Rust</strong>. Backend built with <strong>Go</strong>.
+					<span class="opacity-80">I'll have some articles out related to this soon.</span>
 				</p>
 			</li>
 			<li>
 				<p>
-					<Link href="https://crates.io/crates/kvd" external>KVD</Link> (not yet published) is a key-value
-					differ that is generic over file types. Built with <strong>Rust</strong>.
+					<Link href="https://github.com/lucasmcclean/limitlink/tree/v2" external>LimitL.ink</Link> is
+					a URL shortener with usage limits and expiration. Built with <strong>Go</strong>,
+					<strong>Docker</strong>, and <strong>SvelteKit</strong>.
 				</p>
 			</li>
 		</ul>
@@ -85,8 +87,11 @@
 		<ul class="list-disc space-y-4 font-light">
 			<li>
 				<p>
-					Reading philosophical fiction. Most recently I finished <cite>Crime and Punishment</cite>
-					and I'm now reading <cite>Notes from Underground</cite>.
+					Reading philosophical fiction. I've recently finished both <cite
+						>Crime and Punishment</cite
+					>
+					and <cite>Notes from Underground</cite>. I'm now reading
+					<cite>The Brothers Karamazov</cite>.
 				</p>
 			</li>
 			<li>
@@ -106,5 +111,5 @@
 		</ul>
 	</section>
 
-	<p class="xs:text-base text-end text-sm italic opacity-80">Last updated: September 2025</p>
+	<p class="xs:text-base text-end text-sm italic opacity-80">Last updated: November 2025</p>
 </main>

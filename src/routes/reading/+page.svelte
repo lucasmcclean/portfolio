@@ -34,20 +34,14 @@
 			</li>
 			<li>
 				<p class="font-base">
-					<cite>The Seven Storey Mountain</cite>
-					<span class="opacity-80">by Thomas Merton</span>
+					<cite>The Epistles of Ignatius of Antioch</cite>
+					<span class="opacity-80">by Saint Ignatius of Antioch</span>
 				</p>
 			</li>
 			<li>
 				<p class="font-base">
-					<cite>Designing Data-Intensive Applications</cite>
-					<span class="opacity-80">by Martin Kleppmann</span>
-				</p>
-			</li>
-			<li>
-				<p class="font-base">
-					<cite>The Miracle of Father Kapaun</cite>
-					<span class="opacity-80">by Roy Wenzl & Travis Heying</span>
+					<cite>The Brothers Karamazov</cite>
+					<span class="opacity-80">by Fyodor Dostoyevsky</span>
 				</p>
 			</li>
 		</ol>
@@ -79,6 +73,12 @@
 					<span class="opacity-80">by Leo Tolstoy</span>
 				</p>
 			</li>
+			<li>
+				<p class="font-base">
+					<cite>The Miracle of Father Kapaun</cite>
+					<span class="opacity-80">by Roy Wenzl & Travis Heying</span>
+				</p>
+			</li>
 		</ol>
 	</section>
 
@@ -89,12 +89,6 @@
 				<p class="font-base">
 					<cite>A Gentle Creature</cite>
 					<span class="opacity-80">by Fyodor Dostoyevsky</span>
-				</p>
-			</li>
-			<li>
-				<p class="font-base">
-					<cite>The Epistles of Ignatius of Antioch</cite>
-					<span class="opacity-80">by Saint Ignatius of Antioch</span>
 				</p>
 			</li>
 			<li>
@@ -115,12 +109,6 @@
 			</li>
 			<li>
 				<p class="font-base">
-					<cite>The Brothers Karamazov</cite>
-					<span class="opacity-80">by Fyodor Dostoyevsky</span>
-				</p>
-			</li>
-			<li>
-				<p class="font-base">
 					<cite>Lord of the World</cite>
 					<span class="opacity-80">by Robert Hugh Benson</span>
 				</p>
@@ -129,6 +117,18 @@
 				<p class="font-base">
 					<cite>On the Apostolic Preaching</cite>
 					<span class="opacity-80">by Saint Irenaeus of Lyon</span>
+				</p>
+			</li>
+			<li>
+				<p class="font-base">
+					<cite>The Seven Storey Mountain</cite>
+					<span class="opacity-80">by Thomas Merton</span>
+				</p>
+			</li>
+			<li>
+				<p class="font-base">
+					<cite>Designing Data-Intensive Applications</cite>
+					<span class="opacity-80">by Martin Kleppmann</span>
 				</p>
 			</li>
 		</ol>
