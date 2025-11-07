@@ -13,7 +13,7 @@
 	path="/photography"
 />
 
-<Header main="Photography" sub="Photos from Around" />
+<Header main="Photography" />
 
 <Navbar />
 

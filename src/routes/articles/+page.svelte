@@ -17,7 +17,7 @@
 	{articles}
 />
 
-<Header main="Articles" sub="On Tech & Philosophy" />
+<Header main="Articles" />
 
 <Navbar />
 

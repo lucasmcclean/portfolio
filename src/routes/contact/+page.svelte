@@ -14,7 +14,7 @@
 	path="/about"
 />
 
-<Header main="Contact" sub="Get in Touch with Me" />
+<Header main="Contact" />
 
 <Navbar />
 

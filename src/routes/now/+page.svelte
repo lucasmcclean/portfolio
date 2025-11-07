@@ -14,7 +14,7 @@
 	path="/now"
 />
 
-<Header main="Now" sub="My Current Goings-On" />
+<Header main="Now" />
 
 <Navbar />
 

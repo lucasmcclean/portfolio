@@ -13,7 +13,7 @@
 	path="/reading"
 />
 
-<Header main="Reading List" sub="What's on the Shelf" />
+<Header main="Reading List" />
 
 <Navbar />
 
