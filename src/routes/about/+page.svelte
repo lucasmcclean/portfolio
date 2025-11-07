@@ -161,23 +161,24 @@
 					<span class="text-secondary">2025 Latter-Half</span> - More Hackathons
 				</h4>
 				<p class="font-light">
-					I had the opportunity to once again participate in two hackathons. My team for the first
-					was amazing so we decided to stay together for the second. Our first project, <Link
-						href="https://github.com/lucasmcclean/altimate"
-						external>Altimate</Link
-					>, made use of the Gemini API to create a Chrome tool that creatively corrects
-					accessibility issues. It was capable of adjusting inline CSS to fix contrast issues in
-					images and could generate alt text. It didn't win, but we were still excited with how it
-					turned out.
+					I had the opportunity to once again participate in two hackathons. My team's project at
+					the first hackathon was <Link href="https://github.com/lucasmcclean/altimate" external
+						>Altimate</Link
+					>, a Chrome extension that made use of the Gemini API to creatively correct accessibility
+					issues. It was capable of adjusting inline CSS to fix contrast issues in images and could
+					generate alt text.
 				</p>
 				<p class="font-light">
-					At the second hackathon, however, we ended up winning <b>Best Game</b>. We made a fighting
+					At the second hackathon, we ended up winning <b>Best Game</b>. Our project was a fighting
 					game called <Link
 						href="https://github.com/lucasmcclean/project-foxtrot-black-trigger-watchtower-omega"
 						external>Crimson Brawl</Link
-					> where one of the players is controlled with an EEG. We landed on this idea not only because
-					it sounded cool, but also because it followed our focus on accessibility. The game turned out
-					really well given the time constraints and the inputs were impressively accurate.
+					> where one of the players was controlled with an EEG. The game turned out really well given
+					the time constraints and the inputs were impressively accurate. If you're interested, you can
+					read more about the story behind this project on <Link
+						href="https://www.linkedin.com/feed/update/urn:li:activity:7389797996659441664/"
+						external>LinkedIn</Link
+					>.
 				</p>
 				<p class="font-light">
 					<strong>Projects:</strong>
