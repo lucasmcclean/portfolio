@@ -2,8 +2,44 @@
 	import Header from '$lib/components/Header.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Meta from '$lib/components/Meta.svelte';
-
 	import { SITE_NAME } from '$lib/consts';
+
+	interface Book {
+		title: string;
+		author: string;
+	}
+
+	const current: Book[] = [
+		{ title: 'Confessions', author: 'Saint Augustine of Hippo' },
+		{ title: 'Le Petit Prince', author: 'Antoine de Saint-Exupéry' },
+		{ title: 'The Epistles of Ignatius of Antioch', author: 'Saint Ignatius of Antioch' },
+		{ title: 'Programming Rust', author: 'Jim Blandy, Jason Orendorff, & Leonara F. S. Tindall' },
+		{ title: 'The Brothers Karamazov', author: 'Fyodor Dostoyevsky' },
+		{ title: 'The Mythical Man Month', author: 'Frederick P. Brooks Jr.' }
+	];
+
+	const completed: Book[] = [
+		{ title: 'Crime and Punishment', author: 'Fyodor Dostoyevsky' },
+		{ title: 'A Philosohpy of Software Design', author: 'John Ousterhout' },
+		{ title: 'Notes from Underground', author: 'Fyodor Dostoyevsky' },
+		{ title: 'Flowers for Algernon', author: 'Daniel Keyes' },
+		{ title: 'The Death of Ivan Ilyich', author: 'Leo Tolstoy' },
+		{ title: 'Clean Code', author: 'Robert C. Martin' },
+		{ title: 'The Miracle of Father Kapaun', author: 'Roy Wenzl & Travis Heying' },
+		{ title: 'The Pragmatic Programmer', author: 'David Thomas & Andrew Hunt' },
+		{ title: 'The Rust Programming Language', author: 'Steve Klabnik & Carol Nichols' }
+	];
+
+	const planned: Book[] = [
+		{ title: 'A Gentle Creature', author: 'Fyodor Dostoyevsky' },
+		{ title: 'Demons', author: 'Fyodor Dostoyevsky' },
+		{ title: 'The Idiot', author: 'Fyodor Dostoyevsky' },
+		{ title: 'The Mystery of Christianity', author: 'Romano Guardini' },
+		{ title: 'Lord of the World', author: 'Robert Hugh Benson' },
+		{ title: 'On the Apostolic Preaching', author: 'Saint Irenaeus of Lyon' },
+		{ title: 'The Seven Storey Mountain', author: 'Thomas Merton' },
+		{ title: 'Designing Data-Intensive Applications', author: 'Martin Kleppmann' }
+	];
 </script>
 
 <Meta
@@ -21,116 +57,42 @@
 	<section>
 		<h3 class="mb-8 text-2xl font-bold">Currently Reading</h3>
 		<ol class="border-primary space-y-4 border-l-2 ps-4">
-			<li>
-				<p class="font-base">
-					<cite>Confessions</cite> <span class="opacity-80">by Saint Augustine of Hippo</span>
-				</p>
-			</li>
-			<li>
-				<p class="font-base">
-					<cite>Le Petit Prince</cite>
-					<span class="opacity-80">by Antoine de Saint-Exupéry</span>
-				</p>
-			</li>
-			<li>
-				<p class="font-base">
-					<cite>The Epistles of Ignatius of Antioch</cite>
-					<span class="opacity-80">by Saint Ignatius of Antioch</span>
-				</p>
-			</li>
-			<li>
-				<p class="font-base">
-					<cite>The Brothers Karamazov</cite>
-					<span class="opacity-80">by Fyodor Dostoyevsky</span>
-				</p>
-			</li>
+			{#each current as book}
+				<li>
+					<p class="font-base">
+						<cite>{book.title}</cite>
+						<span class="opacity-80"> by {book.author}</span>
+					</p>
+				</li>
+			{/each}
 		</ol>
 	</section>
 
 	<section>
 		<h3 class="mb-8 text-2xl font-bold">Books I've Finished</h3>
 		<ol class="border-primary space-y-4 border-l-2 ps-4">
-			<li>
-				<p class="font-base">
-					<cite>Crime and Punishment</cite>
-					<span class="opacity-80">by Fyodor Dostoyevsky</span>
-				</p>
-			</li>
-			<li>
-				<p class="font-base">
-					<cite>Notes from Underground</cite>
-					<span class="opacity-80">by Fyodor Dostoyevsky</span>
-				</p>
-			</li>
-			<li>
-				<p class="font-base">
-					<cite>Flowers for Algernon</cite> <span class="opacity-80">by Daniel Keyes</span>
-				</p>
-			</li>
-			<li>
-				<p class="font-base">
-					<cite>The Death of Ivan Ilyich</cite>
-					<span class="opacity-80">by Leo Tolstoy</span>
-				</p>
-			</li>
-			<li>
-				<p class="font-base">
-					<cite>The Miracle of Father Kapaun</cite>
-					<span class="opacity-80">by Roy Wenzl & Travis Heying</span>
-				</p>
-			</li>
+			{#each completed as book}
+				<li>
+					<p class="font-base">
+						<cite>{book.title}</cite>
+						<span class="opacity-80"> by {book.author}</span>
+					</p>
+				</li>
+			{/each}
 		</ol>
 	</section>
 
 	<section>
 		<h3 class="mb-8 text-2xl font-bold">What I Plan to Read</h3>
 		<ol class="border-primary space-y-4 border-l-2 ps-4">
-			<li>
-				<p class="font-base">
-					<cite>A Gentle Creature</cite>
-					<span class="opacity-80">by Fyodor Dostoyevsky</span>
-				</p>
-			</li>
-			<li>
-				<p class="font-base">
-					<cite>Demons</cite> <span class="opacity-80">by Fyodor Dostoyevsky</span>
-				</p>
-			</li>
-			<li>
-				<p class="font-base">
-					<cite>The Idiot</cite> <span class="opacity-80">by Fyodor Dostoyevsky</span>
-				</p>
-			</li>
-			<li>
-				<p class="font-base">
-					<cite>The Mystery of Christianity</cite>
-					<span class="opacity-80">by Romano Guardini</span>
-				</p>
-			</li>
-			<li>
-				<p class="font-base">
-					<cite>Lord of the World</cite>
-					<span class="opacity-80">by Robert Hugh Benson</span>
-				</p>
-			</li>
-			<li>
-				<p class="font-base">
-					<cite>On the Apostolic Preaching</cite>
-					<span class="opacity-80">by Saint Irenaeus of Lyon</span>
-				</p>
-			</li>
-			<li>
-				<p class="font-base">
-					<cite>The Seven Storey Mountain</cite>
-					<span class="opacity-80">by Thomas Merton</span>
-				</p>
-			</li>
-			<li>
-				<p class="font-base">
-					<cite>Designing Data-Intensive Applications</cite>
-					<span class="opacity-80">by Martin Kleppmann</span>
-				</p>
-			</li>
+			{#each planned as book}
+				<li>
+					<p class="font-base">
+						<cite>{book.title}</cite>
+						<span class="opacity-80"> by {book.author}</span>
+					</p>
+				</li>
+			{/each}
 		</ol>
 	</section>
 </main>
