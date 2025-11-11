@@ -17,11 +17,11 @@
 	let isPageLarge = false;
 
 	type Theme = 'light' | 'dark';
-	type Palette = 'default' | 'alt';
+	type Palette = 'green' | 'blue' | 'cyan' | 'purple';
 	type Align = 'left' | 'justify';
 
 	let theme: Theme = 'light';
-	let palette: Palette = 'default';
+	let palette: Palette = 'cyan';
 	let align: Align = 'left';
 
 	function saveOptions() {
@@ -42,6 +42,13 @@
 
 	function toggleTheme() {
 		theme = theme === 'dark' ? 'light' : 'dark';
+
+		if (theme === 'dark' && (palette === 'cyan' || palette === 'purple')) {
+			palette = 'green';
+		} else if (theme === 'light' && (palette === 'green' || palette === 'blue')) {
+			palette = 'cyan';
+		}
+
 		applyOptions();
 		saveOptions();
 	}
@@ -53,17 +60,31 @@
 	}
 
 	function cyclePalette() {
-		palette = palette === 'default' ? 'alt' : 'default';
+		const darkPalettes: Palette[] = ['green', 'blue'];
+		const lightPalettes: Palette[] = ['cyan', 'purple'];
+
+		const list = theme === 'dark' ? darkPalettes : lightPalettes;
+		const idx = list.indexOf(palette);
+		palette = list[(idx + 1) % list.length];
 		applyOptions();
 		saveOptions();
 	}
 
 	onMount(() => {
 		const options = JSON.parse(localStorage.getItem('site-options') ?? '{}');
+
 		theme =
 			options.theme ??
 			(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-		palette = options.palette ?? 'default';
+
+		const storedPalette = options.palette as Palette | undefined;
+		const validPalettes: Palette[] = ['green', 'blue', 'cyan', 'purple'];
+		if (storedPalette && validPalettes.includes(storedPalette)) {
+			palette = storedPalette;
+		} else {
+			palette = theme === 'dark' ? 'green' : 'cyan';
+		}
+
 		align = options.align ?? 'left';
 		applyOptions();
 
