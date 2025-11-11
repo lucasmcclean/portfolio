@@ -55,7 +55,7 @@
 
 <main id="main-content" class="xs:space-y-16 my-8 w-full space-y-8">
 	<section>
-		<h3 class="mb-8 text-2xl font-bold">Currently Reading</h3>
+		<h3 class="mb-8 text-2xl font-bold">Current</h3>
 		<ol class="border-primary space-y-4 border-l-2 ps-4">
 			{#each current as book}
 				<li>
@@ -69,7 +69,7 @@
 	</section>
 
 	<section>
-		<h3 class="mb-8 text-2xl font-bold">Books I've Finished</h3>
+		<h3 class="mb-8 text-2xl font-bold">Completed</h3>
 		<ol class="border-primary space-y-4 border-l-2 ps-4">
 			{#each completed as book}
 				<li>
@@ -83,7 +83,7 @@
 	</section>
 
 	<section>
-		<h3 class="mb-8 text-2xl font-bold">What I Plan to Read</h3>
+		<h3 class="mb-8 text-2xl font-bold">Planned</h3>
 		<ol class="border-primary space-y-4 border-l-2 ps-4">
 			{#each planned as book}
 				<li>
