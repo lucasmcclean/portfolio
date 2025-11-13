@@ -24,7 +24,7 @@
 		<ul class="list-disc space-y-4 font-light">
 			<li>
 				<p>
-					Entering my second year as an Honors CS student at
+					In my second year as an Honors CS student at
 					<abbr title="University of Central Florida">UCF</abbr>.
 				</p>
 			</li>
@@ -55,7 +55,7 @@
 					<Link
 						href="https://techrangers.cdl.ucf.edu/techrangers_current/lucas_mcclean.html"
 						external>Techranger</Link
-					> at UCF, where I help build and maintain tools using Python, Docker, JS, HTML, and CSS.
+					> at UCF, where I help build and maintain tools using Python, Docker, and AWS.
 				</p>
 			</li>
 		</ul>
