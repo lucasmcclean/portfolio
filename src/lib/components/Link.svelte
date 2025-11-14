@@ -9,6 +9,7 @@
 		target,
 		rel,
 		class: className = '',
+		nounderline = false,
 		...rest
 	}: HTMLAnchorAttributes & {
 		href?: string;
@@ -16,6 +17,7 @@
 		target?: string;
 		rel?: string;
 		class?: string;
+		nounderline?: boolean;
 		children: () => unknown;
 	} = $props();
 
@@ -32,7 +34,7 @@
 	target={computedTarget}
 	rel={computedRel}
 	class={`relative inline-flex items-center transition-colors
-		${!isHeadingLink ? 'after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full' : ''}
+		${!isHeadingLink && !nounderline ? 'after:absolute after:bottom-[3px] after:left-0 after:h-[2px] after:w-0 after:bg-current after:transition-all hover:after:w-full focus-visible:after:w-full' : ''}
 		${className}`}
 >
 	{@render children()}

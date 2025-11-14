@@ -9,11 +9,15 @@
 			<span class="xs:text-8xl text-6xl font-semibold tracking-tight sm:text-9xl">
 				{page.status}
 			</span>
-			<span class="xs:text-2xl text-lg font-light sm:text-3xl">
+			<span class="xs:text-2xl text-lg sm:text-3xl">
 				{page.error?.message ?? 'Something went wrong.'}
 			</span>
 		</h1>
-		<Link href="/" class="xs:text-2xl flex justify-between text-lg font-light ordinal sm:text-3xl">
+		<Link
+			href="/"
+			nounderline
+			class="xs:text-2xl  flex justify-between text-lg ordinal sm:text-3xl"
+		>
 			Get me out of this mess
 		</Link>
 	</div>
