@@ -59,7 +59,7 @@
 		<ol class="border-primary space-y-4 border-l-2 ps-4">
 			{#each current as book}
 				<li>
-					<p class="font-base">
+					<p class="">
 						<cite>{book.title}</cite>
 						<span class="opacity-80"> by {book.author}</span>
 					</p>
@@ -73,7 +73,7 @@
 		<ol class="border-primary space-y-4 border-l-2 ps-4">
 			{#each completed as book}
 				<li>
-					<p class="font-base">
+					<p class="">
 						<cite>{book.title}</cite>
 						<span class="opacity-80"> by {book.author}</span>
 					</p>
@@ -87,7 +87,7 @@
 		<ol class="border-primary space-y-4 border-l-2 ps-4">
 			{#each planned as book}
 				<li>
-					<p class="font-base">
+					<p class="">
 						<cite>{book.title}</cite>
 						<span class="opacity-80"> by {book.author}</span>
 					</p>

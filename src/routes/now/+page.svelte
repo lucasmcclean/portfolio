@@ -21,7 +21,7 @@
 <main id="main-content" class="xs:space-y-16 my-8 w-full space-y-8">
 	<section class="space-y-4">
 		<h3 class="text-2xl font-semibold">Academics</h3>
-		<ul class="list-disc space-y-4 font-light">
+		<ul class=" list-disc space-y-4">
 			<li>
 				<p>
 					In my second year as an Honors CS student at
@@ -48,7 +48,7 @@
 
 	<section class="space-y-4">
 		<h3 class="text-2xl font-semibold">Work</h3>
-		<ul class="list-disc space-y-4 font-light">
+		<ul class=" list-disc space-y-4">
 			<li>
 				<p>
 					Working as a
@@ -63,7 +63,7 @@
 
 	<section class="space-y-4">
 		<h3 class="text-2xl font-semibold">Projects</h3>
-		<ul class="list-disc space-y-4 font-light">
+		<ul class=" list-disc space-y-4">
 			<li>
 				<p>
 					<Link href="https://github.com/lucasmcclean/ttcg" external>TTCG</Link> (not yet published)
@@ -84,7 +84,7 @@
 
 	<section class="space-y-4">
 		<h3 class="text-2xl font-semibold">Personal</h3>
-		<ul class="list-disc space-y-4 font-light">
+		<ul class=" list-disc space-y-4">
 			<li>
 				<p>
 					Reading philosophical fiction. I've recently finished both <cite

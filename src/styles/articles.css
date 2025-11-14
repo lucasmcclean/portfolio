@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 .article {
-	@apply space-y-8 font-light;
+	@apply space-y-8;
 }
 
 .article h2 {

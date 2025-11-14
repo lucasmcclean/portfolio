@@ -20,7 +20,7 @@
 
 <main id="main-content" class="xs:space-y-16 my-8 w-full space-y-8">
 	<section>
-		<p class="font-light">
+		<p class="">
 			Feel free to reach out about projects, tech, or anything else! You can reach me at my email <Link
 				href="mailto:lucas@mcclean.dev"
 				external>lucas@mcclean.dev</Link

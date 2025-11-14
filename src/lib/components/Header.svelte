@@ -7,7 +7,7 @@
 		{main}
 	</h1>
 	{#if sub.trim() !== ''}
-		<h2 class="xs:text-4xl flex justify-between text-2xl font-light ordinal sm:text-5xl">
+		<h2 class="xs:text-4xl flex justify-between text-2xl ordinal sm:text-5xl">
 			{sub}
 		</h2>
 	{/if}

@@ -30,7 +30,7 @@
 			width="768"
 		/>
 		<div class="space-y-4 md:w-2/3">
-			<p class="max-w-md font-light">
+			<p class=" max-w-md">
 				I’m a software developer at UCF, where I also study computer science. I love working on
 				backend systems and exploring the lower layers of how software runs. My favorite aspects of
 				software are architecture and design. Outside of coding, I spend time outdoors, longboard, <Link
@@ -45,14 +45,14 @@
 		<ol class="space-y-8 [&_li]:space-y-4">
 			<li>
 				<h4><span class="text-secondary">2022-2023</span> - First Interaction with Software</h4>
-				<p class="font-light">
+				<p class="">
 					High school was the first time I took a serious interest in programming. I was enjoying
 					simpler, indie games and decided to attempt making one. Unity was the mainstream game
 					engine at the time so I learned C# and did a massive amount of research. By the end of it,
 					I had developed a few small games and a strong desire to learn more about software as a
 					whole.
 				</p>
-				<p class="font-light">
+				<p class="">
 					<strong>Projects:</strong>
 					<Link href="https://github.com/lucasmcclean/godot-game-template" external
 						>Godot Template</Link
@@ -66,13 +66,13 @@
 
 			<li>
 				<h4><span class="text-secondary">2024 / Former-Half</span> - Frontend Web Development</h4>
-				<p class="font-light">
+				<p class="">
 					As I was exploring different applications of software, I came to realize that the web was
 					one of the most impactful and accessible platforms. My priority, then, was to master the
 					fundamentals of HTML, CSS, and JS. I built many smaller apps using just the basics and
 					began to realize the importance of accessibility, scalability, and modularity.
 				</p>
-				<p class="font-light">
+				<p class="">
 					<strong>Projects:</strong>
 					<Link href="https://github.com/lucasmcclean/first-website" external>First Site</Link>,
 					<Link href="https://github.com/lucasmcclean/first-portfolio" external
@@ -86,20 +86,20 @@
 
 			<li>
 				<h4><span class="text-secondary">2024 / Latter-Half</span> - Backend Development</h4>
-				<p class="font-light">
+				<p class="">
 					As I continued to research, I finally realized that to bring many of my ideas to life, I
 					would need to venture into the backend. I compared most of the major fullstack frameworks
 					and decided that SvelteKit would best suit my needs. Up until this point I had largely
 					avoided anything related to the server. I became really interested in the interplay
 					between client and server, and I discovered how much I enjoyed backend development.
 				</p>
-				<p class="font-light">
+				<p class="">
 					This recognition inspired me to explore other backend tools and technologies. This was
 					when I was first introduced to Go. Initially, there were a few hurdles to my
 					understanding, but I quickly came to enjoy the pillars of simplicity and explicitness that
 					it encouraged.
 				</p>
-				<p class="font-light">
+				<p class="">
 					<strong>Projects:</strong>
 					<Link href="https://github.com/lucasmcclean/notes-app" external>Notes App</Link>,
 					<Link href="https://github.com/lucasmcclean/post-website" external>Post Site</Link>,
@@ -112,14 +112,14 @@
 
 			<li>
 				<h4><span class="text-secondary">2024 / Latter-Half Cont.</span> - Started University</h4>
-				<p class="font-light">
+				<p class="">
 					I began my first year as an Honors CS student at the University of Central Florida (<abbr
 						title="University of Central Florida">UCF</abbr
 					>) and joined Knight Hacks—a club which has had a major impact on my journey as a
 					developer. Through Knight Hacks, I attended my first two hackathons which reinforced my
 					passion about development and collaboration.
 				</p>
-				<p class="font-light">
+				<p class="">
 					<strong>Projects:</strong>
 					<Link href="https://github.com/lucasmcclean/shell-hacks-24" external>Shell Hacks</Link>,
 					<Link href="https://github.com/lucasmcclean/knight-hacks-24" external>Knight Hacks</Link>,
@@ -129,7 +129,7 @@
 
 			<li>
 				<h4><span class="text-secondary">2025 / Former-Half</span> - First Job in Tech</h4>
-				<p class="font-light">
+				<p class="">
 					After a semester of university, I wanted to take on a job in addition to my courses. I
 					heard about a web development position from a member of Knight Hacks and decided to apply.
 					A few weeks later I became a <Link
@@ -143,13 +143,13 @@
 				<h4>
 					<span class="text-secondary">2025 / Former-Half Cont.</span> - CLI and Lower-Level Development
 				</h4>
-				<p class="font-light">
+				<p class="">
 					As I continued my exploration of the many fields in software, Rust caught my interest.
 					Since then, Rust has become one of my main areas of focus in my free time. In addition to
 					Go, Rust is one of the primary languages I enjoy using to build CLI tools and other
 					lower-level projects.
 				</p>
-				<p class="font-light">
+				<p class="">
 					<strong>Projects:</strong>
 					<Link href="https://github.com/lucasmcclean/limitlink" external>Limitl.ink</Link>,
 					<Link href="https://github.com/lucasmcclean/kvd" external>KVD (in progress)</Link>
@@ -160,7 +160,7 @@
 				<h4>
 					<span class="text-secondary">2025 Latter-Half</span> - More Hackathons
 				</h4>
-				<p class="font-light">
+				<p class="">
 					I had the opportunity to once again participate in two hackathons. My team's project at
 					the first hackathon was <Link href="https://github.com/lucasmcclean/altimate" external
 						>Altimate</Link
@@ -168,7 +168,7 @@
 					issues. It was capable of adjusting inline CSS to fix contrast issues in images and could
 					generate alt text.
 				</p>
-				<p class="font-light">
+				<p class="">
 					At the second hackathon, we ended up winning <b>Best Game</b>. Our project was a fighting
 					game called <Link
 						href="https://github.com/lucasmcclean/project-foxtrot-black-trigger-watchtower-omega"
@@ -180,7 +180,7 @@
 						external>LinkedIn</Link
 					>.
 				</p>
-				<p class="font-light">
+				<p class="">
 					<strong>Projects:</strong>
 					<Link href="https://github.com/lucasmcclean/altimate" external>Altimate</Link>,
 					<Link
@@ -192,13 +192,13 @@
 
 			<li>
 				<h4><span class="text-secondary">{new Date().getFullYear()}</span> - Now</h4>
-				<p class="font-light">
+				<p class="">
 					I'm still attending <abbr title="University of Central Florida">UCF</abbr>, I'm a
 					Techranger, and I'm still working on projects with Rust and Go. If you're interested, you
 					can see more of
-					<Link href="/now" class="font-light">what I'm doing now</Link>.
+					<Link href="/now" class="">what I'm doing now</Link>.
 				</p>
-				<p class="font-light">
+				<p class="">
 					<strong>Projects:</strong>
 					<Link href="https://github.com/lucasmcclean/portfolio" external>This Site</Link>,
 					<Link href="https://github.com/lucasmcclean/ttcg" external>TTCG (not yet public)</Link>

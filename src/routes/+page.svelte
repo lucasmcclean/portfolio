@@ -31,7 +31,7 @@
 
 <header class="w-fit self-start pt-16 pb-0">
 	<h1 class="xs:text-6xl text-4xl font-semibold tracking-tight sm:text-7xl">Lucas McClean</h1>
-	<h2 class="xs:text-4xl flex justify-between text-2xl font-light ordinal sm:text-5xl">
+	<h2 class="xs:text-4xl flex justify-between text-2xl ordinal sm:text-5xl">
 		Portfolio
 		<span class="text-primary flex flex-grow justify-around px-2" aria-hidden="true">
 			<span>/</span><span>/</span><span>/</span><span>/</span><span>/</span>
@@ -71,7 +71,7 @@
 	</ul>
 </nav>
 
-<main id="main-content" class="xs:space-y-24 my-16 space-y-16 font-light">
+<main id="main-content" class="xs:space-y-24 my-16 space-y-16">
 	<p>
 		I'm a <b>software developer</b> and honors CS student at UCF. My philosohpy on development is always
 		changing as I learn, but some of the principles that have held are: prioritize simplicity, design
@@ -113,7 +113,7 @@
 				</li>
 			{/each}
 		</ul>
-		<Link class="font-light" href="/articles">See all articles</Link>
+		<Link class="" href="/articles">See all articles</Link>
 	</section>
 
 	<section class="space-y-4">
