@@ -1,78 +1,15 @@
 import { mdsvex } from 'mdsvex';
-import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import { createHighlighter } from 'shiki';
-import staticAdapter from '@sveltejs/adapter-static';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-
-import { resolve } from 'path';
-
-const { default: theme } = await import('@shikijs/themes/tokyo-night');
-const highlighter = await createHighlighter({
-	theme: theme,
-	langs: ['go', 'bash']
-});
+import adapter from '@sveltejs/adapter-static';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	preprocess: [
-		vitePreprocess(),
-		mdsvex({
-			extensions: ['.svx', '.md'],
-			highlight: {
-				highlighter: async (code, lang) => {
-					let html = highlighter.codeToHtml(code, {
-						lang: lang,
-						theme: theme,
-						transformers: [
-							{
-								name: 'color-replace',
-								tokens(tokens) {
-									for (const line of tokens) {
-										for (const token of line) {
-											if (token.color === '#51597D') token.color = '#CCAAAA';
-										}
-									}
-								}
-							}
-						]
-					});
-					return `{@html \`${html}\`}`;
-				}
-			},
-			smartypants: {
-				quotes: true,
-				ellipses: true,
-				backticks: false,
-				dashes: true
-			},
-			rehypePlugins: [
-				rehypeSlug,
-				[
-					rehypeAutolinkHeadings,
-					{
-						behavior: 'append',
-						properties: {
-							ariaLabel: 'Link to this section'
-						},
-						content: {
-							type: 'text',
-							value: '&nbsp;&nbsp;§'
-						}
-					}
-				]
-			],
-			layout: {
-				article: resolve('./src/lib/components/internal/ArticleLayout.svelte')
-			}
-		})
-	],
-	kit: {
-		adapter: staticAdapter({
-			fallback: '404.html'
-		})
+	kit: { adapter: adapter() },
+	vitePlugin: {
+		dynamicCompileOptions: ({ filename }) =>
+			filename.includes('node_modules') ? undefined : { runes: true }
 	},
-	extensions: ['.svelte', '.svx', '.md']
+	preprocess: [mdsvex()],
+	extensions: ['.svelte', '.svx']
 };
 
 export default config;
