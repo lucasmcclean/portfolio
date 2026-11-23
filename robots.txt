@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /resume.pdf
 Disallow: /chameleon
+Disallow: /ool
 
 Sitemap: https://mcclean.dev/sitemap.xml

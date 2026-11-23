@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+	<head>
+		<script>
+			// Preload the theme to precent FOUC
+			try {
+				const root = document.documentElement;
+				const saved = JSON.parse(localStorage.getItem('site-options') ?? '{}');
+
+				const theme =
+					saved.theme ??
+					(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+				const palette = saved.palette ?? 'default';
+				const align = saved.align ?? 'left';
+
+				root.setAttribute('data-theme', theme);
+				root.setAttribute('data-palette', palette);
+				root.setAttribute('data-align', align);
+			} catch (err) {
+				console.warn('Failed to apply saved options', err);
+			}
+		</script>
+
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+		<link rel="shortcut icon" href="./favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="McClean" />
+		<link rel="manifest" href="./site.webmanifest" />
+
+		<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
+		<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link href="./_app/immutable/entry/start.Baad7QMg.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/CmoJ9OpW.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/DdAozjLw.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/DEkQ2KJb.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/B0XwC4Ot.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/-UyI9lYi.js" rel="modulepreload">
+		<link href="./_app/immutable/entry/app.Bo5q2ExT.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/GEbISDHn.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/Bc9e4o0Y.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/g8SzAZSg.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/D9yYFf8S.js" rel="modulepreload">
+		<link href="./_app/immutable/nodes/0.BV2ftxTN.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/DbOVcrw2.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/m83g02xp.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/BFv4_n-G.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/FDTVplPT.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/gWJonycO.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/Df9SnYla.js" rel="modulepreload">
+		<link href="./_app/immutable/nodes/3.D8ZQTh38.js" rel="modulepreload">
+		<link href="./_app/immutable/nodes/11.tCnv9W66.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/CmPSJD5g.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/DcdXDGk_.js" rel="modulepreload">
+		<!--7llhud--><meta name="robots" content="noindex, nofollow"/> <meta name="viewport" content="width=device-width, initial-scale=1"/><!----><title>Out of the Loop</title>
+		<link href="./_app/immutable/assets/0.D5xYd__V.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/11.Rix726Ho.css" rel="stylesheet">
+
+		<style>
+			@font-face {
+				font-family: 'Exo 2';
+				src:
+					url('/fonts/exo2/exo2-var.woff2') format('woff2'),
+					url('/fonts/exo2/exo2-var.woff') format('woff');
+				font-weight: 100 900;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: 'Exo 2';
+				src:
+					url('/fonts/exo2/exo2-italic-var.woff2') format('woff2'),
+					url('/fonts/exo2/exo2-italic-var.woff') format('woff');
+				font-weight: 100 900;
+				font-style: italic;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: 'Roboto';
+				src:
+					url('/fonts/roboto/roboto-var.woff2') format('woff2'),
+					url('/fonts/roboto/roboto-var.woff') format('woff');
+				font-weight: 100 900;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: 'Roboto';
+				src:
+					url('/fonts/roboto/roboto-italic-var.woff2') format('woff2'),
+					url('/fonts/roboto/roboto-italic-var.woff') format('woff');
+				font-weight: 100 900;
+				font-style: italic;
+				font-display: swap;
+			}
+		</style>
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents"><!--[--><!--[0--><!--[--><!--[0--><!--[0--><!--[--><!--[--><div class="app svelte-7llhud"><main class="main svelte-7llhud" id="main-content"><!--[-1--><!--]--> <!--[0--><section class="screen svelte-7llhud"><div class="block svelte-7llhud"><p class="eyebrow svelte-7llhud">Players</p> <div class="stack svelte-7llhud"><!--[--><div class="row svelte-7llhud"><input class="input svelte-7llhud" value="Player 1" placeholder="Player 1" maxlength="24" aria-label="Player 1 name"/> <button class="text-btn danger svelte-7llhud" aria-label="Remove player 1">✕</button></div><div class="row svelte-7llhud"><input class="input svelte-7llhud" value="Player 2" placeholder="Player 2" maxlength="24" aria-label="Player 2 name"/> <button class="text-btn danger svelte-7llhud" aria-label="Remove player 2">✕</button></div><div class="row svelte-7llhud"><input class="input svelte-7llhud" value="Player 3" placeholder="Player 3" maxlength="24" aria-label="Player 3 name"/> <button class="text-btn danger svelte-7llhud" aria-label="Remove player 3">✕</button></div><div class="row svelte-7llhud"><input class="input svelte-7llhud" value="Player 4" placeholder="Player 4" maxlength="24" aria-label="Player 4 name"/> <button class="text-btn danger svelte-7llhud" aria-label="Remove player 4">✕</button></div><!--]--> <div class="row svelte-7llhud"><input class="input svelte-7llhud" value="" placeholder="Add player" maxlength="24" aria-label="New player name"/> <button class="btn svelte-7llhud">Add</button></div></div></div> <div class="block svelte-7llhud"><p class="eyebrow svelte-7llhud">Category</p> <label class="check svelte-7llhud"><input type="checkbox" checked="" class="svelte-7llhud"/> <span>Random each round</span></label> <!--[-1--><!--]--></div> <button class="btn primary svelte-7llhud">Start</button></section><!--]--></main></div><!--]--><!----><!--]--><!--]--><!----><!--]--><!--]--><!--]--> <!--[-1--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_47pqbh = {
+						base: new URL(".", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("./_app/immutable/entry/start.Baad7QMg.js"),
+						import("./_app/immutable/entry/app.Bo5q2ExT.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 3, 11],
+							data: [{type:"data",data:null,uses:{}},null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
