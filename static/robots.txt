@@ -3,5 +3,6 @@ Allow: /
 Disallow: /resume.pdf
 Disallow: /chameleon
 Disallow: /ool
+Disallow: /wavelength
 
 Sitemap: https://mcclean.dev/sitemap.xml

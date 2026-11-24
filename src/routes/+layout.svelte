@@ -8,7 +8,9 @@
 	let { children } = $props();
 
 	const isStandalone = $derived(
-		page.url.pathname.startsWith('/chameleon') || page.url.pathname.startsWith('/ool')
+		page.url.pathname.startsWith('/chameleon') ||
+			page.url.pathname.startsWith('/ool') ||
+			page.url.pathname.startsWith('/wavelength')
 	);
 </script>
 
