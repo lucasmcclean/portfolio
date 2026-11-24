@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+	<head>
+		<script>
+			// Preload the theme to precent FOUC
+			try {
+				const root = document.documentElement;
+				const saved = JSON.parse(localStorage.getItem('site-options') ?? '{}');
+
+				const theme =
+					saved.theme ??
+					(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+				const palette = saved.palette ?? 'default';
+				const align = saved.align ?? 'left';
+
+				root.setAttribute('data-theme', theme);
+				root.setAttribute('data-palette', palette);
+				root.setAttribute('data-align', align);
+			} catch (err) {
+				console.warn('Failed to apply saved options', err);
+			}
+		</script>
+
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+		<link rel="shortcut icon" href="./favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="McClean" />
+		<link rel="manifest" href="./site.webmanifest" />
+
+		<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
+		<link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link href="./_app/immutable/entry/start.BhVDG2Ls.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/BA3vcPVq.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/D89cf5he.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/weQhLdvr.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/B0XwC4Ot.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/-UyI9lYi.js" rel="modulepreload">
+		<link href="./_app/immutable/entry/app.C3bDcQU_.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/BbWRWojo.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/BWCJa0Pu.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/9u0xrn7L.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/BObhz9_O.js" rel="modulepreload">
+		<link href="./_app/immutable/nodes/0.BahCM4ye.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/BUmX9_BQ.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/CrKBSDUe.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/BQI1DvkW.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/MyRBgtQY.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/DAANX-t1.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/CKkBIDq9.js" rel="modulepreload">
+		<link href="./_app/immutable/nodes/4.Bif0vKmz.js" rel="modulepreload">
+		<link href="./_app/immutable/nodes/15.CO6-x_mR.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/DiLA92j8.js" rel="modulepreload">
+		<link href="./_app/immutable/chunks/DOyf004f.js" rel="modulepreload">
+		<!--1yer1wq--><meta name="robots" content="noindex, nofollow"/> <meta name="viewport" content="width=device-width, initial-scale=1"/><!----><title>Wavelength</title>
+		<link href="./_app/immutable/assets/0.Dw4p1Oin.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/15.DWKXCs5E.css" rel="stylesheet">
+
+		<style>
+			@font-face {
+				font-family: 'Exo 2';
+				src:
+					url('/fonts/exo2/exo2-var.woff2') format('woff2'),
+					url('/fonts/exo2/exo2-var.woff') format('woff');
+				font-weight: 100 900;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: 'Exo 2';
+				src:
+					url('/fonts/exo2/exo2-italic-var.woff2') format('woff2'),
+					url('/fonts/exo2/exo2-italic-var.woff') format('woff');
+				font-weight: 100 900;
+				font-style: italic;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: 'Roboto';
+				src:
+					url('/fonts/roboto/roboto-var.woff2') format('woff2'),
+					url('/fonts/roboto/roboto-var.woff') format('woff');
+				font-weight: 100 900;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: 'Roboto';
+				src:
+					url('/fonts/roboto/roboto-italic-var.woff2') format('woff2'),
+					url('/fonts/roboto/roboto-italic-var.woff') format('woff');
+				font-weight: 100 900;
+				font-style: italic;
+				font-display: swap;
+			}
+		</style>
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents"><!--[--><!--[0--><!--[--><!--[0--><!--[0--><!--[--><!--[--><div class="app svelte-1yer1wq"><main class="main svelte-1yer1wq" id="main-content"><!--[-1--><!--]--> <!--[0--><section class="screen svelte-1yer1wq"><div class="block svelte-1yer1wq"><p class="eyebrow svelte-1yer1wq">Teams</p> <div class="stack svelte-1yer1wq"><!--[--><input class="input svelte-1yer1wq" value="Team 1" maxlength="24" aria-label="Team 1 name" placeholder="Team 1"/><input class="input svelte-1yer1wq" value="Team 2" maxlength="24" aria-label="Team 2 name" placeholder="Team 2"/><!--]--></div></div> <button class="btn primary svelte-1yer1wq">Start</button></section><!--]--></main></div><!--]--><!----><!--]--><!--]--><!----><!--]--><!--]--><!--]--> <!--[-1--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_elpyi8 = {
+						base: new URL(".", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("./_app/immutable/entry/start.BhVDG2Ls.js"),
+						import("./_app/immutable/entry/app.C3bDcQU_.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 4, 15],
+							data: [{type:"data",data:null,uses:{}},null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
